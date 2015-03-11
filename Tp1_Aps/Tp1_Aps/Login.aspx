@@ -20,6 +20,7 @@
     <form id="form1" runat="server">
         <div>
             <h1>Login</h1>
+            <hr />
             <table>
                 <tr>
                     <td>
