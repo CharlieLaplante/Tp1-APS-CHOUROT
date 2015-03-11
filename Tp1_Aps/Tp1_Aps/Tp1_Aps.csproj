@@ -70,6 +70,7 @@
       <DependentUpon>MainDB.mdf</DependentUpon>
     </Content>
     <Content Include="ClientFormUtilities.js" />
+    <Content Include="FormStyles.css" />
     <Content Include="Global.asax" />
     <Content Include="Inscription.aspx" />
     <Content Include="Login.aspx" />
