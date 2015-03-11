@@ -11,7 +11,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
         <div>
             <h1>Inscription</h1>
             <hr />
@@ -57,7 +57,7 @@
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:Button ID="BTN_Add" runat="server" Text="Add" class="submitBTN"
-                                        OnClick="BTN_Add_Click" />
+                                        OnClick="BTN_Add_Click"  ValidationGroup="Subscribe_Validation" />
                                 </td>
                             </tr>
                             <tr>
@@ -113,14 +113,13 @@
                                             ValidateEmptyText="True">
                                         </asp:CustomValidator>
                                     </td>
-                                </tr>                     
+                                </tr>                         
                             </table>
                         </div>
                         <asp:ValidationSummary ID="Subscribe_Validation" runat="server" ValidationGroup="Subscribe_Validation" />
                     </td>
                 </tr>
             </table>
-
         </div>
     </form>
 </body>

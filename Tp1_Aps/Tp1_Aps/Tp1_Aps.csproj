@@ -99,6 +99,7 @@
     <Compile Include="SqlExpressUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Avatars\" />
     <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
