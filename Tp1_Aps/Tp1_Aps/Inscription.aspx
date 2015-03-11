@@ -55,14 +55,14 @@
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>
-                                    <asp:Button ID="BTN_Add" runat="server" Text="BTN_Add" class="submitBTN"
+                                    <asp:Button ID="BTN_Add" runat="server" Text="Add" class="submitBTN"
                                         OnClick="BTN_Add_Click" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>
-                                    <asp:Button ID="BTN_Cancel" runat="server" Text="BTN_Cancel" class="submitBTN" OnClick="BTN_Cancel_Click" />
+                                    <asp:Button ID="BTN_Cancel" runat="server" Text="Cancel" class="submitBTN" OnClick="BTN_Cancel_Click" />
                                 </td>
                             </tr>
                         </table>
