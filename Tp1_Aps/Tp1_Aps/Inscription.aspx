@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <script src="ClientFormUtilities.js"></script>
+    <link rel="stylesheet" href="FormStyles.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -40,17 +41,17 @@
                  <td>
                      <asp:TextBox ID="TB_Email" name="TB_Email" runat="server" CssClass="textbox"></asp:TextBox>
                  </td>
-             </tr>
-             <tr>
-                 <td id="AvatarSection" >
-                        <asp:Image ID="IMG_Avatar" runat="server" CssClass="thumbnail"  ImageUrl="~/Images/Anonymous.png" />
-                        <hr />
-                        <asp:FileUpload ID="FU_Avatar" runat="server" ClientIDMode="Static" onchange="PreLoadImage();" />             
-                 </td>
-             </tr>
-              
+            </tr>              
           </table>
-    
+         <table>        
+           <tr>
+                <td id="AvatarSection" >
+                            <asp:Image ID="IMG_Avatar" runat="server" CssClass="thumbnail"  ImageUrl="~/Images/Anonymous.png" />
+                            <hr />
+                            <asp:FileUpload ID="FU_Avatar" runat="server" ClientIDMode="Static" onchange="PreLoadImage();" />             
+                 </td>
+           </tr>
+         </table>
     </div>
     </form>
 </body>
