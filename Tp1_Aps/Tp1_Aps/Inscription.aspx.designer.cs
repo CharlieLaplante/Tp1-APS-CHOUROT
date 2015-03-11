@@ -58,6 +58,24 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.TextBox TB_Email;
         
         /// <summary>
+        /// Contrôle BTN_Add.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BTN_Add;
+        
+        /// <summary>
+        /// Contrôle BTN_Cancel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BTN_Cancel;
+        
+        /// <summary>
         /// Contrôle IMG_Avatar.
         /// </summary>
         /// <remarks>
