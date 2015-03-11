@@ -17,6 +17,7 @@ namespace Tp1_Aps
       {
          PersonnesTable login = new PersonnesTable((string)Application["MainDB"], this);
          login.SelectByID(login.IndexOf(TB_UserName.Text).ToString());
+         TB_Password.Text = login.IndexOf(TB_UserName.Text).ToString();
          login.EndQuerySQL();
       }
       protected void BTN_Inscription_Click(object sender, EventArgs e)
