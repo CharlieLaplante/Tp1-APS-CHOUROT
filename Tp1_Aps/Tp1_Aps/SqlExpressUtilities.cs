@@ -35,7 +35,7 @@ namespace SqlExpressUtilities
         // Objet Page de classe "Web Form" donnant accès à l'objet Application, Session et Response, etc.
         public System.Web.UI.Page Page;
         // Nom de la table
-        public String SQLTableName = "";
+        public String SQLTableName = "USERS";
         // Liste des valeur des champs lors de la lecture de la requête 
         public List<string> FieldsValues = new List<string>();
         // Liste des noms des champs de la table en cours de lecture
