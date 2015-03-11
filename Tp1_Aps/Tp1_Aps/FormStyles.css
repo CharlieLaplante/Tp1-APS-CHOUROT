@@ -46,3 +46,12 @@ div.ui-datepicker{
     //color:gray;
     font-weight:600;
  }
+
+ h1 {
+     font-family:'Trebuchet MS';
+ }
+
+ .label {
+     font-family:'Trebuchet MS';
+     color:red;
+ }
