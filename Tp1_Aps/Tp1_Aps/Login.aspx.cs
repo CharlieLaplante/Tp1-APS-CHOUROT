@@ -15,8 +15,9 @@ namespace Tp1_Aps
       }
       protected void BTN_Login_Click(object sender, EventArgs e)
       {
-
-
+         PersonnesTable login = new PersonnesTable((string)Application["MainDB"], this);
+         login.SelectByID(login.IndexOf(TB_UserName.Text).ToString());
+         login.EndQuerySQL();
       }
       protected void BTN_Inscription_Click(object sender, EventArgs e)
       {
