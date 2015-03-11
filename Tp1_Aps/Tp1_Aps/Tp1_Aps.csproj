@@ -97,6 +97,7 @@
     <Compile Include="PersonnesTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlExpressUtilities.cs" />
+    <Compile Include="USERS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Avatars\" />
