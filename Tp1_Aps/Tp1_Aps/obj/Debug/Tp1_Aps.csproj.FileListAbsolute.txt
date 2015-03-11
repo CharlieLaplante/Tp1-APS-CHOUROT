@@ -1,0 +1,6 @@
+F:\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll.config
+F:\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll
+F:\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
+F:\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.csprojResolveAssemblyReference.cache
+F:\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
+F:\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
