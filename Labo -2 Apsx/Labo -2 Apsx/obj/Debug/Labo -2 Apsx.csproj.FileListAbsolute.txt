@@ -1,0 +1,12 @@
+\\clg.priv\ens\el\7\201356187\mes documents\visual studio 2013\Projects\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.dll.config
+\\clg.priv\ens\el\7\201356187\mes documents\visual studio 2013\Projects\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.dll
+\\clg.priv\ens\el\7\201356187\mes documents\visual studio 2013\Projects\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.pdb
+\\clg.priv\ens\el\7\201356187\mes documents\visual studio 2013\Projects\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.csprojResolveAssemblyReference.cache
+\\clg.priv\ens\el\7\201356187\mes documents\visual studio 2013\Projects\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.dll
+\\clg.priv\ens\el\7\201356187\mes documents\visual studio 2013\Projects\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.pdb
+F:\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.dll.config
+F:\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.dll
+F:\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.pdb
+F:\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.csprojResolveAssemblyReference.cache
+F:\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.dll
+F:\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.pdb
