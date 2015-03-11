@@ -38,7 +38,7 @@
             <tr>
                  <td> <label for="TB_Email" class='label'>Email:</label> </td>
                  <td>
-                     <asp:TextBox ID="TB_Email" name="TB_Email" runat="server" CssClass="textbox""></asp:TextBox>
+                     <asp:TextBox ID="TB_Email" name="TB_Email" runat="server" CssClass="textbox"></asp:TextBox>
                  </td>
              </tr>
              <tr>
