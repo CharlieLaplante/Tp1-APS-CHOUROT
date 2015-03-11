@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Ce fichier est utilisé par le processus de publication/package de votre projet Web. Vous pouvez personnaliser le comportement de ce processus
+en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la page http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\Personnes</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AjouterPersonne.aspx">
+      <publishTime>02/12/2015 17:04:11</publishTime>
+    </File>
+    <File Include="AjouterPersonneV2.aspx">
+      <publishTime>02/12/2015 17:13:12</publishTime>
+    </File>
+    <File Include="App_Data/MainDB.mdf">
+      <publishTime>02/18/2015 14:38:03</publishTime>
+    </File>
+    <File Include="App_Data/MainDB_log.ldf">
+      <publishTime>02/18/2015 14:38:03</publishTime>
+    </File>
+    <File Include="bin/LABO_1.dll">
+      <publishTime>02/18/2015 12:54:39</publishTime>
+    </File>
+    <File Include="ClientFormUtilities.js">
+      <publishTime>02/09/2015 11:07:53</publishTime>
+    </File>
+    <File Include="FormStyles.css">
+      <publishTime>02/12/2015 13:44:00</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/03/2015 17:37:02</publishTime>
+    </File>
+    <File Include="Images/Anonymous.png">
+      <publishTime>05/22/2013 14:22:41</publishTime>
+    </File>
+    <File Include="Images/Sort.png">
+      <publishTime>01/23/2015 13:50:00</publishTime>
+    </File>
+    <File Include="Index.asp">
+      <publishTime>02/17/2015 15:28:12</publishTime>
+    </File>
+    <File Include="Index.aspx">
+      <publishTime>02/18/2015 13:51:01</publishTime>
+    </File>
+    <File Include="ListerPersonnes.aspx">
+      <publishTime>02/18/2015 14:08:46</publishTime>
+    </File>
+    <File Include="ModifierPersonne.aspx">
+      <publishTime>02/09/2015 11:23:11</publishTime>
+    </File>
+    <File Include="ModifierPersonne2.aspx">
+      <publishTime>02/12/2015 17:08:40</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/18/2015 12:54:39</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
