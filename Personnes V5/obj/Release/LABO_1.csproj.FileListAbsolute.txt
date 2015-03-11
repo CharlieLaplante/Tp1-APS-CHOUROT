@@ -1,0 +1,12 @@
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes\bin\LABO_1.dll.config
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes\bin\LABO_1.dll
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes\bin\LABO_1.pdb
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes\obj\Release\LABO_1.csprojResolveAssemblyReference.cache
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes\obj\Release\LABO_1.dll
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes\obj\Release\LABO_1.pdb
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes V4\bin\LABO_1.dll.config
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes V4\bin\LABO_1.dll
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes V4\bin\LABO_1.pdb
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes V4\obj\Release\LABO_1.csprojResolveAssemblyReference.cache
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes V4\obj\Release\LABO_1.dll
+F:\CEGEP\Session Hiver 2015\420-KEF\Personnes V4\obj\Release\LABO_1.pdb
