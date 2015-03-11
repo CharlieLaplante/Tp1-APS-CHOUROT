@@ -19,15 +19,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-      <table>
-             <tr>
-                 <td> <label for="TB_FullName" class='label'>Nom Complet:</label>  </td>
-                 <td>
-                     <asp:TextBox ID="TB_FullName" name="TB_FullName" runat="server" CssClass="textbox" 
-                         onkeyup = "ConstrainToAlpha(event);"> </asp:TextBox>
-                </td>
-             </tr>
-             
+      <table>             
               <tr>
                  <td> <label for="TB_UserName" class='label'>Nom Utilisateur:</label> </td>
                  <td>
@@ -35,6 +27,13 @@
                           onkeyup = "ConstrainToAlpha(event);"> </asp:TextBox>
                   </td>
               </tr>
+              <tr>
+                 <td> <label for="TB_Password" class='label'>Password:</label>  </td>
+                 <td>
+                     <asp:TextBox ID="TB_Password" name="TB_Password" runat="server" CssClass="textbox" 
+                         onkeyup = "ConstrainToAlpha(event);"> </asp:TextBox>
+                </td>
+             </tr>
              
               <tr>
                   <td>&nbsp;</td>
