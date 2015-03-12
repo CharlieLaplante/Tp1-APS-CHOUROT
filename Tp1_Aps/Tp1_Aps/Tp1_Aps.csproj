@@ -72,6 +72,7 @@
     <Content Include="ClientFormUtilities.js" />
     <Content Include="FormStyles.css" />
     <Content Include="Global.asax" />
+    <Content Include="Index.aspx" />
     <Content Include="Inscription.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
@@ -79,6 +80,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inscription.aspx.cs">
       <DependentUpon>Inscription.aspx</DependentUpon>
