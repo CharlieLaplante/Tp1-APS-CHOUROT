@@ -13,5 +13,21 @@ namespace Tp1_Aps
       {
 
       }
+      protected void BTN_Profil_Click(object sender, EventArgs e)
+      {
+
+      }
+      protected void BTN_Room_Click(object sender, EventArgs e)
+      {
+
+      }
+      protected void BTN_LoginsJournal_Click(object sender, EventArgs e)
+      {
+
+      }
+      protected void BTN_Deconnection_Click(object sender, EventArgs e)
+      {
+
+      }
    }
 }
