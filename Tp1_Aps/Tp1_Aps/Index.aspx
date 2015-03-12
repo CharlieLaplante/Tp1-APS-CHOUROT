@@ -6,11 +6,14 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <script src="ClientFormUtilities.js"></script>
+    <link rel="stylesheet" href="FormStyles.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <h1>Accueil...</h1>
+            <h2> </h2>
             <hr />
             <table>
                 <tr>
