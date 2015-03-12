@@ -10,6 +10,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <h1>Accueil...</h1>
+            <hr />
             <table>
                 <tr>
                     <td>&nbsp;</td>
@@ -20,19 +22,19 @@
                  <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:Button ID="BTN_Room" runat="server" Text="Usager en ligne" class="submitBTN" OnClick="BTN_Riin_Click" />
+                        <asp:Button ID="BTN_Room" runat="server" Text="Usager en ligne" class="submitBTN" OnClick="BTN_Room_Click" />
                     </td>
                 </tr>
                  <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:Button ID="BTN_LoginsJournal" runat="server" Text="Profil" class="submitBTN" OnClick="BTN_Profil_Click" />
+                        <asp:Button ID="BTN_LoginsJournal" runat="server" Text="Journal des visites" class="submitBTN" OnClick="BTN_LoginsJournal_Click" />
                     </td>
                 </tr>
                  <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:Button ID="Button3" runat="server" Text="Profil" class="submitBTN" OnClick="BTN_Profil_Click" />
+                        <asp:Button ID="BTN_Deconnection" runat="server" Text="Déconnexion" class="submitBTN" OnClick="BTN_Deconnection_Click" />
                     </td>
                 </tr>
             </table>
