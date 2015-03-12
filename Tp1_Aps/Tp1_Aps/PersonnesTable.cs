@@ -17,7 +17,7 @@ namespace Tp1_Aps
         public PersonnesTable(String connexionString, System.Web.UI.Page Page)
             : base(connexionString, Page)
         {
-            SQLTableName = "Users";
+            SQLTableName = "USERS";
         }
         public override void GetValues()
         {
@@ -35,6 +35,19 @@ namespace Tp1_Aps
         public override void Update()
         {
            UpdateRecord(ID, FullName, UserName, Password, Email, Avatar);
+        }
+        public bool Exist(String Username)
+        {
+           QuerySQL("SELECT * FROM " + SQLTableName + " WHERE USERNAME = '" + Username + "'");
+           // if (reader.HasRows) GetValues();
+           return reader.HasRows;
+        }
+
+        public bool GoodPassword(String Username, String Password)
+        {
+           QuerySQL("SELECT * FROM " + SQLTableName + " WHERE USERNAME = '" + Username + "' AND PASSWORD = '" + Password + "'");
+           // if (reader.HasRows) GetValues();
+           return reader.HasRows;
         }
     }
 }
