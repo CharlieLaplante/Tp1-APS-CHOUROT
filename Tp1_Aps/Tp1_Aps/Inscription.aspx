@@ -5,9 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contain" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
-    <div>
-        <h1>Inscription</h1>
-        <hr />
+    <div>  
         <table>
             <tr>
                 <td>

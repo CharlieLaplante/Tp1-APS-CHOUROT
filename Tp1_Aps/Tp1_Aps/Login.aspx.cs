@@ -35,6 +35,7 @@ namespace Tp1_Aps
             {
 				users.SelectByUserName(TB_UserName.Text);
 				Session["Avatar"] = users.Avatar;
+				Session["FullName"] = users.FullName;
                 Response.Redirect("Index.aspx");
             }
             else

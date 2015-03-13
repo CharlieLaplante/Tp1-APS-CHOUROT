@@ -27,7 +27,9 @@ namespace Tp1_Aps
       }
       protected void BTN_Deconnection_Click(object sender, EventArgs e)
       {
-
+		  Session["Avatar"] = null;
+		  Session["FullName"] = null;		  
+		  Response.Redirect("Login.aspx");
       }
    }
 }
