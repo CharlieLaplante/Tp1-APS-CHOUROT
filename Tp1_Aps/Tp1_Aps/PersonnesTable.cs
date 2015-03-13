@@ -14,8 +14,7 @@ namespace Tp1_Aps
         public String Password { get; set; }
         public String Email { get; set; }
         public String Avatar { get; set; }
-        public PersonnesTable(String connexionString, System.Web.UI.Page Page)
-            : base(connexionString, Page)
+        public PersonnesTable(String connexionString, System.Web.UI.Page Page): base(connexionString, Page)
         {
             SQLTableName = "USERS";
         }
@@ -49,5 +48,7 @@ namespace Tp1_Aps
            // if (reader.HasRows) GetValues();
            return reader.HasRows;
         }
+
+   
     }
 }

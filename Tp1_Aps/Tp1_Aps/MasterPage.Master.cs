@@ -10,8 +10,11 @@ namespace Tp1_Aps
    public partial class MasterPage : System.Web.UI.MasterPage
    {
       protected void Page_Load(object sender, EventArgs e)
-      {
-
+      {   
+            
+            String avatar_ID = "";
+            avatar_ID = 
+            IMG_Avatar.ImageUrl  = Server.MapPath(@"~\Avatars\") + avatar_ID + ".png";             
       }
    }
 }

@@ -350,7 +350,7 @@ function InstallHighLiteEmptyDelegates() {
 
 function PreLoadImage(e) {
     var imageTarget = document.getElementById("IMG_Avatar");
-    var input = document.getElementById("FU_Avatar");
+    var input = event.target;
     if (imageTarget != null) {
         var fReader = new FileReader();
         fReader.readAsDataURL(input.files[0]);

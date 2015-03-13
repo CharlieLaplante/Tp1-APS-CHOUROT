@@ -7,15 +7,21 @@
 <link rel="stylesheet" href="FormStyles.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+     <link rel="stylesheet" href="FormStyles.css" />
+    <script src="ClientFormUtilities.js"></script>
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <h1>Master Page</h1>
+        <h1>
+            <asp:Image ID="IMG_Avatar" runat="server" ClientIDMode="Static" CssClass="thumbnail"  ImageUrl="~/Images/Anonymous.png" />
+        </h1>
+        <hr />
     <div>
-        <asp:ContentPlaceHolder ID="Contain" runat="server">
-        
+        <asp:ContentPlaceHolder ID="Contain" runat="server">        
         </asp:ContentPlaceHolder>
     </div>
     </form>

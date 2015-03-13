@@ -13,18 +13,29 @@ namespace Tp1_Aps
       {
 
       }
+      protected void Session_Start(object sender, EventArgs e)
+      {
+         Session["StartTime"] = DateTime.Now;
+         
+      }
+      protected void Session_End(object sender, EventArgs e)
+      {
+        
+      }
       protected void BTN_Login_Click(object sender, EventArgs e)
       {
+
          PersonnesTable users = new PersonnesTable((string)Application["MainDB"], this);
          if (users.Exist(TB_UserName.Text))
          {
             if (users.GoodPassword(TB_UserName.Text, TB_Password.Text))
-            {
+            {  
+               users.SelectByID()
                Response.Redirect("Index.aspx");
             }
             else
             {
-               TB_Password.Text = "";//vider le TB si le PSWD est mauvais
+               TB_Password.Text = "";
             }
          }
       }
