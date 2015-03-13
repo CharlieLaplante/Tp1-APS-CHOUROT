@@ -1,17 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscription.aspx.cs" Inherits="Tp1_Aps.Inscription" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <script src="ClientFormUtilities.js"></script>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Inscription.aspx.cs" Inherits="Tp1_Aps.Inscription" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="FormStyles.css" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Contain" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
         <div>
             <h1>Inscription</h1>
             <hr />
@@ -121,6 +113,4 @@
                 </tr>
             </table>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>

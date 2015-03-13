@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Inscription.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MasterPage.Master" />
     <None Include="Web.Debug.config">
@@ -75,7 +76,6 @@
     <Content Include="FormStyles.css" />
     <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
-    <Content Include="Inscription.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

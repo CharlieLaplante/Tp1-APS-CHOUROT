@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <link rel="stylesheet" href="FormStyles.css" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Login" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="Contain" runat="server">
     <div>
             <h1>Login</h1>
             <hr />
