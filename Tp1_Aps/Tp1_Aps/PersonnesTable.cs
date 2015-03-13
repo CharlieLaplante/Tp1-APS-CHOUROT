@@ -49,5 +49,19 @@ namespace Tp1_Aps
            // if (reader.HasRows) GetValues();
            return reader.HasRows;
         }
+
+        public string GetEmailFromUsers(String Username)
+        {
+            QuerySQL("SELECT EMAIL FROM " + SQLTableName + " WHERE USERNAME = '" + Username + "'");
+           reader.Read();
+           return reader.GetString(0);             
+        }
+
+        public string GetPasswordFromUsers(String Username)
+        {
+            QuerySQL("SELECT PASSWORD FROM " + SQLTableName + " WHERE USERNAME = '" + Username + "'");
+            reader.Read();
+            return reader.GetString(0);
+        }
     }
 }
