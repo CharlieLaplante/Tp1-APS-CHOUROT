@@ -31,13 +31,13 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle IMG_Avatar.
+        /// Contrôle IMG_Account.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image IMG_Avatar;
+        protected global::System.Web.UI.WebControls.Image IMG_Account;
         
         /// <summary>
         /// Contrôle Contain.

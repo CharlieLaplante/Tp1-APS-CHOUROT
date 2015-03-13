@@ -63,5 +63,13 @@ namespace Tp1_Aps
             reader.Read();
             return reader.GetString(0);
         }
+		public bool SelectByUserName(String USERNAME)
+		{
+			string sql = "SELECT * FROM " + SQLTableName + " WHERE USERNAME = '" + USERNAME+"'";
+			QuerySQL(sql);
+			if (reader.HasRows)
+				Next();
+			return reader.HasRows;
+		}
     }
 }

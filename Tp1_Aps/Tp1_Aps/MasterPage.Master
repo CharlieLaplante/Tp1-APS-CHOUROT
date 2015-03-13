@@ -8,16 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
      <link rel="stylesheet" href="FormStyles.css" />
-    <script src="ClientFormUtilities.js"></script>
-
-
+    <script src="ClientFormUtilities.js"></script>	   
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <h1>
-            <asp:Image ID="IMG_Avatar" runat="server" ClientIDMode="Static" CssClass="thumbnail"  ImageUrl="~/Images/Anonymous.png" />
+            <asp:Image ID="IMG_Account" runat="server" ClientIDMode="Static" CssClass="thumbnail" />
         </h1>
         <hr />
     <div>

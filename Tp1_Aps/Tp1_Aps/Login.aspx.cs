@@ -32,8 +32,10 @@ namespace Tp1_Aps
          if (users.Exist(TB_UserName.Text))
          {
             if (users.GoodPassword(TB_UserName.Text, TB_Password.Text))
-            {  
-               Response.Redirect("Index.aspx");
+            {
+				users.SelectByUserName(TB_UserName.Text);
+				Session["Avatar"] = users.Avatar;
+                Response.Redirect("Index.aspx");
             }
             else
             {

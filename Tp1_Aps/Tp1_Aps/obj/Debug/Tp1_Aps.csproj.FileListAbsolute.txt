@@ -20,3 +20,8 @@ C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Ap
 C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
 C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
 C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.csprojResolveAssemblyReference.cache
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
