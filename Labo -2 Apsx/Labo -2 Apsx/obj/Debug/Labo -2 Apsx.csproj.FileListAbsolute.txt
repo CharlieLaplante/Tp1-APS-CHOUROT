@@ -10,3 +10,9 @@ F:\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.pdb
 F:\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.csprojResolveAssemblyReference.cache
 F:\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.dll
 F:\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.pdb
+C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.dll.config
+C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.dll
+C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Labo -2 Apsx\Labo -2 Apsx\bin\Labo -2 Apsx.pdb
+C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.csprojResolveAssemblyReference.cache
+C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.dll
+C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Labo -2 Apsx\Labo -2 Apsx\obj\Debug\Labo -2 Apsx.pdb

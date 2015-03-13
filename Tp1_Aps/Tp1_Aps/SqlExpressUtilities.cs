@@ -56,7 +56,6 @@ namespace SqlExpressUtilities
             this.Page = Page;
             this.connexionString = connexionString;
         }
-
         // Extraire les valeur des champs de l'enregistrement suivant du lecteur Reader
         bool GetfieldsValues()
         {

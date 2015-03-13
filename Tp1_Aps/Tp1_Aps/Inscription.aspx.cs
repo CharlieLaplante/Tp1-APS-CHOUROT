@@ -39,7 +39,7 @@ namespace Tp1_Aps
          personne.Password = TB_Password.Text;
          personne.Email = TB_Email.Text;
          personne.Avatar = avatar_ID;
-         personne.Insert();        
+         personne.Insert();
       }
       protected void BTN_Add_Click(object sender, EventArgs e)
       {
@@ -49,7 +49,7 @@ namespace Tp1_Aps
             Response.Redirect("Login.aspx");
          }
       }
-      
+
       protected void BTN_Cancel_Click(object sender, EventArgs e)
       {
          Response.Redirect("Login.aspx");
@@ -107,7 +107,7 @@ namespace Tp1_Aps
       protected void CV_Captcha_ServerValidate(object source, ServerValidateEventArgs args)
       {
          args.IsValid = (TB_Captcha.Text == (string)Session["captcha"]);
-      } 
+      }
 
    }
 }
