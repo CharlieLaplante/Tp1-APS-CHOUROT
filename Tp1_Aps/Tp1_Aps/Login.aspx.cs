@@ -39,7 +39,7 @@ namespace Tp1_Aps
          PersonnesTable users = new PersonnesTable((string)Application["MainDB"], this);
 
          args.IsValid = users.GoodPassword(TB_UserName.Text, TB_Password.Text);
-      }  
+      }
 
       protected void BTN_Inscription_Click(object sender, EventArgs e)
       {

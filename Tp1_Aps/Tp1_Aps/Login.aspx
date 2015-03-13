@@ -1,24 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Tp1_Aps.Login" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css" />
-
-    <script src="ClientFormUtilities.js"></script>
-    <link rel="stylesheet" href="FormStyles.css" />
-
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Tp1_Aps.Login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <link rel="stylesheet" href="FormStyles.css" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Login" runat="server">
+    <div>
             <h1>Login</h1>
             <hr />
             <table>
@@ -45,7 +30,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="TB_Password" name="TB_Password" runat="server" CssClass="textbox"
-                            onkeyup="ConstrainToAlpha(event);"> </asp:TextBox>
+                            onkeyup="ConstrainToAlpha(event);"
+                            TextMode="Password"> </asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RFV_TB_Password" runat="server"
@@ -90,6 +76,4 @@
             ValidationGroup="VG_Login"
             OnServerValidate="CV_TB_Password_ServerValidate">
         </asp:CustomValidator>
-    </form>
-</body>
-</html>
+</asp:Content>
