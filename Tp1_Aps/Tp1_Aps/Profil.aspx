@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Inscription.aspx.cs" Inherits="Tp1_Aps.Inscription" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Profil.aspx.cs" Inherits="Tp1_Aps.Profil" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contain" runat="server">
-	<asp:ScriptManager ID="ScriptManager1" runat="server" />
+
 	<div>
 		<table>
 			<tr>
@@ -16,6 +16,7 @@
 							<td>
 								<asp:TextBox ID="TB_FullName" name="TB_FullName" runat="server" CssClass="textbox"
 									onkeyup="ConstrainToAlpha(event);"> </asp:TextBox>
+
 							</td>
 						</tr>
 						<tr>
@@ -23,7 +24,7 @@
 								<label for="TB_UserName" class='label'>Nom d'Utilisateur:</label>
 							</td>
 							<td>
-								<asp:TextBox ID="TB_UserName" name="TB_UserName" runat="server" CssClass="textbox"
+								<asp:TextBox ID="TB_UserName" ReadOnly="true" name="TB_UserName" runat="server" CssClass="textbox"
 									onkeyup="ConstrainToAlpha(event);"> </asp:TextBox>
 							</td>
 						</tr>
@@ -46,8 +47,8 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td>
-								<asp:Button ID="BTN_Add" runat="server" Text="Add" class="submitBTN"
-									OnClick="BTN_Add_Click" ValidationGroup="PersonneInfo" />
+								<asp:Button ID="BTN_Update" runat="server" Text="Update" class="submitBTN"
+									OnClick="BTN_Update_Click" ValidationGroup="PersonneInfo" />
 							</td>
 						</tr>
 						<tr>
@@ -63,42 +64,6 @@
 					<hr />
 					<asp:FileUpload ID="FU_Avatar" runat="server" ClientIDMode="Static" onchange="PreLoadImage();" />
 				</td>
-				<td>
-					<div>
-						<table>
-							<tr>
-								<td colspan="2">
-									<asp:UpdatePanel ID="PN_Captcha" runat="server" UpdateMode="Conditional">
-										<ContentTemplate>
-											<table>
-												<tr>
-													<td>
-														<asp:ImageButton ID="RegenarateCaptcha" runat="server"
-															ImageUrl="~/Images/RegenerateCaptcha.png"
-															CausesValidation="False"
-															OnClick="RegenarateCaptcha_Click"
-															ValidationGroup="Subscribe_Validation"
-															Width="48"
-															ToolTip="Regénérer le captcha..." />
-													</td>
-													<td>
-														<asp:Image ID="IMGCaptcha" ImageUrl="~/captcha.png" runat="server" />
-													</td>
-												</tr>
-											</table>
-										</ContentTemplate>
-									</asp:UpdatePanel>
-								</td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td>
-									<asp:TextBox ID="TB_Captcha" runat="server" MaxLength="5"></asp:TextBox>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</td>
 			</tr>
 			<tr>
 				<td colspan="2" style="text-align: left; font-size: 12px;">
@@ -109,16 +74,9 @@
 						runat="server" ValidationGroup="PersonneInfo" />
 				</td>
 			</tr>
+		
 		</table>
 	</div>
-	<asp:CustomValidator ID="CV_Captcha" runat="server"
-		ControlToValidate="TB_Captcha"
-		ErrorMessage="Captcha" Text=""
-		EnableClientScript="true"
-		OnServerValidate="CV_TB_Captcha_ServerValidate"
-		ValidationGroup="PersonneInfo"
-		ValidateEmptyText="True" Display="None">  
-	</asp:CustomValidator>
 	<asp:CustomValidator ID="CV_FullName" runat="server"
 		ControlToValidate="TB_FullName"
 		ErrorMessage="Nom" Text=""
@@ -127,15 +85,7 @@
 		ValidationGroup="PersonneInfo"
 		ValidateEmptyText="True" Display="None">  
 	</asp:CustomValidator>
-	<asp:CustomValidator ID="CV_UserName" runat="server"
-		ControlToValidate="TB_UserName"
-		ErrorMessage="Nom d'utilisateur" Text=""
-		EnableClientScript="true"
-		OnServerValidate="CV_TB_UserName_ServerValidate"
-		ValidationGroup="PersonneInfo"
-		ValidateEmptyText="True" Display="None">  
-	</asp:CustomValidator>
-
+		
 	<asp:CustomValidator ID="CV_Password" runat="server"
 		ControlToValidate="TB_Password"
 		ErrorMessage="Password" Text=""
@@ -144,7 +94,7 @@
 		ValidationGroup="PersonneInfo"
 		ValidateEmptyText="True" Display="None">  
 	</asp:CustomValidator>
-
+		
 	<asp:CustomValidator ID="CV_Email" runat="server"
 		ControlToValidate="TB_Email"
 		ErrorMessage="Email" Text=""

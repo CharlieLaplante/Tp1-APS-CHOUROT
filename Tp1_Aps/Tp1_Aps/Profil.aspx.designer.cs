@@ -10,16 +10,7 @@
 namespace Tp1_Aps {
     
     
-    public partial class Inscription {
-        
-        /// <summary>
-        /// Contrôle ScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+    public partial class Profil {
         
         /// <summary>
         /// Contrôle TB_FullName.
@@ -58,13 +49,13 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.TextBox TB_Email;
         
         /// <summary>
-        /// Contrôle BTN_Add.
+        /// Contrôle BTN_Update.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BTN_Add;
+        protected global::System.Web.UI.WebControls.Button BTN_Update;
         
         /// <summary>
         /// Contrôle BTN_Cancel.
@@ -94,42 +85,6 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.FileUpload FU_Avatar;
         
         /// <summary>
-        /// Contrôle PN_Captcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel PN_Captcha;
-        
-        /// <summary>
-        /// Contrôle RegenarateCaptcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton RegenarateCaptcha;
-        
-        /// <summary>
-        /// Contrôle IMGCaptcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image IMGCaptcha;
-        
-        /// <summary>
-        /// Contrôle TB_Captcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_Captcha;
-        
-        /// <summary>
         /// Contrôle ValidationSummary1.
         /// </summary>
         /// <remarks>
@@ -139,15 +94,6 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
-        /// Contrôle CV_Captcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CV_Captcha;
-        
-        /// <summary>
         /// Contrôle CV_FullName.
         /// </summary>
         /// <remarks>
@@ -155,15 +101,6 @@ namespace Tp1_Aps {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator CV_FullName;
-        
-        /// <summary>
-        /// Contrôle CV_UserName.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CV_UserName;
         
         /// <summary>
         /// Contrôle CV_Password.

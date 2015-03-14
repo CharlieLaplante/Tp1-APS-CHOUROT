@@ -11,7 +11,7 @@ namespace Tp1_Aps
 	public partial class MasterPage : System.Web.UI.MasterPage
 	{
 		protected void Page_Load(object sender, EventArgs e)
-		{
+		{				
 			LoadAccountAvatar();
 			LoadAccountName();
 			LoadPageTitle();

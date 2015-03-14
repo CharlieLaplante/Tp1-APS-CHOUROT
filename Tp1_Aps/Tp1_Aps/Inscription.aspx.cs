@@ -104,10 +104,72 @@ namespace Tp1_Aps
             captcha += RandomChar();
          return captcha;//.ToLower();
       }
-      protected void CV_Captcha_ServerValidate(object source, ServerValidateEventArgs args)
+      protected void CV_TB_Captcha_ServerValidate(object source, ServerValidateEventArgs args)
       {
-         args.IsValid = (TB_Captcha.Text == (string)Session["captcha"]);
+		  args.IsValid = (TB_Captcha.Text == (string)Session["captcha"]);
+		  if (!args.IsValid)
+		  {
+			  TB_Captcha.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+		  }
+		  else
+		  {
+			  TB_Captcha.BackColor = System.Drawing.Color.White;
+		  }	
+
       }
+	  protected void CV_TB_FullName_ServerValidate(object source, ServerValidateEventArgs args)
+	  {
+		  if (TB_FullName.Text == "")
+		  {
+			  TB_FullName.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+			  args.IsValid = false;
+		  }
+		  else
+		  {
+			  TB_FullName.BackColor = System.Drawing.Color.White;
+			  args.IsValid = true;
+		  }
+	  }
+	  protected void CV_TB_UserName_ServerValidate(object source, ServerValidateEventArgs args)
+	  {
+		  if (TB_UserName.Text == "")
+		  {
+			  TB_UserName.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+			  args.IsValid = false;
+		  }
+		  else
+		  {
+			  TB_UserName.BackColor = System.Drawing.Color.White;
+			  args.IsValid = true;
+		  }
+	  }
+
+	  protected void CV_TB_Password_ServerValidate(object source, ServerValidateEventArgs args)
+	  {
+		  if (TB_Password.Text == "")
+		  {
+			  TB_Password.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+			  args.IsValid = false;
+		  }
+		  else
+		  {
+			  TB_Password.BackColor = System.Drawing.Color.White;
+			  args.IsValid = true;
+		  }
+	  }
+	  protected void CV_TB_Email_ServerValidate(object source, ServerValidateEventArgs args)
+	  {
+		  if (TB_Email.Text == "")
+		  {
+			  TB_Email.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+			  args.IsValid = false;
+		  }
+		  else
+		  {
+			  TB_Email.BackColor = System.Drawing.Color.White;
+			  args.IsValid = true;
+		  }
+	  }
 
    }
 }

@@ -14,8 +14,11 @@ namespace Tp1_Aps
         String SenderName = "WebService";
         protected void Page_Load(object sender, EventArgs e)
         {
+			Session["Avatar"] = null;
+			Session["FullName"] = null;
+			Session["UserName"] = null;
 
-        }
+        }			 
         protected void Session_Start(object sender, EventArgs e)
         {
             Session["StartTime"] = DateTime.Now;
@@ -36,6 +39,7 @@ namespace Tp1_Aps
 				users.SelectByUserName(TB_UserName.Text);
 				Session["Avatar"] = users.Avatar;
 				Session["FullName"] = users.FullName;
+				Session["UserName"] = users.UserName;
                 Response.Redirect("Index.aspx");
             }
             else

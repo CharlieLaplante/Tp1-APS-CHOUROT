@@ -63,3 +63,8 @@ C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Personnes V5\bin\LABO_1.pdb
 C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Personnes V5\obj\Debug\LABO_1.csprojResolveAssemblyReference.cache
 C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Personnes V5\obj\Debug\LABO_1.dll
 C:\Users\201356187\Desktop\GitHub\Tp1-APS-CHOUROT\Personnes V5\obj\Debug\LABO_1.pdb
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Personnes V5\bin\LABO_1.dll
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Personnes V5\bin\LABO_1.pdb
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Personnes V5\obj\Debug\LABO_1.csprojResolveAssemblyReference.cache
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Personnes V5\obj\Debug\LABO_1.dll
+C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Personnes V5\obj\Debug\LABO_1.pdb

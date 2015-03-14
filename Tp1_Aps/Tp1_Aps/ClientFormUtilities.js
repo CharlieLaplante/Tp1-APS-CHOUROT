@@ -1,6 +1,6 @@
 ﻿function CharIsAlpha(c) {
     c = c.toLowerCase();
-    var alphas = "abcdefghijklmnopqrstuvwxyzàâäçèêëìîïòôöùûüÿñ-";
+    var alphas = " abcdefghijklmnopqrstuvwxyzàâäçèêëìîïòôöùûüÿñ-";
     return (alphas.indexOf(c, 0) != -1);
 }
 function ConstrainToAlpha(event) {

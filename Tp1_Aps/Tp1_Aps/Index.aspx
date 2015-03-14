@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Tp1_Aps.Index" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <link rel="stylesheet" href="FormStyles.css" />
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">       
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contain" runat="server">
     <div>     

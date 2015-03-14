@@ -15,7 +15,7 @@ namespace Tp1_Aps
       }
       protected void BTN_Profil_Click(object sender, EventArgs e)
       {
-
+		  Response.Redirect("Profil.aspx");
       }
       protected void BTN_Room_Click(object sender, EventArgs e)
       {
@@ -28,8 +28,10 @@ namespace Tp1_Aps
       protected void BTN_Deconnection_Click(object sender, EventArgs e)
       {
 		  Session["Avatar"] = null;
-		  Session["FullName"] = null;		  
+		  Session["FullName"] = null;
+		  Session["UserName"] = null;
 		  Response.Redirect("Login.aspx");
       }
+	  
    }
 }
