@@ -14,7 +14,6 @@ tr > td:first-child {
 	width: 535px;
 	margin: auto;
 	border: 1px solid black;
-	font-family: Arial;
 }
 
 .radio {
@@ -39,7 +38,6 @@ div.ui-datepicker {
 .thumbnail {
 	width: 140px;
 	margin: auto;
-	background-color: lightblue;
 }
 
 .submitBTN {
@@ -57,6 +55,13 @@ h1 {
 	font-family: 'Trebuchet MS';
 }
 
+.MasterPageTitre {
+    border:dotted;
+    font-weight: bold;
+    color:black;
+    border-color:darkgray;
+}
+
 .AccountFullname {		
 	position:absolute; 
 	right: 110px;
@@ -65,10 +70,19 @@ h1 {
 
 .UserAccountPicture {
 	position:absolute; 
-	width: 80px;
+	width: 90px;
 	height: 90px;
 	margin: auto;
-	background-color: lightblue;
 	right: 20px;
 	top: 10px;
+}
+
+hr {
+    display:block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style:dotted;
+    border-width: 2px;
 }

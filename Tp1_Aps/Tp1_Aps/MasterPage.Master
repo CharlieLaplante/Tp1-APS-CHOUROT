@@ -19,7 +19,7 @@
 				<tr>
 					<td>
 						<h1>
-							<asp:Label ID="Label_PageTitle" runat="server" Text="Page Title"></asp:Label>
+							<asp:Label ID="Label_PageTitle" CssClass="MasterPageTitre" runat="server" Text="Page Title"></asp:Label>
 						</h1>
 					</td>
 					<td>
