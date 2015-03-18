@@ -39,7 +39,7 @@ namespace Tp1_Aps
          personne.Password = TB_Password.Text;
          personne.Email = TB_Email.Text;
          personne.Avatar = avatar_ID;
-         personne.Insert();
+         personne.InsertUser();
       }
       protected void BTN_Add_Click(object sender, EventArgs e)
       {
@@ -170,6 +170,34 @@ namespace Tp1_Aps
 			  args.IsValid = true;
 		  }
 	  }
+    protected void CV_TB_Password_Confirm_ServerValidate(object source, ServerValidateEventArgs args)
+     {
+       if(TB_Password.Text != TB_Password_Confirm.Text)
+       {          
+          TB_Password_Confirm.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+          args.IsValid = false;
+       }
+       else
+       {
+          TB_Password_Confirm.BackColor = System.Drawing.Color.White;
+          args.IsValid = true;
+       }
+     }
+    protected void CV_TB_Email_Confirm_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+       if (TB_Email.Text != TB_Email_Confirm.Text)
+       {
+          TB_Email_Confirm.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+          args.IsValid = false;
+       }
+       else
+       {
+          TB_Email_Confirm.BackColor = System.Drawing.Color.White;
+          args.IsValid = true;
+       }
+    }
+
+
 
    }
 }

@@ -19,8 +19,10 @@ namespace Tp1_Aps
 		{
 			TB_FullName.Text = User.FullName;
 			TB_Password.Text = User.Password;
+         TB_Password_Confirm.Text = User.Password;
 			TB_UserName.Text = User.UserName;
 			TB_Email.Text = User.Email;
+         TB_Email_Confirm.Text = User.Email;
 		}
 		private void LoadForm()
 		{
@@ -126,5 +128,31 @@ namespace Tp1_Aps
 				args.IsValid = true;
 			}
 		}
+      protected void CV_Password_Confirm_ServerValidate(object source, ServerValidateEventArgs args)
+      {
+         if (TB_Password_Confirm.Text != TB_Password.Text)
+         {
+            TB_Password_Confirm.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+            args.IsValid = false;
+         }
+         else
+         {
+            TB_Password_Confirm.BackColor = System.Drawing.Color.White;
+            args.IsValid = true;
+         }
+      }
+      protected void CV_Email_Confirm_ServerValidate(object source, ServerValidateEventArgs args)
+      {
+         if (TB_Email_Confirm.Text != TB_Email.Text)
+         {
+            TB_Email_Confirm.BackColor = System.Drawing.Color.FromArgb(0, 255, 200, 200);
+            args.IsValid = false;
+         }
+         else
+         {
+            TB_Email_Confirm.BackColor = System.Drawing.Color.White;
+            args.IsValid = true;
+         }
+      }
 	}
 }

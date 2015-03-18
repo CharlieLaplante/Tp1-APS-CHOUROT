@@ -32,7 +32,15 @@
 								<label for="TB_Password" class='label'>Password:</label>
 							</td>
 							<td>
-								<asp:TextBox ID="TB_Password" name="TB_Password" runat="server" CssClass="textbox"></asp:TextBox>
+								<asp:TextBox ID="TB_Password" name="TB_Password" runat="server" CssClass="textbox" TextMode="Password"></asp:TextBox>
+							</td>
+						</tr>
+                        	<tr>
+							<td>
+								<label for="TB_Password" class='label'>Confirmation de mot de passe:</label>
+							</td>
+							<td>
+								<asp:TextBox ID="TB_Password_Confirm" name="TB_Password" runat="server" CssClass="textbox" TextMode="Password"></asp:TextBox>
 							</td>
 						</tr>
 						<tr>
@@ -41,6 +49,14 @@
 							</td>
 							<td>
 								<asp:TextBox ID="TB_Email" name="TB_Email" runat="server" CssClass="textbox"></asp:TextBox>
+							</td>
+						</tr>
+                        <tr>
+							<td>
+								<label for="TB_Email" class='label'>Confirmation d'email:</label>
+							</td>
+							<td>
+								<asp:TextBox ID="TB_Email_Confirm" name="TB_Email" runat="server" CssClass="textbox"></asp:TextBox>
 							</td>
 						</tr>
 						<tr>
@@ -111,6 +127,22 @@
 			</tr>
 		</table>
 	</div>
+    <asp:CustomValidator ID="CB_Email_Confirm" runat="server"
+		ControlToValidate="TB_Email_Confirm"
+		ErrorMessage="Email Confirmer" Text=""
+		EnableClientScript="true"
+		OnServerValidate="CV_TB_Email_Confirm_ServerValidate"
+		ValidationGroup="PersonneInfo"
+		ValidateEmptyText="True" Display="None">  
+	</asp:CustomValidator>
+    <asp:CustomValidator ID="CV_Password_Confirm" runat="server"
+		ControlToValidate="TB_Password_Confirm"
+		ErrorMessage="Password Confirmer" Text=""
+		EnableClientScript="true"
+		OnServerValidate="CV_TB_Password_Confirm_ServerValidate"
+		ValidationGroup="PersonneInfo"
+		ValidateEmptyText="True" Display="None">  
+	</asp:CustomValidator>
 	<asp:CustomValidator ID="CV_Captcha" runat="server"
 		ControlToValidate="TB_Captcha"
 		ErrorMessage="Captcha" Text=""

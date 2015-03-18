@@ -15,7 +15,6 @@ namespace Tp1_Aps
 			LoadAccountAvatar();
 			LoadAccountName();
 			LoadPageTitle();
-			
 		}
 		protected void LoadPageTitle()
 		{
