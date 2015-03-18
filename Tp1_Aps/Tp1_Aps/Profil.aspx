@@ -33,7 +33,15 @@
 								<label for="TB_Password" class='label'>Password:</label>
 							</td>
 							<td>
-								<asp:TextBox ID="TB_Password" name="TB_Password" runat="server" CssClass="textbox"></asp:TextBox>
+								<asp:TextBox ID="TB_Password" name="TB_Password" runat="server" CssClass="textbox" TextMode="Password" ></asp:TextBox>
+							</td>
+						</tr>
+                        	<tr>
+							<td>
+								<label for="TB_Password_Confirm" class='label'>Confirmer mot de passe:</label>
+							</td>
+							<td>
+								<asp:TextBox ID="TB_Password_Confirm" name="TB_Password_Confirm" runat="server" CssClass="textbox" TextMode="Password" ></asp:TextBox>
 							</td>
 						</tr>
 						<tr>
@@ -42,6 +50,14 @@
 							</td>
 							<td>
 								<asp:TextBox ID="TB_Email" name="TB_Email" runat="server" CssClass="textbox"></asp:TextBox>
+							</td>
+						</tr>
+                        <tr>
+							<td>
+								<label for="TB_Email_Confirm" class='label'>Confirmer l'email:</label>
+							</td>
+							<td>
+								<asp:TextBox ID="TB_Email_Confirm" name="TB_Email_Confirm" runat="server" CssClass="textbox"></asp:TextBox>
 							</td>
 						</tr>
 						<tr>
@@ -77,6 +93,25 @@
 		
 		</table>
 	</div>
+
+    <asp:CustomValidator ID="CV_Password_Confirm" runat="server"
+		ControlToValidate="TB_Password_Confirm"
+		ErrorMessage="Confirmation Mot de passe" Text=""
+		EnableClientScript="true"
+		OnServerValidate="CV_Password_Confirm_ServerValidate"
+		ValidationGroup="PersonneInfo"
+		ValidateEmptyText="True" Display="None">
+     </asp:CustomValidator>
+
+    <asp:CustomValidator ID="CV_Email_Confirm" runat="server"
+		ControlToValidate="TB_Email_Confirm"
+		ErrorMessage="Confirmation d'email" Text=""
+		EnableClientScript="true"
+		OnServerValidate="CV_Email_Confirm_ServerValidate"
+		ValidationGroup="PersonneInfo"
+		ValidateEmptyText="True" Display="None">
+     </asp:CustomValidator>
+
 	<asp:CustomValidator ID="CV_FullName" runat="server"
 		ControlToValidate="TB_FullName"
 		ErrorMessage="Nom" Text=""

@@ -17,17 +17,9 @@ namespace Tp1_Aps
 			Session["Avatar"] = null;
 			Session["FullName"] = null;
 			Session["UserName"] = null;
+         Session["StartTime"] = null;
+        }		 
 
-        }			 
-        protected void Session_Start(object sender, EventArgs e)
-        {
-            Session["StartTime"] = DateTime.Now;
-
-        }
-        protected void Session_End(object sender, EventArgs e)
-        {
-
-        }
         protected void BTN_Login_Click(object sender, EventArgs e)
       {
 
@@ -40,13 +32,18 @@ namespace Tp1_Aps
 				Session["Avatar"] = users.Avatar;
 				Session["FullName"] = users.FullName;
 				Session["UserName"] = users.UserName;
-                Response.Redirect("Index.aspx");
+            Session["StartTime"] = DateTime.Now;
+            Session["UserId"] = users.ID;
+
+            Response.Redirect("Index.aspx");
             }
             else
             {
                TB_Password.Text = "";
             }
          }
+         
+         
       }
 
         protected void CV_TB_UserName_ServerValidate(object source, ServerValidateEventArgs args)

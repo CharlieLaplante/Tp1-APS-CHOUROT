@@ -60,6 +60,7 @@
     <Content Include="Index.aspx" />
     <Content Include="Inscription.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="LoginsJournal.aspx" />
     <Content Include="MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginsJournal.aspx.cs">
+      <DependentUpon>LoginsJournal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginsJournal.aspx.designer.cs">
+      <DependentUpon>LoginsJournal.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>

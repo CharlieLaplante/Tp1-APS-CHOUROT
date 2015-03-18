@@ -49,6 +49,15 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.TextBox TB_Password;
         
         /// <summary>
+        /// Contrôle TB_Password_Confirm.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_Password_Confirm;
+        
+        /// <summary>
         /// Contrôle TB_Email.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace Tp1_Aps {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TB_Email;
+        
+        /// <summary>
+        /// Contrôle TB_Email_Confirm.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_Email_Confirm;
         
         /// <summary>
         /// Contrôle BTN_Add.
@@ -137,6 +155,24 @@ namespace Tp1_Aps {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
+        /// Contrôle CB_Email_Confirm.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CB_Email_Confirm;
+        
+        /// <summary>
+        /// Contrôle CV_Password_Confirm.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CV_Password_Confirm;
         
         /// <summary>
         /// Contrôle CV_Captcha.
