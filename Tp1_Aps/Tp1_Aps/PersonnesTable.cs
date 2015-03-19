@@ -44,7 +44,7 @@ namespace Tp1_Aps
 
         public bool SelectByUserName(String UserName)
         {
-           string sql = "SELECT * FROM " + SQLTableName + " WHERE ID = " + UserName;
+           string sql = "SELECT * FROM " + SQLTableName + " WHERE USERNAME = '" + UserName+"'";
            QuerySQL(sql);
            if (reader.HasRows)
               Next();

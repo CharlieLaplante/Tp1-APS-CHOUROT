@@ -13,7 +13,7 @@ namespace Tp1_Aps
       {
          PersonnesTable personnesTable = new PersonnesTable((string)Application["MainDB"], this);
          personnesTable.SelectAll();
-         personnesTable.MakeGridView(PN_GridView, "ModifierPersonne2.aspx");
+         personnesTable.MakeGridView(PN_GridView, "");
          // Pas besoin d'appeler personnesTable.EndQuerySql car c'est déjà fait dans personnesTable.MakeGridView(...)
       }
    }

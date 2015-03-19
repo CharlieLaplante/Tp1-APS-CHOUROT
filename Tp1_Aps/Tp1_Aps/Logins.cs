@@ -26,7 +26,7 @@ namespace Tp1_Aps
             SQLTableName = "LOGINS"; 
         }
 
-       public virtual bool SelectAll(string orderBy = "")
+       public override bool SelectAll(string orderBy = "")
        {
           string sql = "SELECT * FROM " + SQLTableName;
           if (orderBy != "")

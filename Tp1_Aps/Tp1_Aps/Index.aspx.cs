@@ -19,7 +19,7 @@ namespace Tp1_Aps
       }
       protected void BTN_Room_Click(object sender, EventArgs e)
       {
-
+         Response.Redirect("Room.aspx");
       }
       protected void BTN_LoginsJournal_Click(object sender, EventArgs e)
       {
