@@ -120,7 +120,7 @@
         </div>
         <asp:CustomValidator ID="CV_Prenom" runat="server"  
             ControlToValidate="TB_Prenom" 
-            ErrorMessage="Prénom" Text="blahblahbl"
+            ErrorMessage="Prénom" Text=""
             OnServerValidate="CV_TB_Prenom_ServerValidate" 
             ValidationGroup="PersonneInfo" 
             ValidateEmptyText="True" 
