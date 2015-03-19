@@ -10,24 +10,33 @@
 namespace Tp1_Aps {
     
     
-    public partial class LoginsJournal {
+    public partial class Room {
         
         /// <summary>
-        /// Contrôle PN_ListeLogins.
+        /// Contrôle form1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PN_ListeLogins;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle BTN_Retour.
+        /// Contrôle BTN_Add.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BTN_Retour;
+        protected global::System.Web.UI.WebControls.Button BTN_Add;
+        
+        /// <summary>
+        /// Contrôle PN_GridView.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PN_GridView;
     }
 }

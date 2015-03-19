@@ -39,7 +39,7 @@ namespace Tp1_Aps
          personne.Password = TB_Password.Text;
          personne.Email = TB_Email.Text;
          personne.Avatar = avatar_ID;
-         personne.InsertUser();
+         personne.Insert();
       }
       protected void BTN_Add_Click(object sender, EventArgs e)
       {

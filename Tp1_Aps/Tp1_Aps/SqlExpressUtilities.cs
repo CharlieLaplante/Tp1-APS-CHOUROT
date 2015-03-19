@@ -35,8 +35,7 @@ namespace SqlExpressUtilities
         // Objet Page de classe "Web Form" donnant accès à l'objet Application, Session et Response, etc.
         public System.Web.UI.Page Page;
         // Nom de la table
-        public String SQLTableUsers = "USERS";
-        public String SQLTableLogins = "LOGINS";
+        public String SQLTableName = "";
         // Liste des valeur des champs lors de la lecture de la requête 
         public List<string> FieldsValues = new List<string>();
         // Liste des noms des champs de la table en cours de lecture
@@ -57,6 +56,7 @@ namespace SqlExpressUtilities
             this.Page = Page;
             this.connexionString = connexionString;
         }
+
         // Extraire les valeur des champs de l'enregistrement suivant du lecteur Reader
         bool GetfieldsValues()
         {
@@ -190,20 +190,6 @@ namespace SqlExpressUtilities
                 EndQuerySQL();
             return more;
         }
-        public virtual void GetValuesLogins()
-        {
-           // Doit être surcharché par les classes dérivées
-        }
-        public bool NextLogins()
-        {
-           bool more = NextRecord();
-           if (more)
-              GetValuesLogins();
-           else
-              EndQuerySQL();
-           return more;
-        }
-
 
         // Passer à l'enregistrement suivant du lecteur de requête
         public bool NextRecord()
@@ -254,7 +240,7 @@ namespace SqlExpressUtilities
         // Extraire tous les enregistrements
         public virtual bool SelectAll(string orderBy = "")
         {
-            string sql = "SELECT * FROM " + SQLTableUsers;
+            string sql = "SELECT * FROM " + SQLTableName;
             if (orderBy != "")
                 sql += " ORDER BY " + orderBy;
             QuerySQL(sql);
@@ -264,24 +250,16 @@ namespace SqlExpressUtilities
         // Extraire l'enregistrement d'id ID
         public bool SelectByID(String ID)
         {
-            string sql = "SELECT * FROM " + SQLTableUsers + " WHERE ID = " + ID;
+            string sql = "SELECT * FROM " + SQLTableName + " WHERE ID = " + ID;
             QuerySQL(sql);
             if (reader.HasRows)
                 Next();
             return reader.HasRows;
         }
-        public bool SelectByUserName(String USERNAME)
-        {
-           string sql = "SELECT * FROM " + SQLTableUsers + " WHERE USERNAME = '" + USERNAME + "'";
-           QuerySQL(sql);
-           if (reader.HasRows)
-              Next();
-           return reader.HasRows;
-        }
 
         public bool SelectByFieldName(String FieldName, object value)
         {
-            string SQL = "SELECT * FROM " + SQLTableUsers + " WHERE " + FieldName + " = ";
+            string SQL = "SELECT * FROM " + SQLTableName + " WHERE " + FieldName + " = ";
             Type type = value.GetType();
             if (SQLHelper.IsNumericType(type))
                 SQL += value.ToString().Replace(',', '.');
@@ -305,7 +283,7 @@ namespace SqlExpressUtilities
         // FieldsValues
         public int UpdateRecord()
         {
-            String SQL = "UPDATE " + SQLTableUsers + " ";
+            String SQL = "UPDATE " + SQLTableName + " ";
             SQL += "SET ";
             int nb_fields = FieldsNames.Count();
             for (int fieldNum = 1; fieldNum < nb_fields; fieldNum++)
@@ -326,7 +304,7 @@ namespace SqlExpressUtilities
         // FieldsValues fournie en paramètre
         public int UpdateRecord(params object[] FieldsValues)
         {
-            String SQL = "UPDATE " + SQLTableUsers + " ";
+            String SQL = "UPDATE " + SQLTableName + " ";
             SQL += "SET ";
             int nb_fields = FieldsValues.Length;
             for (int i = 1; i < nb_fields; i++)
@@ -350,142 +328,61 @@ namespace SqlExpressUtilities
         // Effacer l'enregistrement d'id ID
         public void DeleteRecordByID(String ID)
         {
-            String sql = "DELETE FROM " + SQLTableUsers + " WHERE ID = " + ID;
+            String sql = "DELETE FROM " + SQLTableName + " WHERE ID = " + ID;
             NonQuerySQL(sql);
         }
 
         // Insérer un nouvel enregistrement
- 
-        public virtual bool SelectAllLogins(string orderBy = "")
+        public virtual void Insert()
         {
-           string sql = "SELECT * FROM " + SQLTableLogins;
-           if (orderBy != "")
-              sql += " ORDER BY " + orderBy;
-           QuerySQL(sql);
-           return reader.HasRows;
-        }
-        public virtual void InsertLogin()
-        {
-           InsertRecordLogins();
-        }
-        public void InsertRecordLogins(params object[] FieldsValues)
-        {
-           SelectAllLogins();
-           NextRecord();
-           EndQuerySQL();
-
-           string sql = "INSERT INTO " + SQLTableLogins + "(";
-           for (int i = 1; i < FieldsValues.Length + 1; i++)
-           {
-              sql += FieldsNames[i];
-              if (i < FieldsValues.Length)
-                 sql += ", ";
-              else
-                 sql += ") VALUES (";
-           }
-           for (int i = 0; i < FieldsValues.Length; i++)
-           {
-              Type type = FieldsValues[i].GetType();
-              if (SQLHelper.IsNumericType(type))
-                 sql += FieldsValues[i].ToString().Replace(',', '.');
-              else
-                 if (type == typeof(DateTime))
-                    sql += "'" + SQLHelper.DateSQLFormat((DateTime)FieldsValues[i]) + "'";
-                 else
-                    sql += "'" + SQLHelper.PrepareForSql(FieldsValues[i].ToString()) + "'";
-
-              if (i < FieldsValues.Length - 1)
-                 sql += ", ";
-              else
-                 sql += ")";
-           }
-           NonQuerySQL(sql);
-        }
-        public void InsertRecordLogins()
-        {
-           // Petite patch pour s'assurer que les noms des champs et leur type soient initialisés
-           SelectAll();
-           NextRecord();
-           EndQuerySQL();
-
-           string sql = "INSERT INTO " + SQLTableLogins + "(";
-           for (int i = 1; i < FieldsNames.Count; i++)
-           {
-              sql += FieldsNames[i];
-              if (i < FieldsNames.Count - 1)
-                 sql += ", ";
-              else
-                 sql += ") VALUES (";
-           }
-           for (int i = 0; i < FieldsValues.Count; i++)
-           {
-              Type type = FieldsValues[i].GetType();
-              if (SQLHelper.IsNumericType(type))
-                 sql += FieldsValues[i].ToString().Replace(',', '.');
-              else
-                 if (type == typeof(DateTime))
-                    sql += "'" + SQLHelper.DateSQLFormat((DateTime)DateTime.Parse(FieldsValues[i])) + "'";
-                 else
-                    sql += "'" + SQLHelper.PrepareForSql(FieldsValues[i].ToString()) + "'";
-
-              if (i < FieldsValues.Count - 1)
-                 sql += ", ";
-              else
-                 sql += ")";
-           }
-           NonQuerySQL(sql);
-        }
-
-        public virtual void InsertUser()
-        {
-           InsertRecordUser();
+            InsertRecord();
         }
 
         // insérer un nouvel enregistrement en utilisant les valeurs stockées dans FieldValues
-        public void InsertRecordUser()
-        {
-           // Petite patch pour s'assurer que les noms des champs et leur type soient initialisés
-           SelectAll();
-           NextRecord();
-           EndQuerySQL();
-
-           string sql = "INSERT INTO " + SQLTableUsers + "(";
-           for (int i = 1; i < FieldsNames.Count; i++)
-           {
-              sql += FieldsNames[i];
-              if (i < FieldsNames.Count - 1)
-                 sql += ", ";
-              else
-                 sql += ") VALUES (";
-           }
-           for (int i = 0; i < FieldsValues.Count; i++)
-           {
-              Type type = FieldsValues[i].GetType();
-              if (SQLHelper.IsNumericType(type))
-                 sql += FieldsValues[i].ToString().Replace(',', '.');
-              else
-                 if (type == typeof(DateTime))
-                    sql += "'" + SQLHelper.DateSQLFormat((DateTime)DateTime.Parse(FieldsValues[i])) + "'";
-                 else
-                    sql += "'" + SQLHelper.PrepareForSql(FieldsValues[i].ToString()) + "'";
-
-              if (i < FieldsValues.Count - 1)
-                 sql += ", ";
-              else
-                 sql += ")";
-           }
-           NonQuerySQL(sql);
-        }
-
-        // insérer un nouvel enregistrement en utilisant les valeurs stockées dans FieldValues passé en paramètre
-        public void InsertRecordUser(params object[] FieldsValues)
+        public void InsertRecord()
         {
             // Petite patch pour s'assurer que les noms des champs et leur type soient initialisés
             SelectAll();
             NextRecord();
             EndQuerySQL();
 
-            string sql = "INSERT INTO " + SQLTableUsers + "(";
+            string sql = "INSERT INTO " + SQLTableName + "(";
+            for (int i = 1; i < FieldsNames.Count; i++)
+            {
+                sql += FieldsNames[i];
+                if (i < FieldsNames.Count - 1)
+                    sql += ", ";
+                else
+                    sql += ") VALUES (";
+            }
+            for (int i = 0; i < FieldsValues.Count; i++)
+            {
+                Type type = FieldsValues[i].GetType();
+                if (SQLHelper.IsNumericType(type))
+                    sql += FieldsValues[i].ToString().Replace(',', '.');
+                else
+                    if (type == typeof(DateTime))
+                        sql += "'" + SQLHelper.DateSQLFormat((DateTime)DateTime.Parse(FieldsValues[i])) + "'";
+                    else
+                        sql += "'" + SQLHelper.PrepareForSql(FieldsValues[i].ToString()) + "'";
+
+                if (i < FieldsValues.Count - 1)
+                    sql += ", ";
+                else
+                    sql += ")";
+            }
+            NonQuerySQL(sql);
+        }
+
+        // insérer un nouvel enregistrement en utilisant les valeurs stockées dans FieldValues passé en paramètre
+        public void InsertRecord(params object[] FieldsValues)
+        {
+            // Petite patch pour s'assurer que les noms des champs et leur type soient initialisés
+            SelectAll();
+            NextRecord();
+            EndQuerySQL();
+
+            string sql = "INSERT INTO " + SQLTableName + "(";
             for (int i = 1; i < FieldsValues.Length+1; i++)
             {
                 sql += FieldsNames[i];
@@ -618,89 +515,6 @@ namespace SqlExpressUtilities
             if (Grid!=null)
                 PN_GridView.Controls.Add(Grid);
             EndQuerySQL();
-        }
-
-        public virtual void MakeGridViewLogins(Panel PN_GridView, String EditPage)
-        {
-
-           // converver le panneau parent (utilisé dans certaines méthodes de cette classe)
-           this.PN_GridView = PN_GridView;
-           Page.Session["EditPage"] = EditPage;
-           Table Grid = null;
-           if (reader.HasRows)
-           {
-              Grid = new Table();
-
-              // Construction de l'entête de la GridView
-              TableRow tr = new TableRow();
-              for (int columnIndex = 0; columnIndex < ColumnTitles.Count; columnIndex++)
-              {
-                 if (ColumnsVisibility[columnIndex])
-                 {
-                    TableCell td = new TableCell();
-                    tr.Cells.Add(td);
-                    Label LBL_Header = new Label();
-                    LBL_Header.Text = "<b>" + ColumnTitles[columnIndex] + "</b>";
-
-                    if (ColumnsSortEnable[columnIndex])
-                    {
-                       ImageButton BTN_Sort = new ImageButton();
-                       // assignation du delegate du clic (voir sa définition plus bas dans le code)
-                       BTN_Sort.Click += new ImageClickEventHandler(SortField_Click);
-                       // IMPORTANT!!!
-                       // il faut placer dans le répertoire Images du projet l'icône qui représente un tri
-                       BTN_Sort.ImageUrl = @"~/Images/Sort.png";
-                       // afin de bien reconnaitre quel champ il faudra trier on construit ici un ID
-                       // pour le bouton
-                       BTN_Sort.ID = "Sort_" + FieldsNames[columnIndex];
-                       td.Controls.Add(BTN_Sort);
-                    }
-                    td.Controls.Add(LBL_Header);
-                 }
-              }
-              Grid.Rows.Add(tr);
-
-              // Construction des rangées de la GridView
-              while (NextLogins())
-              {
-                 tr = new TableRow();
-                 for (int fieldIndex = 0; fieldIndex < FieldsValues.Count; fieldIndex++)
-                 {
-                    if (ColumnsVisibility[fieldIndex])
-                    {
-                       TableCell td = new TableCell();
-                       if (CellsContentDelegate[fieldIndex] != null)
-                       {
-                          // construction spécialisée du contenu d'une cellule
-                          // définie dans les sous classes
-                          td.Controls.Add(CellsContentDelegate[fieldIndex]());
-                       }
-                       else
-                       {
-                          Type type = FieldsTypes[fieldIndex];
-                          if (SQLHelper.IsNumericType(type))
-                          {
-                             td.Text = FieldsValues[fieldIndex].ToString();
-                             // IMPORTANT! Il faut inclure dans la section style
-                             // une classe numeric qui impose l'alignement à droite
-                             td.CssClass = "numeric";
-                          }
-                          else
-                             if (type == typeof(DateTime))
-                                td.Text = DateTime.Parse(FieldsValues[fieldIndex]).ToShortDateString();
-                             else
-                                td.Text = SQLHelper.FromSql(FieldsValues[fieldIndex]);
-                       }
-                       tr.Cells.Add(td);
-                    }
-                    Grid.Rows.Add(tr);
-                 }
-              }
-           }
-           PN_GridView.Controls.Clear();
-           if (Grid != null)
-              PN_GridView.Controls.Add(Grid);
-           EndQuerySQL();
         }
 
         // Spécialisation de la construction de contenu des cellules de tableau html
