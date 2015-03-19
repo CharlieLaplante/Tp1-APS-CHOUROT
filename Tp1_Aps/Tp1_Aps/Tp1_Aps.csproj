@@ -78,6 +78,7 @@
     <Content Include="FormStyles.css" />
     <Content Include="Global.asax" />
     <Content Include="Profil.aspx" />
+    <Content Include="Room.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,13 @@
       <DependentUpon>Profil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.aspx.cs">
+      <DependentUpon>Room.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Room.aspx.designer.cs">
+      <DependentUpon>Room.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SqlExpressUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
