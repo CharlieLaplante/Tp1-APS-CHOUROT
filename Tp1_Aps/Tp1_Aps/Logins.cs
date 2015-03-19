@@ -28,7 +28,8 @@ namespace Tp1_Aps
 
        public override bool SelectAll(string orderBy = "")
        {
-          string sql = "SELECT Users.ID,UserId,LoginDate,LogoutDate,IPAddress,FullName,UserName,Email,Avatar FROM "+SQLTableName+ " inner join Users on Users.ID = Logins.UserID ";
+          string sql = "SELECT Logins.ID,UserId,LoginDate,LogoutDate,IPAddress,FullName,UserName,Email,Avatar FROM "+SQLTableName+ " inner join Users on Users.ID = Logins.UserID ";
+                  
           if (orderBy != "")
              sql += " ORDER BY " + orderBy;
           QuerySQL(sql);
@@ -146,6 +147,7 @@ namespace Tp1_Aps
          {
             img.ImageUrl = "Images/Anonymous.png";
          }
+         img.Width = img.Height = 40;
          return img;
       }
 
