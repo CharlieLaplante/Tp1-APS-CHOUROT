@@ -34,9 +34,9 @@ namespace Tp1_Aps
 				{ 				
 					InsertValuesInForm(personne);
 					if (personne.Avatar != "")
-						IMG_Avatar.ImageUrl = "Avatars/" + personne.Avatar + ".png"; // +"?" + DateTime.Now.Millisecond.ToString();
+						IMG_Avatar.ImageUrl = "Avatars/" + personne.Avatar + ".png";
 					else
-						IMG_Avatar.ImageUrl = "Images/Anonymous.png"; // +"?" + DateTime.Now.Millisecond.ToString();
+						IMG_Avatar.ImageUrl = "Images/Anonymous.png"; 
 				}
 			}
 		}
