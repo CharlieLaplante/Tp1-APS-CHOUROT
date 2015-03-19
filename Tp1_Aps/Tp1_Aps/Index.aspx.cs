@@ -37,13 +37,13 @@ namespace Tp1_Aps
       }
       protected void BTN_Deconnection_Click(object sender, EventArgs e)
       {
-         
-        PersonnesTable user = new PersonnesTable((String)Application["MainDB"], this);
-        user.UserID = long.Parse(Session["UserId"].ToString());
-        user.IpAddress = GetUserIP();
-        user.LoginDate = DateTime.Parse(Session["StartTime"].ToString());       
-        user.LogoutDate = DateTime.Now;                
-        user.InsertLogin();
+
+        Logins Login = new Logins((String)Application["MainDB"], this);
+        Login.UserID = long.Parse(Session["UserId"].ToString());
+        Login.IpAddress = GetUserIP();
+        Login.LoginDate = DateTime.Parse(Session["StartTime"].ToString());
+        Login.LogoutDate = DateTime.Now;
+        Login.Insert();
 
 		  Response.Redirect("Login.aspx");
        

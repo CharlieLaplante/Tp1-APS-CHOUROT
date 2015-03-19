@@ -41,12 +41,9 @@ namespace Tp1_Aps
             {
                TB_Password.Text = "";
             }
-         }
-         
-         
+         }        
       }
-
-        protected void CV_TB_UserName_ServerValidate(object source, ServerValidateEventArgs args)
+       protected void CV_TB_UserName_ServerValidate(object source, ServerValidateEventArgs args)
         {
             PersonnesTable users = new PersonnesTable((string)Application["MainDB"], this);
             args.IsValid = users.Exist(TB_UserName.Text);
