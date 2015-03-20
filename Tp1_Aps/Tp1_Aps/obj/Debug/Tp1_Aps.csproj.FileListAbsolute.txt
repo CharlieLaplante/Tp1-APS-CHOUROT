@@ -4,11 +4,6 @@ F:\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
 F:\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.csprojResolveAssemblyReference.cache
 F:\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
 F:\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
-C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll.config
-C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll
-C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
-C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
-C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
 C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll
 C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
 C:\Users\Charlie\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.csprojResolveAssemblyReference.cache
@@ -31,3 +26,9 @@ C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dl
 C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
 C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
 C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
+C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll.config
+C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll
+C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
+C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
+C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
+C:\Users\PouletGrill\Documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.csprojResolveAssemblyReference.cache

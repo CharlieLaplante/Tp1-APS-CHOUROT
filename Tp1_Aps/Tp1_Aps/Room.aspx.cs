@@ -13,7 +13,7 @@ namespace Tp1_Aps
       {
          RoomDgv roomDgv = new RoomDgv((string)Application["MainDB"], this);
          roomDgv.SelectAll();
-         roomDgv.MakeGridView(PN_GridView, "");
+         roomDgv.MakeGridView(PN_GridView, "UserName");
       }
       protected void BTN_Retour_Click(object sender, EventArgs e)
       {

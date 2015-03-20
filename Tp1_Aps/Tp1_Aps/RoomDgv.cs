@@ -28,10 +28,10 @@ namespace Tp1_Aps
 
        public override bool SelectAll(string orderBy = "")
        {
-          string sql = "SELECT Users.ID,Logins.UserId,Logins.IPAddress,Users.FullName,Users.UserName,Users.Email,Users.Avatar FROM " + SQLTableName + " inner join Logins on Users.ID = Logins.UserID ";
-                  
+          string sql = "SELECT ID, FullName, UserName, Email, Avatar FROM " + SQLTableName;
+
           if (orderBy != "")
-             sql += " ORDER BY " + orderBy;
+             sql += " order BY " + orderBy;
           QuerySQL(sql);
           return reader.HasRows;
        }
@@ -39,8 +39,8 @@ namespace Tp1_Aps
       public override void GetValues()
       {
          ID = long.Parse(this["ID"]);
-         UserID = long.Parse(this["UserId"]);
-         IpAddress = this["IPAddress"];
+         //UserID = long.Parse(this["UserId"]);
+         //IpAddress = this["IPAddress"];
          FullName = this["FullName"];
          UserName = this["UserName"];
          Email = this["Email"];
@@ -56,8 +56,8 @@ namespace Tp1_Aps
       {
          base.InitCellsContentDelegate();
          SetCellContentDelegate("ID", ContentDelegateID);
-         SetCellContentDelegate("UserID", ContentDelegateUserID);
-         SetCellContentDelegate("IpAddress", ContentDelegateIPAddress);
+         //SetCellContentDelegate("UserID", ContentDelegateUserID);
+         //SetCellContentDelegate("IpAddress", ContentDelegateIPAddress);
          SetCellContentDelegate("FullName", ContentDelegateFullName);
          SetCellContentDelegate("UserName", ContentDelegateUserName);
          SetCellContentDelegate("Email", ContentDelegateEmail);
@@ -74,8 +74,8 @@ namespace Tp1_Aps
       {
          base.InitColumnsTitles();
          SetColumnTitle("ID", "Id");
-         SetColumnTitle("UserID", "User Id");
-         SetColumnTitle("IpAddress", "Ip Adresse");
+         //SetColumnTitle("UserID", "User Id");
+         //SetColumnTitle("IpAddress", "Ip Adresse");
          SetColumnTitle("UserName", "UserName");
          SetColumnTitle("FullName", "Nom complet");
          SetColumnTitle("Email", "Email");
@@ -94,18 +94,18 @@ namespace Tp1_Aps
          lbl.Text = UserID.ToString();
          return lbl;
       }
-      System.Web.UI.WebControls.WebControl ContentDelegateLoginDate()
-      {
-         Label lbl = new Label();
-         lbl.Text = LoginDate.ToString();
-         return lbl;
-      }
-      System.Web.UI.WebControls.WebControl ContentDelegateLogoutDate()
-      {
-         Label lbl = new Label();
-         lbl.Text = LogoutDate.ToString();
-         return lbl;
-      }
+      //System.Web.UI.WebControls.WebControl ContentDelegateLoginDate()
+      //{
+      //   Label lbl = new Label();
+      //   lbl.Text = LoginDate.ToString();
+      //   return lbl;
+      //}
+      //System.Web.UI.WebControls.WebControl ContentDelegateLogoutDate()
+      //{
+      //   Label lbl = new Label();
+      //   lbl.Text = LogoutDate.ToString();
+      //   return lbl;
+      //}
       System.Web.UI.WebControls.WebControl ContentDelegateIPAddress()
       {
          Label lbl = new Label();
