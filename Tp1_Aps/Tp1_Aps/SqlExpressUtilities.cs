@@ -523,7 +523,7 @@ namespace SqlExpressUtilities
         {
             // Construction d'un hyperlien servant à mener vers une page web d'édition d'enregistrement
             LinkButton lb = new LinkButton();
-            lb.ID = "LKBTN_" + this["ID"]; // Doit absoluement le premier champ dans les enregistrement
+            lb.ID = "LKBTN_" + this[""]; // Doit absoluement le premier champ dans les enregistrement
             lb.Text = this["ID"];
             lb.ToolTip = "Modifier l'enregistrement d'id = " + this["ID"];
             lb.Click += new EventHandler(ID_Click);

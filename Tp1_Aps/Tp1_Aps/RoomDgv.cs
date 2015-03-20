@@ -28,7 +28,7 @@ namespace Tp1_Aps
 
        public override bool SelectAll(string orderBy = "")
        {
-          string sql = "SELECT Logins.UserId,Logins.IPAddress,Users.FullName,Users.UserName,Users.Email,Users.Avatar FROM " + SQLTableName + " inner join Logins on Users.ID = Logins.UserID ";
+          string sql = "SELECT Users.ID,Logins.UserId,Logins.IPAddress,Users.FullName,Users.UserName,Users.Email,Users.Avatar FROM " + SQLTableName + " inner join Logins on Users.ID = Logins.UserID ";
                   
           if (orderBy != "")
              sql += " ORDER BY " + orderBy;
@@ -38,14 +38,7 @@ namespace Tp1_Aps
 
       public override void GetValues()
       {
-         /*
-          * UserId
-          * Logins.IPAddress
-          * FullName
-          * UserName
-          * Email
-          * Avatar
-          */
+         ID = long.Parse(this["ID"]);
          UserID = long.Parse(this["UserId"]);
          IpAddress = this["IPAddress"];
          FullName = this["FullName"];
@@ -62,6 +55,7 @@ namespace Tp1_Aps
       public override void InitCellsContentDelegate()
       {
          base.InitCellsContentDelegate();
+         SetCellContentDelegate("ID", ContentDelegateID);
          SetCellContentDelegate("UserID", ContentDelegateUserID);
          SetCellContentDelegate("IpAddress", ContentDelegateIPAddress);
          SetCellContentDelegate("FullName", ContentDelegateFullName);
@@ -79,6 +73,7 @@ namespace Tp1_Aps
       public override void InitColumnsTitles()
       {
          base.InitColumnsTitles();
+         SetColumnTitle("ID", "Id");
          SetColumnTitle("UserID", "User Id");
          SetColumnTitle("IpAddress", "Ip Adresse");
          SetColumnTitle("UserName", "UserName");
