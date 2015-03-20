@@ -11,10 +11,13 @@ namespace Tp1_Aps
    {
       protected void Page_Load(object sender, EventArgs e)
       {
-         PersonnesTable personnesTable = new PersonnesTable((string)Application["MainDB"], this);
-         personnesTable.SelectAll();
-         personnesTable.MakeGridView(PN_GridView, "");
-         // Pas besoin d'appeler personnesTable.EndQuerySql car c'est déjà fait dans personnesTable.MakeGridView(...)
+         RoomDgv roomDgv = new RoomDgv((string)Application["MainDB"], this);
+         roomDgv.SelectAll();
+         roomDgv.MakeGridView(PN_GridView, "");
+      }
+      protected void BTN_Retour_Click(object sender, EventArgs e)
+      {
+         Response.Redirect("Index.aspx");
       }
    }
 }

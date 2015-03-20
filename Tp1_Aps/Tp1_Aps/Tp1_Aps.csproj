@@ -138,6 +138,7 @@
     <Compile Include="Room.aspx.designer.cs">
       <DependentUpon>Room.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RoomDgv.cs" />
     <Compile Include="SqlExpressUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
