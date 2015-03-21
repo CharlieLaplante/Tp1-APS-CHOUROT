@@ -84,3 +84,10 @@ hr {
 	right: 20px;
 	top: 10px;
 }
+
+.Tableau
+{
+    border-width: 2px;
+    border-bottom-color: black;
+    border-style:solid;
+}

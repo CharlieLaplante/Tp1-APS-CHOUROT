@@ -5,7 +5,7 @@
 
 <div>
    
-     <asp:Panel id="PN_ListeLogins" runat="server"></asp:Panel>
+     <asp:Panel id="PN_ListeLogins" class="Tableau" runat="server"></asp:Panel>
      <asp:Button ID="BTN_Retour" runat="server" Text="Retour"  class="submitBTN" OnClick="BTN_Retour_Click"/>
 
 </div>
