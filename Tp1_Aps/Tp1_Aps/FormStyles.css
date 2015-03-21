@@ -85,9 +85,18 @@ hr {
 	top: 10px;
 }
 
-.Tableau
-{
-    border-width: 2px;
-    border-bottom-color: black;
-    border-style:solid;
-}
+
+       .Tableau {
+            border-collapse: collapse;
+        }
+
+        .Tableau:first-child td {
+            border: 1px solid black;
+            font-family:Arial;
+            font-size:12px;
+            padding:5px;
+        }
+        .Tableau tr:first-child td {
+            color:black;
+            background-color:lightgray;
+        }
