@@ -9,15 +9,12 @@ namespace Tp1_Aps
    public class RoomDgv : SqlExpressUtilities.SqlExpressWrapper
    {
       public long ID { get; set; }
-      public long UserID { get; set; }
-      public DateTime LoginDate { get; set; }
-      public DateTime LogoutDate { get; set; }
-      public String IpAddress { get; set; }
       public String FullName { get; set; }
       public String UserName { get; set; }
       public String Password { get; set; }
       public String Email { get; set; }
       public String Avatar { get; set; }
+      public Boolean Connected { get; set; }
 
 
        public RoomDgv(String connexionString, System.Web.UI.Page Page)
@@ -39,8 +36,7 @@ namespace Tp1_Aps
       public override void GetValues()
       {
          ID = long.Parse(this["ID"]);
-         //UserID = long.Parse(this["UserId"]);
-         //IpAddress = this["IPAddress"];
+         Connected = false;
          FullName = this["FullName"];
          UserName = this["UserName"];
          Email = this["Email"];
@@ -49,15 +45,14 @@ namespace Tp1_Aps
 
       public override void Insert()
       {
-         InsertRecord(UserID, LoginDate, LogoutDate, IpAddress); //Probleme Here en vue !
+          InsertRecord(Connected);
       }
 
       public override void InitCellsContentDelegate()
       {
          base.InitCellsContentDelegate();
          SetCellContentDelegate("ID", ContentDelegateID);
-         //SetCellContentDelegate("UserID", ContentDelegateUserID);
-         //SetCellContentDelegate("IpAddress", ContentDelegateIPAddress);
+         SetCellContentDelegate("Connected", ContentDelegateConnected);//Connected
          SetCellContentDelegate("FullName", ContentDelegateFullName);
          SetCellContentDelegate("UserName", ContentDelegateUserName);
          SetCellContentDelegate("Email", ContentDelegateEmail);
@@ -66,16 +61,15 @@ namespace Tp1_Aps
 
       public override void InitColumnsSortEnable()
       {
-         base.InitColumnsSortEnable();                            //Probleme Here en vue !
-         SetColumnSortEnable("ID", false);
+         base.InitColumnsSortEnable();
+         SetColumnSortEnable("UserName", false);
       }
 
       public override void InitColumnsTitles()
       {
          base.InitColumnsTitles();
-         SetColumnTitle("ID", "Id");
-         //SetColumnTitle("UserID", "User Id");
-         //SetColumnTitle("IpAddress", "Ip Adresse");
+         //SetColumnTitle("ID", "Id");
+         SetColumnTitle("Connected", "Connecté");
          SetColumnTitle("UserName", "UserName");
          SetColumnTitle("FullName", "Nom complet");
          SetColumnTitle("Email", "Email");
@@ -88,29 +82,19 @@ namespace Tp1_Aps
          lbl.Text = ID.ToString();
          return lbl;
       }
-      System.Web.UI.WebControls.WebControl ContentDelegateUserID()
+      System.Web.UI.WebControls.WebControl ContentDelegateConnected() //Connected
       {
-         Label lbl = new Label();
-         lbl.Text = UserID.ToString();
-         return lbl;
-      }
-      //System.Web.UI.WebControls.WebControl ContentDelegateLoginDate()
-      //{
-      //   Label lbl = new Label();
-      //   lbl.Text = LoginDate.ToString();
-      //   return lbl;
-      //}
-      //System.Web.UI.WebControls.WebControl ContentDelegateLogoutDate()
-      //{
-      //   Label lbl = new Label();
-      //   lbl.Text = LogoutDate.ToString();
-      //   return lbl;
-      //}
-      System.Web.UI.WebControls.WebControl ContentDelegateIPAddress()
-      {
-         Label lbl = new Label();
-         lbl.Text = IpAddress;
-         return lbl;
+          Image imgc = new Image();
+          if (Connected)
+          {
+              imgc.ImageUrl = "Images/Connected_True.png";
+          }
+          else
+          {
+              imgc.ImageUrl = "Images/Connected_False.png";
+          }
+          imgc.Width = imgc.Height = 64;
+          return imgc;
       }
       System.Web.UI.WebControls.WebControl ContentDelegateUserName()
       {
