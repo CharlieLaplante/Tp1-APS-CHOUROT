@@ -18,18 +18,23 @@ namespace Tp1_Aps
       public String Password { get; set; }
       public String Email { get; set; }
       public String Avatar { get; set; }
+	  public bool Admin = false;
 
 
        public Logins(String connexionString, System.Web.UI.Page Page)
             : base(connexionString, Page)
         {            
             SQLTableName = "LOGINS"; 
-        }
+	    }
 
        public override bool SelectAll(string orderBy = "")
        {
           string sql = "SELECT Logins.ID,UserId,LoginDate,LogoutDate,IPAddress,FullName,UserName,Email,Avatar FROM "+SQLTableName+ " inner join Users on Users.ID = Logins.UserID ";
-                  
+          if(!Admin)
+		  {
+			  sql += " where UserName = '" + UserName + "'";
+		  }
+       
           if (orderBy != "")
              sql += " ORDER BY " + orderBy;
           QuerySQL(sql);

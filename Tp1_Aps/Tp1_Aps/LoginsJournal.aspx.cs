@@ -12,6 +12,12 @@ namespace Tp1_Aps
 		protected void Page_Load(object sender, EventArgs e)
 		{
          Logins Login = new Logins((string)Application["MainDB"], this);
+		 if (Session["UserName"].ToString() == "admin")
+			 Login.Admin = true;
+		 else
+			 Login.UserName = Session["UserName"].ToString();
+		
+
          Login.SelectAll();
          Login.MakeGridView(PN_ListeLogins, "");
 		}

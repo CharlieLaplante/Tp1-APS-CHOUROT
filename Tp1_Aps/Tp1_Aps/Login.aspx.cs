@@ -17,7 +17,8 @@ namespace Tp1_Aps
 			Session["Avatar"] = null;
 			Session["FullName"] = null;
 			Session["UserName"] = null;
-         Session["StartTime"] = null;
+            Session["StartTime"] = null;
+
         }		 
 
         protected void BTN_Login_Click(object sender, EventArgs e)
@@ -32,8 +33,8 @@ namespace Tp1_Aps
 				Session["Avatar"] = users.Avatar;
 				Session["FullName"] = users.FullName;
 				Session["UserName"] = users.UserName;
-            Session["StartTime"] = DateTime.Now;
-            Session["UserId"] = users.ID;
+				Session["StartTime"] = DateTime.Now;
+				Session["UserId"] = users.ID;
 
             Response.Redirect("Index.aspx");
             }
