@@ -14,7 +14,7 @@ namespace Tp1_Aps
       public String Password { get; set; }
       public String Email { get; set; }
       public String Avatar { get; set; }
-      public Boolean Connected { get; set; }
+      public String Connected { get; set; }
 
 
        public RoomDgv(String connexionString, System.Web.UI.Page Page)
@@ -25,7 +25,7 @@ namespace Tp1_Aps
 
        public override bool SelectAll(string orderBy = "")
        {
-          string sql = "SELECT ID, FullName, UserName, Email, Avatar FROM " + SQLTableName;
+           string sql = "SELECT ID, Connected, FullName, UserName, Email, Avatar FROM " + SQLTableName;
 
           if (orderBy != "")
              sql += " order BY " + orderBy;
@@ -36,7 +36,7 @@ namespace Tp1_Aps
       public override void GetValues()
       {
          ID = long.Parse(this["ID"]);
-         Connected = false;
+         Connected = this["Connected"];
          FullName = this["FullName"];
          UserName = this["UserName"];
          Email = this["Email"];
@@ -68,7 +68,7 @@ namespace Tp1_Aps
       public override void InitColumnsTitles()
       {
          base.InitColumnsTitles();
-         //SetColumnTitle("ID", "Id");
+         SetColumnTitle("ID", "Id");
          SetColumnTitle("Connected", "Connecté");
          SetColumnTitle("UserName", "UserName");
          SetColumnTitle("FullName", "Nom complet");
@@ -85,7 +85,7 @@ namespace Tp1_Aps
       System.Web.UI.WebControls.WebControl ContentDelegateConnected() //Connected
       {
           Image imgc = new Image();
-          if (Connected)
+          if (Connected == "1")
           {
               imgc.ImageUrl = "Images/Connected_True.png";
           }
@@ -93,7 +93,7 @@ namespace Tp1_Aps
           {
               imgc.ImageUrl = "Images/Connected_False.png";
           }
-          imgc.Width = imgc.Height = 64;
+          imgc.Width = imgc.Height = 48;
           return imgc;
       }
       System.Web.UI.WebControls.WebControl ContentDelegateUserName()
