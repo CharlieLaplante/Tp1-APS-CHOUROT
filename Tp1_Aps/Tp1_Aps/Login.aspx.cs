@@ -10,41 +10,45 @@ namespace Tp1_Aps
     public partial class Login : System.Web.UI.Page
     {
         String SenderEmail = "pouletgrill@gmail.com";
-        String SenderPassword = (((int)'@')*(2*(20*((int)'s')+((int)'c'))*((int)'A'))+((int)'x')+((int)'z')+((int)'j')+((int)'d')).ToString();
+        String SenderPassword = (((int)'@') * (2 * (20 * ((int)'s') + ((int)'c')) * ((int)'A')) + ((int)'x') + ((int)'z') + ((int)'j') + ((int)'d')).ToString();
         String SenderName = "WebService";
         protected void Page_Load(object sender, EventArgs e)
         {
-			Session["Avatar"] = null;
-			Session["FullName"] = null;
-			Session["UserName"] = null;
+            Session["Avatar"] = null;
+            Session["FullName"] = null;
+            Session["UserName"] = null;
             Session["StartTime"] = null;
-
-        }		 
+        }
 
         protected void BTN_Login_Click(object sender, EventArgs e)
-      {
+        {
 
-         PersonnesTable users = new PersonnesTable((string)Application["MainDB"], this);
-         if (users.Exist(TB_UserName.Text))
-         {
-            if (users.GoodPassword(TB_UserName.Text, TB_Password.Text))
+            PersonnesTable users = new PersonnesTable((string)Application["MainDB"], this);
+            if (users.Exist(TB_UserName.Text))
             {
-				users.SelectByUserName(TB_UserName.Text);
-				Session["Avatar"] = users.Avatar;
-				Session["FullName"] = users.FullName;
-				Session["UserName"] = users.UserName;
-				Session["StartTime"] = DateTime.Now;
-				Session["UserId"] = users.ID;
+                if (users.GoodPassword(TB_UserName.Text, TB_Password.Text))
+                {
+                    users.SelectByUserName(TB_UserName.Text);
+                    Session["Avatar"] = users.Avatar;
+                    Session["FullName"] = users.FullName;
+                    Session["UserName"] = users.UserName;
+                    Session["StartTime"] = DateTime.Now;
+                    Session["UserId"] = users.ID;
 
-            Response.Redirect("Index.aspx");
+                    RoomDgv roomDgv = new RoomDgv((String)Application["MainDB"], this);
+                    roomDgv.ID = users.ID;
+                    roomDgv.Connected = (1).ToString();
+                    roomDgv.Update();
+
+                    Response.Redirect("Index.aspx");
+                }
+                else
+                {
+                    TB_Password.Text = "";
+                }
             }
-            else
-            {
-               TB_Password.Text = "";
-            }
-         }        
-      }
-       protected void CV_TB_UserName_ServerValidate(object source, ServerValidateEventArgs args)
+        }
+        protected void CV_TB_UserName_ServerValidate(object source, ServerValidateEventArgs args)
         {
             PersonnesTable users = new PersonnesTable((string)Application["MainDB"], this);
             args.IsValid = users.Exist(TB_UserName.Text);

@@ -48,6 +48,11 @@ namespace Tp1_Aps
           InsertRecord(Connected);
       }
 
+      public override void Update()
+      {
+          UpdateRecord(ID, Connected);
+      }
+
       public override void InitCellsContentDelegate()
       {
          base.InitCellsContentDelegate();
