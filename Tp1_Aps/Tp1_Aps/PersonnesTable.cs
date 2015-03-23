@@ -14,6 +14,7 @@ namespace Tp1_Aps
         public String Password { get; set; }
         public String Email { get; set; }
         public String Avatar { get; set; }
+        public String Connected { get; set; }
    
         
        
@@ -30,7 +31,9 @@ namespace Tp1_Aps
             UserName = FieldsValues[2];
             Password = FieldsValues[3];
             Email = FieldsValues[4];          
-            Avatar = FieldsValues[5]; 
+            Avatar = FieldsValues[5];
+            Connected = FieldsValues[6];
+            
         } 
         public override void Insert()
         {
@@ -39,7 +42,7 @@ namespace Tp1_Aps
       
         public override void Update()
         {
-           UpdateRecord(ID, FullName, UserName, Password, Email, Avatar);
+           UpdateRecord(ID, FullName, UserName, Password, Email, Avatar, Connected);
         }
 
         public bool SelectByUserName(String UserName)
@@ -77,7 +80,60 @@ namespace Tp1_Aps
             QuerySQL("SELECT PASSWORD FROM " + SQLTableName + " WHERE USERNAME = '" + Username + "'");
             reader.Read();
             return reader.GetString(0);
-        } 
+        }
+
+        System.Web.UI.WebControls.WebControl ContentDelegateID()
+        {
+            Label lbl = new Label();
+            lbl.Text = ID.ToString();
+            return lbl;
+        }
+        System.Web.UI.WebControls.WebControl ContentDelegateConnected() //Connected
+        {
+            Image imgc = new Image();
+            if (Connected == "1")
+            {
+                imgc.ImageUrl = "Images/Connected_True.png";
+            }
+            else
+            {
+                imgc.ImageUrl = "Images/Connected_False.png";
+            }
+            imgc.Width = imgc.Height = 48;
+            return imgc;
+        }
+        System.Web.UI.WebControls.WebControl ContentDelegateUserName()
+        {
+            Label lbl = new Label();
+            lbl.Text = UserName;
+            return lbl;
+        }
+        System.Web.UI.WebControls.WebControl ContentDelegateFullName()
+        {
+            Label lbl = new Label();
+            lbl.Text = FullName;
+            return lbl;
+        }
+        System.Web.UI.WebControls.WebControl ContentDelegateEmail()
+        {
+            Label lbl = new Label();
+            lbl.Text = Email;
+            return lbl;
+        }
+        System.Web.UI.WebControls.WebControl ContentDelegateAvatar()
+        {
+            Image img = new Image();
+            if (Avatar != "")
+            {
+                img.ImageUrl = "Avatars/" + Avatar + ".png";
+            }
+            else
+            {
+                img.ImageUrl = "Images/Anonymous.png";
+            }
+            img.Width = img.Height = 40;
+            return img;
+        }
 
     }
 }

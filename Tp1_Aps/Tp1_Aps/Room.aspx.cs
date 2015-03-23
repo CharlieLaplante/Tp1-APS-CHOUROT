@@ -11,9 +11,9 @@ namespace Tp1_Aps
    {
       protected void Page_Load(object sender, EventArgs e)
       {
-         RoomDgv roomDgv = new RoomDgv((string)Application["MainDB"], this);
-         roomDgv.SelectAll();
-         roomDgv.MakeGridView(PN_GridView, "UserName");
+          PersonnesTable user = new PersonnesTable((string)Application["MainDB"], this);
+         user.SelectAll();
+         user.MakeGridView(PN_GridView, "UserName");
       }
       protected void BTN_Retour_Click(object sender, EventArgs e)
       {
