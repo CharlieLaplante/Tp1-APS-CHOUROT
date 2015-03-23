@@ -14,8 +14,7 @@ namespace Tp1_Aps
         public String Password { get; set; }
         public String Email { get; set; }
         public String Avatar { get; set; }
-        public String Connected { get; set; }
-   
+        public String Connected { get; set; }	   
         
        
         public PersonnesTable(String connexionString, System.Web.UI.Page Page)
@@ -32,8 +31,7 @@ namespace Tp1_Aps
             Password = FieldsValues[3];
             Email = FieldsValues[4];          
             Avatar = FieldsValues[5];
-            Connected = FieldsValues[6];
-            
+            Connected = FieldsValues[6];            
         } 
         public override void Insert()
         {
@@ -44,6 +42,15 @@ namespace Tp1_Aps
         {
            UpdateRecord(ID, FullName, UserName, Password, Email, Avatar, Connected);
         }
+
+		public override bool SelectAll(string orderBy = "")
+		{
+			string sql = "SELECT ID,FullName,Username,Password,Email,Avatar,Connected FROM " + SQLTableName;
+			if (orderBy != "")
+				sql += " ORDER BY " + orderBy;
+			QuerySQL(sql);
+			return reader.HasRows;
+		}
 
         public bool SelectByUserName(String UserName)
         {
@@ -82,15 +89,20 @@ namespace Tp1_Aps
             return reader.GetString(0);
         }
 
+		public override void InitColumnsVisibility()
+		{
+			base.InitColumnsVisibility();
+			SetColumnVisibility("ID", false);
+		}
         public override void InitCellsContentDelegate()
         {
             base.InitCellsContentDelegate();
             SetCellContentDelegate("ID", ContentDelegateID);
-            SetCellContentDelegate("Connected", ContentDelegateConnected);//Connected
             SetCellContentDelegate("FullName", ContentDelegateFullName);
             SetCellContentDelegate("UserName", ContentDelegateUserName);
             SetCellContentDelegate("Email", ContentDelegateEmail);
             SetCellContentDelegate("Avatar", ContentDelegateAvatar);
+			SetCellContentDelegate("Connected", ContentDelegateConnected);
         }
 
         public override void InitColumnsSortEnable()
@@ -102,12 +114,12 @@ namespace Tp1_Aps
         public override void InitColumnsTitles()
         {
             base.InitColumnsTitles();
-            SetColumnTitle("ID", "Id");
-            SetColumnTitle("Connected", "Connecté");
+            SetColumnTitle("ID", "Id");	 
             SetColumnTitle("UserName", "UserName");
             SetColumnTitle("FullName", "Nom complet");
             SetColumnTitle("Email", "Email");
             SetColumnTitle("Avatar", "Avatar");
+			SetColumnTitle("Connected", "Connecté");
         }
 
         System.Web.UI.WebControls.WebControl ContentDelegateID()

@@ -13,7 +13,7 @@ namespace Tp1_Aps
       {
           PersonnesTable user = new PersonnesTable((string)Application["MainDB"], this);
          user.SelectAll();
-         user.MakeGridView(PN_GridView, "UserName");
+		 user.MakeGridView(PN_ListerUtilisateur, "");
       }
       protected void BTN_Retour_Click(object sender, EventArgs e)
       {
