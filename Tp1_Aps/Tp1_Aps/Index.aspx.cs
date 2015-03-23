@@ -45,10 +45,21 @@ namespace Tp1_Aps
             Login.LogoutDate = DateTime.Now;
             Login.Insert();
 
+            PersonnesTable users = new PersonnesTable((string)Application["MainDB"], this);
+            users.SelectByUserName(Session["UserName"].ToString());
+            users.Connected = "0";
+            users.Update();
+
             Response.Redirect("Login.aspx");
 
         }
-
+        protected void Session_End(object sender, EventArgs e)
+        {
+            PersonnesTable users = new PersonnesTable((string)Application["MainDB"], this);
+            users.SelectByUserName(Session["UserName"].ToString());
+            users.Connected = "0";
+            users.Update();
+        }
 
     }
 }

@@ -85,12 +85,8 @@ hr {
 	top: 10px;
 }
 
-
-       .Tableau {
-            border-collapse: collapse;
-        }
-
         .Tableau:first-child td {
+            border-collapse: collapse;
             border: 1px solid black;
             font-family:Arial;
             font-size:12px;

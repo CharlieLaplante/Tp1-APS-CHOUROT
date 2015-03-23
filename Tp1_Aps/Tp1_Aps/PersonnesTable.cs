@@ -93,6 +93,7 @@ namespace Tp1_Aps
 		{
 			base.InitColumnsVisibility();
 			SetColumnVisibility("ID", false);
+            SetColumnVisibility("Password", false);
 		}
         public override void InitCellsContentDelegate()
         {

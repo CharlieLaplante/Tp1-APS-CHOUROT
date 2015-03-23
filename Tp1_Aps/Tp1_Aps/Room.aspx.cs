@@ -19,5 +19,11 @@ namespace Tp1_Aps
       {
          Response.Redirect("Index.aspx");
       }
+       protected void Timer1_Tick(object sender, EventArgs e)
+      {
+          PersonnesTable user = new PersonnesTable((string)Application["MainDB"], this);
+          user.SelectAll();
+          user.MakeGridView(PN_ListerUtilisateur, "");
+      }
    }
 }
