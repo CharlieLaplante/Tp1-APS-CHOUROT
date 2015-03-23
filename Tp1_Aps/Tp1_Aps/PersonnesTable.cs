@@ -82,6 +82,34 @@ namespace Tp1_Aps
             return reader.GetString(0);
         }
 
+        public override void InitCellsContentDelegate()
+        {
+            base.InitCellsContentDelegate();
+            SetCellContentDelegate("ID", ContentDelegateID);
+            SetCellContentDelegate("Connected", ContentDelegateConnected);//Connected
+            SetCellContentDelegate("FullName", ContentDelegateFullName);
+            SetCellContentDelegate("UserName", ContentDelegateUserName);
+            SetCellContentDelegate("Email", ContentDelegateEmail);
+            SetCellContentDelegate("Avatar", ContentDelegateAvatar);
+        }
+
+        public override void InitColumnsSortEnable()
+        {
+            base.InitColumnsSortEnable();
+            SetColumnSortEnable("UserName", false);
+        }
+
+        public override void InitColumnsTitles()
+        {
+            base.InitColumnsTitles();
+            SetColumnTitle("ID", "Id");
+            SetColumnTitle("Connected", "Connecté");
+            SetColumnTitle("UserName", "UserName");
+            SetColumnTitle("FullName", "Nom complet");
+            SetColumnTitle("Email", "Email");
+            SetColumnTitle("Avatar", "Avatar");
+        }
+
         System.Web.UI.WebControls.WebControl ContentDelegateID()
         {
             Label lbl = new Label();
