@@ -45,11 +45,6 @@ namespace Tp1_Aps
             Login.LogoutDate = DateTime.Now;
             Login.Insert();
 
-            RoomDgv roomDgv = new RoomDgv((String)Application["MainDB"], this);
-            roomDgv.ID = long.Parse(Session["UserId"].ToString());
-            roomDgv.Connected = "0";
-            roomDgv.Insert();
-
             Response.Redirect("Login.aspx");
 
         }

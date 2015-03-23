@@ -34,12 +34,8 @@ namespace Tp1_Aps
                     Session["UserName"] = users.UserName;
                     Session["StartTime"] = DateTime.Now;
                     Session["UserId"] = users.ID;
-
-                    RoomDgv roomDgv = new RoomDgv((String)Application["MainDB"], this);
-                    roomDgv.ID = users.ID;
-                    roomDgv.Connected = (1).ToString();
-                    roomDgv.Update();
-
+                    users.Connected = "1";
+                    users.Update();
                     Response.Redirect("Index.aspx");
                 }
                 else
