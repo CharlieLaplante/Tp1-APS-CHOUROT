@@ -11,7 +11,10 @@ namespace Tp1_Aps
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           if (!Page.IsPostBack)
+           {
+              Session["Page"] = this;
+           }
         }
         protected void BTN_Profil_Click(object sender, EventArgs e)
         {

@@ -22,10 +22,17 @@ namespace LABO_1
         }
         protected void Session_End(object sender, EventArgs e)
         {
-           PersonnesTable users = new PersonnesTable((string)Application["MainDB"], new System.Web.UI.Page());
-           users.SelectByUserName(Session["UserName"].ToString());
-           users.Connected = "0";
-           users.Update(); 
+           if(Session["Page"]!=null)
+           {
+              PersonnesTable users = new PersonnesTable((string)Application["MainDB"], (System.Web.UI.Page)Session["Page"]);
+              users.SelectByUserName(Session["UserName"].ToString());
+              users.Connected = "0";
+              users.Update();
+              Response.Redirect("Login.aspx");
+             
+           }
+           
+           
         }
 
     }
