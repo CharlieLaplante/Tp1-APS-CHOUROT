@@ -34,7 +34,7 @@ namespace Tp1_Aps
                     Session["UserName"] = users.UserName;
                     Session["StartTime"] = DateTime.Now;
                     Session["UserId"] = users.ID;
-                    users.Connected = "1";
+                    users.Connected = Session["Connecte"].ToString();
                     users.Update();
                     Response.Redirect("Index.aspx");
                 }
