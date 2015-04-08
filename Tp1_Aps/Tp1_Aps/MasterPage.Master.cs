@@ -15,10 +15,8 @@ namespace Tp1_Aps
 			LoadAccountAvatar();
 			LoadAccountName();
 			LoadPageTitle();
-         Session.Timeout = 1;
-		}
-
-
+         
+      }
 		protected void LoadPageTitle()
 		{
 			Label_PageTitle.Text = Path.GetFileName(Request.PhysicalPath).Substring(0,Path.GetFileName(Request.PhysicalPath).Length - 5);
