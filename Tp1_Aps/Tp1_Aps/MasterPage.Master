@@ -4,45 +4,47 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<link rel="stylesheet" href="FormStyles.css" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title></title>
-	<link rel="stylesheet" href="FormStyles.css" />
-	<script src="ClientFormUtilities.js"></script>
-	<asp:ContentPlaceHolder ID="head" runat="server">
-	</asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="FormStyles.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="FormStyles.css" />
+    <script src="ClientFormUtilities.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
-	<form id="form1" runat="server">
-		<div>
-			<table>
-				<tr>
-					<td>
-						<h1>
-							<asp:Label ID="Label_PageTitle" CssClass="MasterPageTitre" runat="server" Text="Page Title"></asp:Label>
-						</h1>
-					</td>
-					<td>
-						<h2>
-							<asp:Label ID="Label_FullName" CssClass="AccountFullname" runat="server" Text="Full Name"></asp:Label>
-						</h2>
-					</td>
-					<td>
-						<h3>
-							<asp:Image ID="IMG_Account" CssClass="UserAccountPicture" runat="server" ClientIDMode="Static" />
-						</h3>
-					</td>
-				</tr>
-			</table>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ScriptManager runat="server"></asp:ScriptManager>
+            <asp:Timer ID="Timer2" runat="server" Interval="20000" OnTick="Timer2_Tick"></asp:Timer>
+            <table>
+                <tr>
+                    <td>
+                        <h1>
+                            <asp:Label ID="Label_PageTitle" CssClass="MasterPageTitre" runat="server" Text="Page Title"></asp:Label>
+                        </h1>
+                    </td>
+                    <td>
+                        <h2>
+                            <asp:Label ID="Label_FullName" CssClass="AccountFullname" runat="server" Text="Full Name"></asp:Label>
+                        </h2>
+                    </td>
+                    <td>
+                        <h3>
+                            <asp:Image ID="IMG_Account" CssClass="UserAccountPicture" runat="server" ClientIDMode="Static" />
+                        </h3>
+                    </td>
+                </tr>
+            </table>
 
-		</div>
+        </div>
 
-		<hr />
+        <hr />
 
-		<div>
-			<asp:ContentPlaceHolder ID="Contain" runat="server">
-			</asp:ContentPlaceHolder>
-		</div>
-	</form>
+        <div>
+            <asp:ContentPlaceHolder ID="Contain" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
 </body>
 </html>

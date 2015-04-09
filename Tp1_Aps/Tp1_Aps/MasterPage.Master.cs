@@ -10,12 +10,13 @@ namespace Tp1_Aps
 {
 	public partial class MasterPage : System.Web.UI.MasterPage
 	{
+      int TickTimout = 0;//1 minutes
 		protected void Page_Load(object sender, EventArgs e)
 		{				
 			LoadAccountAvatar();
 			LoadAccountName();
 			LoadPageTitle();
-         
+         TickTimout = 0;
       }
 		protected void LoadPageTitle()
 		{
@@ -45,6 +46,18 @@ namespace Tp1_Aps
 				Label_FullName.Text = "";
 			}   			
 		}
+
+      protected void Timer2_Tick(object sender, EventArgs e)
+      {
+         TickTimout+=10;
+         if (TickTimout >=10/*60sec/1min*/)
+         {
+            TickTimout = 0;
+            Session.Abandon();
+            Session.Clear();
+            Response.Redirect("Login.aspx");
+         }
+      }
 
 	}
 }
