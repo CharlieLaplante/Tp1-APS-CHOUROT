@@ -49,14 +49,13 @@ namespace Tp1_Aps
 
       protected void Timer2_Tick(object sender, EventArgs e)
       {
-         TickTimout+=10;
-         if (TickTimout >=10/*60sec/1min*/)
-         {
+         //TickTimout+=10;
+         //if (TickTimout >=10/*60sec/1min*/)
+         //{
             TickTimout = 0;
             Session.Abandon();
-            Session.Clear();
             Response.Redirect("Login.aspx");
-         }
+         //}
       }
 
 	}
