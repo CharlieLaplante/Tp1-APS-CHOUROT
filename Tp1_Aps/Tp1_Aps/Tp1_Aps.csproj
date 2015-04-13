@@ -148,6 +148,7 @@
       <DependentUpon>Room.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlExpressUtilities.cs" />
+    <Compile Include="Thread.cs" />
     <Compile Include="ThreadsManager.aspx.cs">
       <DependentUpon>ThreadsManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

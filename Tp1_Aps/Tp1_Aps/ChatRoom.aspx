@@ -3,5 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contain" runat="server">
 
-
+    <div>     
+        <asp:Panel id="PN_ListeChat" class="Tableau" runat="server"></asp:Panel>
+    </div>
 </asp:Content>

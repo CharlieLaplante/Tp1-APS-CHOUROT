@@ -11,7 +11,9 @@ namespace Tp1_Aps
    {
       protected void Page_Load(object sender, EventArgs e)
       {
-
-      }
+         Thread ListeChat = new Thread((string)Application["MainDB"], this);
+         ListeChat.SelectTitle();
+         ListeChat.MakeGridView(PN_ListeChat, "");
+      }    
    }
 }
