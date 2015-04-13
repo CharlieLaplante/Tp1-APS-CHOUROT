@@ -22,6 +22,18 @@
                         <asp:Button ID="BTN_LoginsJournal" runat="server" Text="Journal des visites" class="submitBTN" OnClick="BTN_LoginsJournal_Click" />
                     </td>
                 </tr>
+                   <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Button ID="BTN_ThreadsManager" runat="server" Text="Gerer mes discussions" class="submitBTN" OnClick="BTN_ThreadsManager_Click" />
+                    </td>
+                </tr>
+                   <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Button ID="BTN_ChatRoom" runat="server" Text="Salle de discussion" class="submitBTN" OnClick="BTN_ChatRoom_Click" />
+                    </td>
+                </tr>
                  <tr>
                     <td>&nbsp;</td>
                     <td>

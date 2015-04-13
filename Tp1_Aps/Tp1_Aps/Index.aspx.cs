@@ -24,6 +24,15 @@ namespace Tp1_Aps
         {
             Response.Redirect("Room.aspx");
         }
+        protected void BTN_ChatRoom_Click(object sender, EventArgs e)
+        {
+           Response.Redirect("ChatRoom.aspx");
+
+        }
+        protected void BTN_ThreadsManager_Click(object sender, EventArgs e)
+        {
+           Response.Redirect("ThreadsManager.aspx");
+        }
         protected void BTN_LoginsJournal_Click(object sender, EventArgs e)
         {
             Response.Redirect("LoginsJournal.aspx");
