@@ -4,16 +4,33 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contain" runat="server">
     <div>
-        <table id="TMTable">
+        <table class="TMTable">
             <tr>
-                
+
                 <td>
                     <div>Liste de mes discussion</div>
-                    <asp:ListBox ID="LB_ListDiscussion" runat="server" Height="100px" Width="150px"></asp:ListBox></td>
+                    <asp:ListBox ID="LB_ListDiscussion" runat="server" Width="152px"></asp:ListBox>
+                    <br />
+                    <asp:Button ID="Button1" runat="server" Text="Button" />
+                    <br />
+                    <asp:Button ID="Button2" runat="server" Text="Button" />
+                    <br />
+                    <asp:Button ID="Button3" runat="server" Text="Button" />
+                    <br />
+                    <asp:Button ID="Button4" runat="server" Text="Button" />
+                </td>
+
                 <td>
                     <div>Titre de la discussion</div>
-                    <asp:TextBox ID="TB_NewDiscussionTitre" runat="server" Width="150px"></asp:TextBox>
+                    <asp:TextBox ID="TB_NewDiscussionTitre" runat="server" Width="145px"></asp:TextBox>
+                    <br />
                     <div>Sélection des invités</div>
+                    <asp:CheckBox ID="CB_Tout_le_monde" runat="server" />
+                    <panel id="TMPanel">
+
+                    </panel>
+                    <asp:CheckBoxList ID="CB_Liste" runat="server"></asp:CheckBoxList>
+                    </>
                 </td>
             </tr>
         </table>

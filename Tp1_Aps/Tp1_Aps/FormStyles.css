@@ -111,8 +111,8 @@ numeric{
     text-align:center;
 }
 /*Form thread menager*/
-.TMTable {
-    background-color:red;
-    vertical-align:bottom;
-    text-align:center;
+.TMTable td{
+    vertical-align:top;
+    background-color:yellow;
+    text-align:center:
 }
