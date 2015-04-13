@@ -84,15 +84,29 @@ hr {
 	right: 20px;
 	top: 10px;
 }
-
-        .Tableau:first-child td {
-            border-collapse: collapse;
-            border: 1px solid black;
-            font-family:Arial;
-            font-size:12px;
-            padding:5px;
-        }
-        .Tableau tr:first-child td {
-            color:black;
-            background-color:lightgray;
-        }
+/*Room connexion*/
+.Tableau:first-child td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-family:Arial;
+    font-size:12px;
+    padding:5px;
+    background-color:lightgray;
+}
+.Tableau tr:first-child td {
+    color:black;
+    background-color:gray;
+}
+.Tableau tr td{
+    border-width:2px;
+    border-color:black;
+    border-style:double;
+    background-color:lightgray;
+    vertical-align:middle;
+    text-align:center;
+}
+numeric{
+    background-color:yellow;
+    vertical-align:central;
+    text-align:center;
+}
