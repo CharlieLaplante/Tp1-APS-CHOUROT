@@ -20,5 +20,14 @@ namespace Tp1_Aps {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PN_ListeChat;
+        
+        /// <summary>
+        /// Contrôle PN_ListeMessage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PN_ListeMessage;
     }
 }

@@ -156,6 +156,7 @@
     <Compile Include="ThreadsManager.aspx.designer.cs">
       <DependentUpon>ThreadsManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Thread_Message.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Avatars\" />

@@ -33,12 +33,6 @@ namespace Tp1_Aps
          QuerySQL(sql);
          return reader.HasRows;
       }
-      public bool SelectTitle()
-      {
-         string sql = "Select Title from " + SQLTableName;
-         QuerySQL(sql);
-         return reader.HasRows;
-      }
 
 
    }
