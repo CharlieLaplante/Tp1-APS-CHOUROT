@@ -17,6 +17,10 @@ namespace Tp1_Aps
 			LoadAccountName();
 			LoadPageTitle();
          TickTimout = 0;
+         //if (Session["FullName"] == null)
+         //{
+         //   Response.Redirect("Login.aspx");
+         //}
       }
 		protected void LoadPageTitle()
 		{

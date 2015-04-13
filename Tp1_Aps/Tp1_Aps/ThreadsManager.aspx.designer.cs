@@ -76,6 +76,15 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.CheckBox CB_Tout_le_monde;
         
         /// <summary>
+        /// Contrôle CB_Scroll_Truc.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel CB_Scroll_Truc;
+        
+        /// <summary>
         /// Contrôle CB_Liste.
         /// </summary>
         /// <remarks>

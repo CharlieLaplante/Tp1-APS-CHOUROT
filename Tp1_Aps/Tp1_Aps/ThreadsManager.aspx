@@ -18,6 +18,7 @@
                     <asp:Button ID="Button3" runat="server" Text="Button" />
                     <br />
                     <asp:Button ID="Button4" runat="server" Text="Button" />
+                    <br />
                 </td>
 
                 <td>
@@ -26,11 +27,10 @@
                     <br />
                     <div>Sélection des invités</div>
                     <asp:CheckBox ID="CB_Tout_le_monde" runat="server" />
-                    <panel id="TMPanel">
-
-                    </panel>
-                    <asp:CheckBoxList ID="CB_Liste" runat="server"></asp:CheckBoxList>
-                    </>
+                    Tous les usagers
+                    <asp:Panel ID="CB_Scroll_Truc" runat="server">
+                        <asp:CheckBoxList ID="CB_Liste" runat="server"></asp:CheckBoxList>
+                    </asp:Panel>
                 </td>
             </tr>
         </table>

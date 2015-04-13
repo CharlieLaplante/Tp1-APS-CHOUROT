@@ -114,5 +114,6 @@ numeric{
 .TMTable td{
     vertical-align:top;
     background-color:yellow;
-    text-align:center:
+    text-align:center;
+    font-family:'Trebuchet MS';
 }
