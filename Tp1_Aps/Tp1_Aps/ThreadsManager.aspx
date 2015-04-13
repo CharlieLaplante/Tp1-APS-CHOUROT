@@ -6,8 +6,15 @@
     <div>
         <table id="TMTable">
             <tr>
-                <td>J<asp:ListBox ID="ListBox1" runat="server"></asp:ListBox></td>
-                <td>Smith</td>
+                
+                <td>
+                    <div>Liste de mes discussion</div>
+                    <asp:ListBox ID="LB_ListDiscussion" runat="server" Height="100px" Width="150px"></asp:ListBox></td>
+                <td>
+                    <div>Titre de la discussion</div>
+                    <asp:TextBox ID="TB_NewDiscussionTitre" runat="server" Width="150px"></asp:TextBox>
+                    <div>Sélection des invités</div>
+                </td>
             </tr>
         </table>
     </div>

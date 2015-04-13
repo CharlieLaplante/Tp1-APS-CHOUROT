@@ -37,3 +37,4 @@ C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dl
 C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
 C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
 C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
+C:\Users\201354694\Desktop\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.csprojResolveAssemblyReference.cache

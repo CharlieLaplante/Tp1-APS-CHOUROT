@@ -106,7 +106,13 @@ hr {
     text-align:center;
 }
 numeric{
-    background-color:yellow;
+    /*background-color:yellow;*/
     vertical-align:central;
+    text-align:center;
+}
+/*Form thread menager*/
+.TMTable {
+    background-color:red;
+    vertical-align:bottom;
     text-align:center;
 }
