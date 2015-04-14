@@ -11,6 +11,37 @@ namespace Tp1_Aps
    {
       protected void Page_Load(object sender, EventArgs e)
       {
+         
+      }
+
+      protected void BTN_Nouveau_Click(object sender, EventArgs e)
+      {
+         //inserer dans La BD
+         if (TB_NewDiscussionTitre.Text != "") // Ajouter si l'insertion de la BD est fait
+         {
+            ListItem
+            LB_ListDiscussion.Items.Add(TB_NewDiscussionTitre.Text);
+            TB_NewDiscussionTitre.Text = null;
+         }
+      }
+
+      protected void BTN_Modifier_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      protected void BTN_Effacer_Click(object sender, EventArgs e)
+      {
+         LB_ListDiscussion.Items.Remove(LB_ListDiscussion.SelectedItem);         
+      }
+
+      protected void BTN_Retour_Click(object sender, EventArgs e)
+      {
+         Response.Redirect("Index.aspx");
+      }
+
+      protected void CB_Liste_SelectedIndexChanged(object sender, EventArgs e)
+      {
 
       }
    }
