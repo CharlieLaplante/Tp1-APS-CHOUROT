@@ -22,40 +22,40 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.ListBox LB_ListDiscussion;
         
         /// <summary>
-        /// Contrôle Button1.
+        /// Contrôle BTN_Nouveau.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button BTN_Nouveau;
         
         /// <summary>
-        /// Contrôle Button2.
+        /// Contrôle BTN_Modifier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button BTN_Modifier;
         
         /// <summary>
-        /// Contrôle Button3.
+        /// Contrôle BTN_Effacer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button BTN_Effacer;
         
         /// <summary>
-        /// Contrôle Button4.
+        /// Contrôle BTN_Retour.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button BTN_Retour;
         
         /// <summary>
         /// Contrôle TB_NewDiscussionTitre.
@@ -65,24 +65,6 @@ namespace Tp1_Aps {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TB_NewDiscussionTitre;
-        
-        /// <summary>
-        /// Contrôle CB_Tout_le_monde.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CB_Tout_le_monde;
-        
-        /// <summary>
-        /// Contrôle CB_Scroll_Truc.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CB_Scroll_Truc;
         
         /// <summary>
         /// Contrôle CB_Liste.

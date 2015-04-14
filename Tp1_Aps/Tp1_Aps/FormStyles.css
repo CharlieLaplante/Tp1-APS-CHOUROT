@@ -113,7 +113,14 @@ numeric{
 /*Form thread menager*/
 .TMTable td{
     vertical-align:top;
-    background-color:yellow;
     text-align:center;
     font-family:'Trebuchet MS';
+}
+
+.TM_Button{
+    width:165px;
+}
+
+#CB_Liste{
+    text-align:left;
 }

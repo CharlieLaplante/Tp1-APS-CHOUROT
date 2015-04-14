@@ -9,28 +9,26 @@
 
                 <td>
                     <div>Liste de mes discussion</div>
-                    <asp:ListBox ID="LB_ListDiscussion" runat="server" Width="152px"></asp:ListBox>
+                    <asp:ListBox ID="LB_ListDiscussion" runat="server" Width="165px"></asp:ListBox>
                     <br />
-                    <asp:Button ID="Button1" runat="server" Text="Button" />
                     <br />
-                    <asp:Button ID="Button2" runat="server" Text="Button" />
+                    <asp:Button ID="BTN_Nouveau" CLASS="TM_Button" runat="server" Text="Nouveau..." OnClick="BTN_Nouveau_Click" />
                     <br />
-                    <asp:Button ID="Button3" runat="server" Text="Button" />
+                    <asp:Button ID="BTN_Modifier" CLASS="TM_Button" runat="server" Text="Modifier..." OnClick="BTN_Modifier_Click" />
                     <br />
-                    <asp:Button ID="Button4" runat="server" Text="Button" />
+                    <asp:Button ID="BTN_Effacer" CLASS="TM_Button" runat="server" Text="Effacer..." OnClick="BTN_Effacer_Click" />
+                    <br />
+                    <asp:Button ID="BTN_Retour" CLASS="TM_Button" runat="server" Text="Retour..." OnClick="BTN_Retour_Click" />
                     <br />
                 </td>
-
                 <td>
                     <div>Titre de la discussion</div>
                     <asp:TextBox ID="TB_NewDiscussionTitre" runat="server" Width="145px"></asp:TextBox>
                     <br />
-                    <div>Sélection des invités</div>
-                    <asp:CheckBox ID="CB_Tout_le_monde" runat="server" />
-                    Tous les usagers
-                    <asp:Panel ID="CB_Scroll_Truc" runat="server">
-                        <asp:CheckBoxList ID="CB_Liste" runat="server"></asp:CheckBoxList>
-                    </asp:Panel>
+                    <div>Sélection des invités</div>                   
+                    <asp:CheckBoxList ID="CB_Liste" runat="server" OnSelectedIndexChanged="CB_Liste_SelectedIndexChanged">
+                        <asp:ListItem Value="0">Tous les usagers</asp:ListItem>
+                    </asp:CheckBoxList>
                 </td>
             </tr>
         </table>
