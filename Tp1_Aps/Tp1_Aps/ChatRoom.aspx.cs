@@ -8,87 +8,182 @@ using System.Web.UI.WebControls;
 
 namespace Tp1_Aps
 {
-   public partial class ChatRoom : System.Web.UI.Page
-   {
-      
-      
-      protected void Page_Load(object sender, EventArgs e)
-      {
-         Thread ListeChat = new Thread((string)Application["MainDB"], this);
-         ListeChat.SelectAll();
-         MakeListeChat(ListeChat);               
+	public partial class ChatRoom : System.Web.UI.Page
+	{
 
-      } 
-      private void MakeListeChat(Thread t)
-      {
-         Table GridListeChat = new Table();
-         TableRow tr = new TableRow();
-         while (t.Next())
-         {
-            tr = new TableRow();
-            TableCell td = new TableCell();
-            Button bt = new Button();
-            bt.Click += new System.EventHandler(this.Btn_Room_Click);
-            bt.Text = SQLHelper.FromSql(t.FieldsValues[2]);
-            bt.ID = t.ID.ToString();
-            td.Controls.Add(bt);
-            tr.Cells.Add(td);
-            GridListeChat.Rows.Add(tr);  
-            
-         }
-         
-         PN_ListeChat.Controls.Clear();
 
-         if (GridListeChat != null)
-            PN_ListeChat.Controls.Add(GridListeChat);
-         t.EndQuerySQL();
-      }
+		protected void Page_Load(object sender, EventArgs e)
+		{
 
-      private void Btn_Room_Click(object sender, EventArgs e)
-      {
-         MakeChat(((Button)sender).ID);     
-      }
+			MakeListeChat();
+			MakeListeUser();
 
-      private void MakeChat(string ID)
-      {
-         Thread_Message ListeMessage = new Thread_Message((string)Application["MainDB"], this);
-         ListeMessage.SelectAll(ID);
+		}
+		private void MakeListeUser()
+		{
+			PersonnesTable ListeUser = new PersonnesTable((string)Application["MainDB"], this);
+			ListeUser.SelectAll();
 
-         Table GridListeMessage = new Table();
-         TableRow tr = new TableRow();
-         while (ListeMessage.Next())
-         {
-            tr = new TableRow();
-            for (int fieldIndex = 0; fieldIndex < ListeMessage.FieldsValues.Count; fieldIndex++)
-            {
-               if (ListeMessage.ColumnsVisibility[fieldIndex])
-               {
-                  TableCell td = new TableCell();               
-                     Type type = ListeMessage.FieldsTypes[fieldIndex];
-                     if (SQLHelper.IsNumericType(type))
-                     {
-                        td.Text = ListeMessage.FieldsValues[fieldIndex].ToString();                       
-                        td.CssClass = "numeric";
-                     }
-                     else
-                        if (type == typeof(DateTime))
-                           td.Text = DateTime.Parse(ListeMessage.FieldsValues[fieldIndex]).ToShortDateString();
-                        else
-                           td.Text = SQLHelper.FromSql(ListeMessage.FieldsValues[fieldIndex]);               
-                  tr.Cells.Add(td);
-               }
-               GridListeMessage.Rows.Add(tr);
-            }
-         }         
-         PN_ListeMessage.Controls.Clear();
+			Table GridListeUser = new Table();
+			TableRow tr = new TableRow();
+			while (ListeUser.Next())
+			{
+				tr = new TableRow();
+				for(int i= 0 ; i<=2 ; i++)
+				{ 
+					TableCell td = new TableCell();	 			
+					Label lb = new Label();	
+					if(i==0)
+					{
+						
+						Image imgc = new Image();
+						if (ListeUser.Connected == "1")
+						{
+							imgc.ImageUrl = "Images/Connected_True.png";
+						}
+						else
+						{
+							imgc.ImageUrl = "Images/Connected_False.png";
+						}
+						imgc.Width = imgc.Height = 48;
+						td.Controls.Add(imgc);
+						
+				    }
+					else if(i==1)
+					{
+						Image img = new Image();
+						if (ListeUser.Avatar != "")
+						{
+							img.ImageUrl = "Avatars/" + ListeUser.Avatar + ".png";
+						}
+						else
+						{
+							img.ImageUrl = "Images/Anonymous.png";
+						}
+						img.Width = img.Height = 40;
+						
+						td.Controls.Add(img);
+					}
+					else if(i==2)
+					{
+						lb.Text = SQLHelper.FromSql(ListeUser.UserName);
+						td.Controls.Add(lb);
+					}
+					
+					
+					tr.Cells.Add(td);
+				}
 
-         if (GridListeMessage != null)
-            PN_ListeMessage.Controls.Add(GridListeMessage);
-         ListeMessage.EndQuerySQL();
-               
-      }
+				GridListeUser.Rows.Add(tr);
 
-   }
+			}
+
+			PN_ListeUser.Controls.Clear();
+		
+
+			if (GridListeUser != null)
+				PN_ListeUser.Controls.Add(GridListeUser);
+			ListeUser.EndQuerySQL();
+		}
+		protected void Timer1_Tick(object sender, EventArgs e)
+		{
+			MakeListeChat();
+			MakeListeUser();
+		}
+
+		private void MakeListeChat()
+		{
+			Thread ListeChat = new Thread((string)Application["MainDB"], this);
+			ListeChat.SelectAll();
+			Table GridListeChat = new Table();
+			TableRow tr = new TableRow();
+			while (ListeChat.Next())
+			{
+				tr = new TableRow();
+				TableCell td = new TableCell();
+				Button bt = new Button();
+				bt.Click += new System.EventHandler(this.Btn_Room_Click);
+				bt.Text = SQLHelper.FromSql(ListeChat.FieldsValues[2]);
+				bt.ID = ListeChat.ID.ToString();
+				td.Controls.Add(bt);
+				tr.Cells.Add(td);
+				GridListeChat.Rows.Add(tr);
+
+			}
+
+			PN_ListeChat.Controls.Clear();
+
+			if (GridListeChat != null)
+				PN_ListeChat.Controls.Add(GridListeChat);
+			ListeChat.EndQuerySQL();
+		}
+
+		private void Btn_Room_Click(object sender, EventArgs e)
+		{
+			MakeChat(((Button)sender).ID);
+		}
+
+		private void MakeChat(string ID)
+		{
+			Thread_Message ListeMessage = new Thread_Message((string)Application["MainDB"], this);
+			ListeMessage.SelectAll(ID);
+
+			Table GridListeMessage = new Table();
+			TableRow tr = new TableRow();
+			while (ListeMessage.Next())
+			{
+				tr = new TableRow();
+				for (int fieldIndex = 0; fieldIndex < ListeMessage.FieldsValues.Count; fieldIndex++)
+				{
+					if (ListeMessage.ColumnsVisibility[fieldIndex])
+					{
+						TableCell td = new TableCell();
+						Type type = ListeMessage.FieldsTypes[fieldIndex];
+						if (SQLHelper.IsNumericType(type))
+						{
+							td.Text = ListeMessage.FieldsValues[fieldIndex].ToString();
+							td.CssClass = "numeric";
+						}
+						else
+							if (type == typeof(DateTime))
+								td.Text = DateTime.Parse(ListeMessage.FieldsValues[fieldIndex]).ToShortDateString();
+							else
+								if(fieldIndex==0)
+								{
+
+								   Image img = new Image();
+								   if (ListeMessage.Avatar != "")
+								   {
+								   	img.ImageUrl = "Avatars/" + ListeMessage.Avatar + ".png";
+								   }
+								   else
+								   {
+								   	img.ImageUrl = "Images/Anonymous.png";
+								   }
+								   img.Width = img.Height = 40;
+								   td.Controls.Add(img);
+								}
+						        else  
+								{
+								    td.Text = SQLHelper.FromSql(ListeMessage.FieldsValues[fieldIndex]);
+								
+								}				    
+										
+
+						tr.Cells.Add(td);
+					}
+					GridListeMessage.Rows.Add(tr);
+				}
+			}
+			PN_ListeMessage.Controls.Clear();
+
+			if (GridListeMessage != null)
+				PN_ListeMessage.Controls.Add(GridListeMessage);
+			ListeMessage.EndQuerySQL();
+
+		}
+
+	}
 
 
 

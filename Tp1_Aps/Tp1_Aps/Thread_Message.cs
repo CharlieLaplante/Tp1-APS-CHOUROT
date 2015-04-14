@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace Tp1_Aps
 {
@@ -42,6 +43,33 @@ namespace Tp1_Aps
           QuerySQL(sql);
           return reader.HasRows;
        }
+	   public override void InitCellsContentDelegate()
+	   {
+		   base.InitCellsContentDelegate();
+		   SetCellContentDelegate("UserName", ContentDelegateUserName);			  
+		   SetCellContentDelegate("Avatar", ContentDelegateAvatar);
+	   }
+	   System.Web.UI.WebControls.WebControl ContentDelegateUserName()
+	   {
+		   Label lbl = new Label();
+		   lbl.Text = UserName;
+		   return lbl;
+	   }
+	   System.Web.UI.WebControls.WebControl ContentDelegateAvatar()
+	   {
+		   Image img = new Image();
+
+		   if (Avatar != "")
+		   {
+			   img.ImageUrl = "Avatars/" + Avatar + ".png";
+		   }
+		   else
+		   {
+			   img.ImageUrl = "Images/Anonymous.png";
+		   }
+		   img.Width = img.Height = 40;
+		   return img;
+	   }
 
 
    }

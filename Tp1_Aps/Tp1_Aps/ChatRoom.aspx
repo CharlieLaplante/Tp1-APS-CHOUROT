@@ -11,6 +11,11 @@
             <td>
                 <asp:Panel id="PN_ListeMessage" class="Tableau" runat="server"></asp:Panel>
             </td>
+			 <td>
+                 <asp:Panel id="PN_ListeUser" class="Tableau" runat="server"></asp:Panel>
+				 <asp:Timer ID="Timer1" runat="server" Interval="3000" ontick="Timer1_Tick"></asp:Timer>
+                 <asp:UpdatePanel ID="UpdatePanel1" class="Tableau" runat="server" UpdateMode="Conditional"></asp:UpdatePanel>    
+            </td>
         </tr>       
     </table>         
 

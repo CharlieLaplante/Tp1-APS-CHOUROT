@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 
@@ -32,7 +33,7 @@ namespace Tp1_Aps
             sql += " ORDER BY " + orderBy;
          QuerySQL(sql);
          return reader.HasRows;
-      }
+      }	   	
 
 
    }
