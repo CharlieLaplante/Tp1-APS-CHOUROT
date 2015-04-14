@@ -125,3 +125,7 @@ numeric{
     text-align:left;
     background-color:yellow;
 }
+
+.ChatBox{
+    width : 270px;
+    height: 50px;
