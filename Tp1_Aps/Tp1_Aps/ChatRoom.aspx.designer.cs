@@ -13,6 +13,24 @@ namespace Tp1_Aps {
     public partial class ChatRoom {
         
         /// <summary>
+        /// Contrôle Timer1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.Timer Timer1;
+        
+        /// <summary>
+        /// Contrôle UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// Contrôle PN_ListeChat.
         /// </summary>
         /// <remarks>
@@ -40,21 +58,30 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.Panel PN_ListeUser;
         
         /// <summary>
-        /// Contrôle Timer1.
+        /// Contrôle BTN_Return.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.Timer Timer1;
+        protected global::System.Web.UI.WebControls.Button BTN_Return;
         
         /// <summary>
-        /// Contrôle UpdatePanel1.
+        /// Contrôle TB_ChatBox.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.TextBox TB_ChatBox;
+        
+        /// <summary>
+        /// Contrôle BTN_Envoyez.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BTN_Envoyez;
     }
 }
