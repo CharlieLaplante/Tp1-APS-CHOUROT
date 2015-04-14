@@ -26,7 +26,7 @@
                     <asp:TextBox ID="TB_NewDiscussionTitre" runat="server" Width="145px"></asp:TextBox>
                     <br />
                     <div>Sélection des invités</div>                   
-                    <asp:CheckBoxList ID="CB_Liste" runat="server" OnSelectedIndexChanged="CB_Liste_SelectedIndexChanged">
+                    <asp:CheckBoxList CLASS="TM_list" ID="CB_Liste" runat="server" OnSelectedIndexChanged="CB_Liste_SelectedIndexChanged" TextAlign="Left">
                         <asp:ListItem Value="0">Tous les usagers</asp:ListItem>
                     </asp:CheckBoxList>
                 </td>

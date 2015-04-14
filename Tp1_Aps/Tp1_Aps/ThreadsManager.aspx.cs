@@ -19,9 +19,11 @@ namespace Tp1_Aps
          //inserer dans La BD
          if (TB_NewDiscussionTitre.Text != "") // Ajouter si l'insertion de la BD est fait
          {
-            ListItem
-            LB_ListDiscussion.Items.Add(TB_NewDiscussionTitre.Text);
+            ListItem nouvelleitem = new ListItem(TB_NewDiscussionTitre.Text,"0");
+            LB_ListDiscussion.Items.Add(nouvelleitem);
             TB_NewDiscussionTitre.Text = null;
+
+            CB_Liste.Items.Add(nouvelleitem);
          }
       }
 

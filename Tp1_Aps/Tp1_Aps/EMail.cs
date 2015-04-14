@@ -52,7 +52,7 @@ namespace Tp1_Aps
                     errorMessage += ex2.ToString();
                     ex2 = ex2.InnerException;
                 }
-                HttpContext.Current.Response.Write(errorMessage);
+                //HttpContext.Current.Response.Write(errorMessage);
             }
             return success;
         }
