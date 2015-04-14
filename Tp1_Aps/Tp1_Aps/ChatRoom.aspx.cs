@@ -10,12 +10,12 @@ namespace Tp1_Aps
 {
 	public partial class ChatRoom : System.Web.UI.Page
 	{
-
-
 		protected void Page_Load(object sender, EventArgs e)
 		{
 
 			MakeListeChat();
+         if(Session["IDThread"]!=null)
+         MakeChat(Session["IDThread"].ToString());
 			MakeListeUser();
 
 		}
@@ -88,8 +88,15 @@ namespace Tp1_Aps
 		protected void Timer1_Tick(object sender, EventArgs e)
 		{
 			MakeListeChat();
+         if (Session["IDThread"] != null)
+         MakeChat(Session["IDThread"].ToString());
 			MakeListeUser();
+
 		}
+      protected void BTN_Return_Click(object sender, EventArgs e)
+      {
+         Response.Redirect("Index.aspx");
+      }
 
 		private void MakeListeChat()
 		{
@@ -103,6 +110,7 @@ namespace Tp1_Aps
 				TableCell td = new TableCell();
 				Button bt = new Button();
 				bt.Click += new System.EventHandler(this.Btn_Room_Click);
+            
 				bt.Text = SQLHelper.FromSql(ListeChat.FieldsValues[2]);
 				bt.ID = ListeChat.ID.ToString();
 				td.Controls.Add(bt);
@@ -120,8 +128,30 @@ namespace Tp1_Aps
 
 		private void Btn_Room_Click(object sender, EventArgs e)
 		{
-			MakeChat(((Button)sender).ID);
+         Session["IDThread"] = ((Button)sender).ID;
 		}
+      protected void BTN_Envoyez_Click(object sender, EventArgs e)
+      {
+         if (Page.IsValid)
+         {
+            SendMessage();           
+         }
+      }
+
+      public void SendMessage()
+      {
+         Thread_Message Message = new Thread_Message((String)Application["MainDB"], this);
+         if(Session["IDThread"]!= null)
+         {
+            Message.Thread_Id = long.Parse(Session["IDThread"].ToString());
+            Message.User_Id = (long)Session["UserId"];
+            Message.Date_Of_Creation = DateTime.Now;
+            Message.Message = TB_ChatBox.Text;
+            Message.Insert();
+            MakeChat(Session["IDThread"].ToString());
+         }
+        
+      }
 
 		private void MakeChat(string ID)
 		{
@@ -138,41 +168,38 @@ namespace Tp1_Aps
 					if (ListeMessage.ColumnsVisibility[fieldIndex])
 					{
 						TableCell td = new TableCell();
-						Type type = ListeMessage.FieldsTypes[fieldIndex];
-						if (SQLHelper.IsNumericType(type))
-						{
-							td.Text = ListeMessage.FieldsValues[fieldIndex].ToString();
-							td.CssClass = "numeric";
-						}
-						else
+						Type type = ListeMessage.FieldsTypes[fieldIndex];						
 							if (type == typeof(DateTime))
-								td.Text = DateTime.Parse(ListeMessage.FieldsValues[fieldIndex]).ToShortDateString();
+                     {
+	                     td.Text = DateTime.Parse(ListeMessage.FieldsValues[fieldIndex]).ToShortDateString();
+                     }							
 							else
-								if(fieldIndex==0)
-								{
+                     {
+	                        if(fieldIndex==1)
+								   {
 
-								   Image img = new Image();
-								   if (ListeMessage.Avatar != "")
-								   {
-								   	img.ImageUrl = "Avatars/" + ListeMessage.Avatar + ".png";
+								      Image img = new Image();
+								      if (ListeMessage.Avatar != "")
+								      {
+								   	   img.ImageUrl = "Avatars/" + ListeMessage.Avatar + ".png";
+								      }
+								      else
+								      {
+								   	   img.ImageUrl = "Images/Anonymous.png";
+								      }
+								      img.Width = img.Height = 40;
+								      td.Controls.Add(img);
 								   }
-								   else
+						           else  
 								   {
-								   	img.ImageUrl = "Images/Anonymous.png";
-								   }
-								   img.Width = img.Height = 40;
-								   td.Controls.Add(img);
-								}
-						        else  
-								{
-								    td.Text = SQLHelper.FromSql(ListeMessage.FieldsValues[fieldIndex]);
+								       td.Text = SQLHelper.FromSql(ListeMessage.FieldsValues[fieldIndex]);
 								
-								}				    
-										
-
-						tr.Cells.Add(td);
+								   }	
+                     }
+                  tr.Cells.Add(td);
+                  GridListeMessage.Rows.Add(tr);
 					}
-					GridListeMessage.Rows.Add(tr);
+				
 				}
 			}
 			PN_ListeMessage.Controls.Clear();
@@ -183,8 +210,5 @@ namespace Tp1_Aps
 
 		}
 
-	}
-
-
-
+	} 
 }

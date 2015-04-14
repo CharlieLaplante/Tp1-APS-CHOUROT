@@ -30,11 +30,13 @@ namespace Tp1_Aps
 
        public override void GetValues()
        {
-          ID = long.Parse(FieldsValues[0]);      
-          Avatar = FieldsValues[1];          
-          UserName = FieldsValues[2];
-          Date_Of_Creation = DateTime.Parse(FieldsValues[3]);
-          Message = FieldsValues[4];
+          ID = long.Parse(this["ID"]);
+          Avatar = this["AVATAR"];
+          UserName = this["Username"]; ;
+          Date_Of_Creation = DateTime.Parse(this["Date_Of_Creation"]); ;
+          Message = this["Message"];
+          Thread_Id = long.Parse(this["Thread_Id"]);
+          User_Id = long.Parse(this["User_Id"]);
        }
        public override bool SelectAll(string Thread_id)
        {
@@ -42,6 +44,10 @@ namespace Tp1_Aps
        
           QuerySQL(sql);
           return reader.HasRows;
+       }
+       public override void Insert()
+       {
+          InsertRecord(Thread_Id, User_Id, Date_Of_Creation, Message);
        }
 	   public override void InitCellsContentDelegate()
 	   {

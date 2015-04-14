@@ -117,3 +117,8 @@ numeric{
     text-align:center;
     font-family:'Trebuchet MS';
 }
+
+.ChatBox{
+    width : 270px;
+    height: 50px;
+}

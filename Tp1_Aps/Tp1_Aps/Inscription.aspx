@@ -14,7 +14,8 @@
 								<label for="TB_FullName" class='label'>Nom Complet:</label>
 							</td>
 							<td>
-								<asp:TextBox ID="TB_FullName" name="TB_FullName" runat="server" CssClass="textbox"
+								<asp:TextBox ID="TB_FullName" name="TB_FullName" runat="server" CssClass="
+                                    "
 									onkeyup="ConstrainToAlpha(event);"> </asp:TextBox>
 							</td>
 						</tr>
