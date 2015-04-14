@@ -20,7 +20,7 @@ namespace LABO_1
         protected void Session_Start(object sender, EventArgs e)
         {
            Session["Connecte"] = "1";
-           Session.Timeout = 1;
+           Session.Timeout = 2;
            Session["IpAdresse"] = GetUserIP();
         }
         protected void Session_End(object sender, EventArgs e)

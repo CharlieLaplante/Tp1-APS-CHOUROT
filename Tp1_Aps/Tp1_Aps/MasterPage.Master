@@ -16,7 +16,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:ScriptManager runat="server"></asp:ScriptManager>
-            <asp:Timer ID="Timer2" runat="server" Interval="59000" OnTick="Timer2_Tick"></asp:Timer>
+            <asp:Timer ID="Timer2" runat="server" Interval="119000" OnTick="Timer2_Tick"></asp:Timer>
             <table>
                 <tr>
                     <td>
