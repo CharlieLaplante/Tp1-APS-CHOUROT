@@ -12,13 +12,15 @@ namespace Tp1_Aps
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
-			MakeListeChat();
-         if(Session["IDThread"]!=null)
-         MakeChat(Session["IDThread"].ToString());
-			MakeListeUser();
-
+         LoadPanel();
 		}
+      private void LoadPanel()
+      {
+         MakeListeChat();
+         if (Session["IDThread"] != null)
+            MakeChat(Session["IDThread"].ToString());
+         MakeListeUser();
+      }
 		private void MakeListeUser()
 		{
 			PersonnesTable ListeUser = new PersonnesTable((string)Application["MainDB"], this);
@@ -86,16 +88,12 @@ namespace Tp1_Aps
 			ListeUser.EndQuerySQL();
 		}
 		protected void Timer1_Tick(object sender, EventArgs e)
-		{
-			MakeListeChat();
-         if (Session["IDThread"] != null)
-         MakeChat(Session["IDThread"].ToString());
-			MakeListeUser();
+		{ 
 
 		}
       protected void BTN_Return_Click(object sender, EventArgs e)
       {
-         Response.Redirect("Index.aspx");
+         Response.Redirect("Index.aspx");        
       }
 
 		private void MakeListeChat()
@@ -116,9 +114,7 @@ namespace Tp1_Aps
 				td.Controls.Add(bt);
 				tr.Cells.Add(td);
 				GridListeChat.Rows.Add(tr);
-
-			}
-
+         }
 			PN_ListeChat.Controls.Clear();
 
 			if (GridListeChat != null)
@@ -129,6 +125,8 @@ namespace Tp1_Aps
 		private void Btn_Room_Click(object sender, EventArgs e)
 		{
          Session["IDThread"] = ((Button)sender).ID;
+         LoadPanel();
+        
 		}
       protected void BTN_Envoyez_Click(object sender, EventArgs e)
       {
@@ -147,11 +145,29 @@ namespace Tp1_Aps
             Message.User_Id = (long)Session["UserId"];
             Message.Date_Of_Creation = DateTime.Now;
             Message.Message = TB_ChatBox.Text;
-            Message.Insert();
+            Message.Insert();     
             MakeChat(Session["IDThread"].ToString());
-         }
-        
+         }        
       }
+
+      private void DeleteMessage(string ID)
+      {
+         Thread_Message MessageToDelete = new Thread_Message((String)Application["MainDB"], this);
+         if (Session["IDThread"] != null)
+         {
+            MessageToDelete.SelectAll(Session["IDThread"].ToString());
+            MessageToDelete.DeleteRecordByID(ID);
+         }
+      }
+
+      protected void BTN_Delete_Message_Click(Object sender, EventArgs e)
+      {
+         ImageButton ib = ((ImageButton)sender);
+         string ID = ib.ID.Substring(ib.ID.IndexOf("_") + 1);
+         DeleteMessage(ID);
+         LoadPanel();
+      }
+
 
 		private void MakeChat(string ID)
 		{
@@ -160,24 +176,25 @@ namespace Tp1_Aps
 
 			Table GridListeMessage = new Table();
 			TableRow tr = new TableRow();
+         
 			while (ListeMessage.Next())
 			{
 				tr = new TableRow();
+            TableCell td = new TableCell();
 				for (int fieldIndex = 0; fieldIndex < ListeMessage.FieldsValues.Count; fieldIndex++)
 				{
 					if (ListeMessage.ColumnsVisibility[fieldIndex])
 					{
-						TableCell td = new TableCell();
+						 td = new TableCell();
 						Type type = ListeMessage.FieldsTypes[fieldIndex];						
 							if (type == typeof(DateTime))
                      {
-	                     td.Text = DateTime.Parse(ListeMessage.FieldsValues[fieldIndex]).ToShortDateString();
+	                     td.Text = DateTime.Parse(ListeMessage.FieldsValues[fieldIndex]).ToShortDateString();                                        
                      }							
 							else
                      {
-	                        if(fieldIndex==1)
+	                        if(fieldIndex==5)
 								   {
-
 								      Image img = new Image();
 								      if (ListeMessage.Avatar != "")
 								      {
@@ -195,12 +212,26 @@ namespace Tp1_Aps
 								       td.Text = SQLHelper.FromSql(ListeMessage.FieldsValues[fieldIndex]);
 								
 								   }	
-                     }
+                     }  
+                    tr.Cells.Add(td);               
+					}			
+				} 
+            if (long.Parse(ListeMessage.FieldsValues[3]) == long.Parse(Session["UserId"].ToString()))
+               {
+                  td = new TableCell();
+                  ImageButton BTN_Delete_Message = new ImageButton();
+                  BTN_Delete_Message.Height = 16;
+                  BTN_Delete_Message.Width = 16;
+                  BTN_Delete_Message.Click += new ImageClickEventHandler(BTN_Delete_Message_Click);
+
+                  BTN_Delete_Message.ImageUrl = @"~/Images/Delete.png";
+
+
+                  BTN_Delete_Message.ID = "Delete_" + ListeMessage.ID;
+                  td.Controls.Add(BTN_Delete_Message);
                   tr.Cells.Add(td);
-                  GridListeMessage.Rows.Add(tr);
-					}
-				
-				}
+               }    
+               GridListeMessage.Rows.Add(tr);  
 			}
 			PN_ListeMessage.Controls.Clear();
 

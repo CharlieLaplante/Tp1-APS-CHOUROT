@@ -529,6 +529,7 @@ namespace SqlExpressUtilities
             lb.Click += new EventHandler(ID_Click);
             return lb;
         }
+  
 
         // Gestionnaire du clic sur les icônes qui commandent un tri sur un champ
         protected void SortField_Click(Object sender, EventArgs e)

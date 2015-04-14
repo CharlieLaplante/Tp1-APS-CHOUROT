@@ -10,20 +10,18 @@
             <asp:AsyncPostBackTrigger ControlID ="Timer1" EventName ="Tick"/>
          </Triggers>           
          <ContentTemplate>
-        <table>
-    
+        <table>    
             <tr>
                 <td>
-                    <asp:Panel id="PN_ListeChat" class="Tableau" runat="server"></asp:Panel>
+                    <asp:Panel id="PN_ListeChat" class="Tableau" runat="server" style="overflow-y: auto; height: 300px; width: 100%;"></asp:Panel>
                 </td>
                 <td>
-                    <asp:Panel id="PN_ListeMessage" class="Tableau" runat="server"></asp:Panel>
+                    <asp:Panel id="PN_ListeMessage" class="Tableau" runat="server" style="overflow-y: auto; height: 300px; width: 100%;"></asp:Panel>
                 </td>
 			     <td>
-                     <asp:Panel id="PN_ListeUser" class="Tableau" runat="server"></asp:Panel>				   
+                     <asp:Panel id="PN_ListeUser" class="Tableau" runat="server" style="overflow-y: auto; height: 300px; width: 100%;"></asp:Panel>				   
                 </td> 
-            </tr>  
-                 
+            </tr>                
         </table>
 
          </ContentTemplate>

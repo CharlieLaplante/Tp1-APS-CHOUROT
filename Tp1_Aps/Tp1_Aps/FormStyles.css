@@ -41,7 +41,7 @@ div.ui-datepicker {
 }
 
 .submitBTN {
-	width: 125px;
+	width: 100%;
 	padding: 3px;
 	height: 25px;
 }
