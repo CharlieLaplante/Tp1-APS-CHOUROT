@@ -8,12 +8,20 @@ using System.Web.UI.WebControls;
 
 namespace Tp1_Aps
 {
-	public partial class ChatRoom : System.Web.UI.Page
-	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
+   public partial class ChatRoom : System.Web.UI.Page
+   {
+      protected void Page_Load(object sender, EventArgs e)
+      {
          LoadPanel();
-		}
+         if (Session["ModifierButton"] != null)
+         {
+             BTN_Envoyez.Text = Session["ModifierButton"].ToString();
+         }           
+         else
+         {
+            Session["ModifierButton"] = "Envoyer";
+         }
+      }
       private void LoadPanel()
       {
          MakeListeChat();
@@ -21,133 +29,153 @@ namespace Tp1_Aps
             MakeChat(Session["IDThread"].ToString());
          MakeListeUser();
       }
-		private void MakeListeUser()
-		{
-			PersonnesTable ListeUser = new PersonnesTable((string)Application["MainDB"], this);
-			ListeUser.SelectAll();
+      private void MakeListeUser()
+      {
+         PersonnesTable ListeUser = new PersonnesTable((string)Application["MainDB"], this);
+         ListeUser.SelectAll();
 
-			Table GridListeUser = new Table();
-			TableRow tr = new TableRow();
-			while (ListeUser.Next())
-			{
-				tr = new TableRow();
-				for(int i= 0 ; i<=2 ; i++)
-				{ 
-					TableCell td = new TableCell();	 			
-					Label lb = new Label();	
-					if(i==0)
-					{
-						
-						Image imgc = new Image();
-						if (ListeUser.Connected == "1")
-						{
-							imgc.ImageUrl = "Images/Connected_True.png";
-						}
-						else
-						{
-							imgc.ImageUrl = "Images/Connected_False.png";
-						}
-						imgc.Width = imgc.Height = 48;
-						td.Controls.Add(imgc);
-						
-				    }
-					else if(i==1)
-					{
-						Image img = new Image();
-						if (ListeUser.Avatar != "")
-						{
-							img.ImageUrl = "Avatars/" + ListeUser.Avatar + ".png";
-						}
-						else
-						{
-							img.ImageUrl = "Images/Anonymous.png";
-						}
-						img.Width = img.Height = 40;
-						
-						td.Controls.Add(img);
-					}
-					else if(i==2)
-					{
-						lb.Text = SQLHelper.FromSql(ListeUser.UserName);
-						td.Controls.Add(lb);
-					}
-					
-					
-					tr.Cells.Add(td);
-				}
+         Table GridListeUser = new Table();
+         TableRow tr = new TableRow();
+         while (ListeUser.Next())
+         {
+            tr = new TableRow();
+            for (int i = 0; i <= 2; i++)
+            {
+               TableCell td = new TableCell();
+               Label lb = new Label();
+               if (i == 0)
+               {
 
-				GridListeUser.Rows.Add(tr);
+                  Image imgc = new Image();
+                  if (ListeUser.Connected == "1")
+                  {
+                     imgc.ImageUrl = "Images/Connected_True.png";
+                  }
+                  else
+                  {
+                     imgc.ImageUrl = "Images/Connected_False.png";
+                  }
+                  imgc.Width = imgc.Height = 48;
+                  td.Controls.Add(imgc);
 
-			}
+               }
+               else if (i == 1)
+               {
+                  Image img = new Image();
+                  if (ListeUser.Avatar != "")
+                  {
+                     img.ImageUrl = "Avatars/" + ListeUser.Avatar + ".png";
+                  }
+                  else
+                  {
+                     img.ImageUrl = "Images/Anonymous.png";
+                  }
+                  img.Width = img.Height = 40;
 
-			PN_ListeUser.Controls.Clear();
-		
+                  td.Controls.Add(img);
+               }
+               else if (i == 2)
+               {
+                  lb.Text = SQLHelper.FromSql(ListeUser.UserName);
+                  td.Controls.Add(lb);
+               }
 
-			if (GridListeUser != null)
-				PN_ListeUser.Controls.Add(GridListeUser);
-			ListeUser.EndQuerySQL();
-		}
-		protected void Timer1_Tick(object sender, EventArgs e)
-		{ 
 
-		}
+               tr.Cells.Add(td);
+            }
+
+            GridListeUser.Rows.Add(tr);
+
+         }
+
+         PN_ListeUser.Controls.Clear();
+
+
+         if (GridListeUser != null)
+            PN_ListeUser.Controls.Add(GridListeUser);
+         ListeUser.EndQuerySQL();
+      }
+      protected void Timer1_Tick(object sender, EventArgs e)
+      {
+
+      }
       protected void BTN_Return_Click(object sender, EventArgs e)
       {
-         Response.Redirect("Index.aspx");        
+         Response.Redirect("Index.aspx");
       }
 
-		private void MakeListeChat()
-		{
-			Thread ListeChat = new Thread((string)Application["MainDB"], this);
-			ListeChat.SelectAll();
-			Table GridListeChat = new Table();
-			TableRow tr = new TableRow();
-			while (ListeChat.Next())
-			{
-				tr = new TableRow();
-				TableCell td = new TableCell();
-				Button bt = new Button();
-				bt.Click += new System.EventHandler(this.Btn_Room_Click);
-            
-				bt.Text = ListeChat.Title;
-				bt.ID = ListeChat.ID.ToString();
-				td.Controls.Add(bt);
-				tr.Cells.Add(td);
-				GridListeChat.Rows.Add(tr);
+      private void MakeListeChat()
+      {
+         Thread ListeChat = new Thread((string)Application["MainDB"], this);
+         ListeChat.SelectAll();
+         Table GridListeChat = new Table();
+         TableRow tr = new TableRow();
+         while (ListeChat.Next())
+         {
+            tr = new TableRow();
+            TableCell td = new TableCell();
+            Button bt = new Button();
+            bt.Click += new System.EventHandler(this.Btn_Room_Click);
+
+            bt.Text = ListeChat.Title;
+            bt.ID = ListeChat.ID.ToString();
+            td.Controls.Add(bt);
+            tr.Cells.Add(td);
+            GridListeChat.Rows.Add(tr);
          }
-			PN_ListeChat.Controls.Clear();
+         PN_ListeChat.Controls.Clear();
 
-			if (GridListeChat != null)
-				PN_ListeChat.Controls.Add(GridListeChat);
-			ListeChat.EndQuerySQL();
-		}
+         if (GridListeChat != null)
+            PN_ListeChat.Controls.Add(GridListeChat);
+         ListeChat.EndQuerySQL();
+      }
 
-		private void Btn_Room_Click(object sender, EventArgs e)
-		{
+      private void Btn_Room_Click(object sender, EventArgs e)
+      {
          Session["IDThread"] = ((Button)sender).ID;
          LoadPanel();
-        
-		}
+
+      }
       protected void BTN_Envoyez_Click(object sender, EventArgs e)
       {
          if (Page.IsValid)
          {
-            SendMessage();           
+            SendMessage();
          }
       }
 
       public void SendMessage()
       {
          Thread_Message Message = new Thread_Message((String)Application["MainDB"], this);
-         if(Session["IDThread"]!= null)
+
+         if (Session["ModifierButton"] != null)
          {
-            Message.Thread_Id = long.Parse(Session["IDThread"].ToString());
-            Message.User_Id = (long)Session["UserId"];
-            Message.Date_Of_Creation = DateTime.Now;
-            Message.Message = TB_ChatBox.Text;
-            Message.Insert();     
-            MakeChat(Session["IDThread"].ToString());
-         }        
+            if (Session["ModifierButton"].ToString() == "Modifier")
+            {
+               if (Session["IDQuestionModifier"] != null)
+               {
+                  Message.SelectByID(Session["IDQuestionModifier"].ToString());
+                  Message.Date_Of_Creation = DateTime.Now;
+                  Message.Message = TB_ChatBox.Text;
+                  Message.Update();
+                  Session["ModifierButton"] = "Envoyer";
+               }
+            }
+            else
+            {
+               if (Session["IDThread"] != null)
+               {
+                  Message.Thread_Id = long.Parse(Session["IDThread"].ToString());
+                  Message.User_Id = (long)Session["UserId"];
+                  Message.Date_Of_Creation = DateTime.Now;
+                  Message.Message = TB_ChatBox.Text;
+                  Message.Insert();
+                  MakeChat(Session["IDThread"].ToString());
+                  Session["Message"] = "";
+               }
+            }
+         }
+
       }
 
       private void DeleteMessage(string ID)
@@ -167,79 +195,110 @@ namespace Tp1_Aps
          DeleteMessage(ID);
          LoadPanel();
       }
+      protected void BTN_Modifier_Message_Click(Object sender, EventArgs e)
+      {
+         ImageButton ib = ((ImageButton)sender);
+         string ID = ib.ID.Substring(ib.ID.IndexOf("_") + 1);
+         ModifierMessage(ID);
+         LoadPanel();
+      }
+      private void ModifierMessage(string ID)
+      {
+         Thread_Message MessageToUpdate = new Thread_Message((String)Application["MainDB"], this);
+         MessageToUpdate.SelectByID(ID);
+         Session["IDQuestionModifier"] = ID;
+         Session["Message"] = MessageToUpdate.Message;
+         Session["ModifierButton"] = "Modifier";
+      }
 
 
-		private void MakeChat(string ID)
-		{
-			Thread_Message ListeMessage = new Thread_Message((string)Application["MainDB"], this);
-			ListeMessage.SelectAll(ID);
+      private void MakeChat(string ID)
+      {
+         Thread_Message ListeMessage = new Thread_Message((string)Application["MainDB"], this);
+         ListeMessage.SelectAll(ID);
 
-			Table GridListeMessage = new Table();
-			TableRow tr = new TableRow();
-         
-			while (ListeMessage.Next())
-			{
-				tr = new TableRow();
+         Table GridListeMessage = new Table();
+         TableRow tr = new TableRow();
+
+         while (ListeMessage.Next())
+         {
+            tr = new TableRow();
             TableCell td = new TableCell();
-				for (int fieldIndex = 0; fieldIndex < ListeMessage.FieldsValues.Count; fieldIndex++)
-				{
-					if (ListeMessage.ColumnsVisibility[fieldIndex])
-					{
-						 td = new TableCell();
-						Type type = ListeMessage.FieldsTypes[fieldIndex];						
-							if (type == typeof(DateTime))
-                     {
-	                     td.Text = DateTime.Parse(ListeMessage.FieldsValues[fieldIndex]).ToShortDateString();                                        
-                     }							
-							else
-                     {
-	                        if(fieldIndex==5)
-								   {
-								      Image img = new Image();
-								      if (ListeMessage.Avatar != "")
-								      {
-								   	   img.ImageUrl = "Avatars/" + ListeMessage.Avatar + ".png";
-								      }
-								      else
-								      {
-								   	   img.ImageUrl = "Images/Anonymous.png";
-								      }
-								      img.Width = img.Height = 40;
-								      td.Controls.Add(img);
-								   }
-						           else  
-								   {
-								       td.Text = SQLHelper.FromSql(ListeMessage.FieldsValues[fieldIndex]);
-								
-								   }	
-                     }  
-                    tr.Cells.Add(td);               
-					}			
-				} 
-            if (long.Parse(ListeMessage.FieldsValues[3]) == long.Parse(Session["UserId"].ToString()))
+            for (int fieldIndex = 0; fieldIndex < ListeMessage.FieldsValues.Count; fieldIndex++)
+            {
+               if (ListeMessage.ColumnsVisibility[fieldIndex])
                {
                   td = new TableCell();
-                  ImageButton BTN_Delete_Message = new ImageButton();
-                  BTN_Delete_Message.Height = 16;
-                  BTN_Delete_Message.Width = 16;
-                  BTN_Delete_Message.Click += new ImageClickEventHandler(BTN_Delete_Message_Click);
+                  Type type = ListeMessage.FieldsTypes[fieldIndex];
+                  if (type == typeof(DateTime))
+                  {
+                     td.Text = DateTime.Parse(ListeMessage.FieldsValues[fieldIndex]).ToShortDateString();
+                  }
+                  else
+                  {
+                     if (fieldIndex == 5)
+                     {
+                        Image img = new Image();
+                        if (ListeMessage.Avatar != "")
+                        {
+                           img.ImageUrl = "Avatars/" + ListeMessage.Avatar + ".png";
+                        }
+                        else
+                        {
+                           img.ImageUrl = "Images/Anonymous.png";
+                        }
+                        img.Width = img.Height = 40;
+                        td.Controls.Add(img);
+                     }
+                     else
+                     {
+                        td.Text = SQLHelper.FromSql(ListeMessage.FieldsValues[fieldIndex]);
 
-                  BTN_Delete_Message.ImageUrl = @"~/Images/Delete.png";
-
-
-                  BTN_Delete_Message.ID = "Delete_" + ListeMessage.ID;
-                  td.Controls.Add(BTN_Delete_Message);
+                     }
+                  }
                   tr.Cells.Add(td);
-               }    
-               GridListeMessage.Rows.Add(tr);  
-			}
-			PN_ListeMessage.Controls.Clear();
+               }
+            }
+            if (ListeMessage.User_Id == long.Parse(Session["UserId"].ToString()))
+            {
+               td = new TableCell();
+               ImageButton BTN_Delete_Message = new ImageButton();
+               BTN_Delete_Message.Height = 16;
+               BTN_Delete_Message.Width = 16;
+               BTN_Delete_Message.Click += new ImageClickEventHandler(BTN_Delete_Message_Click);
 
-			if (GridListeMessage != null)
-				PN_ListeMessage.Controls.Add(GridListeMessage);
-			ListeMessage.EndQuerySQL();
+               BTN_Delete_Message.ImageUrl = @"~/Images/Delete.png";
 
-		}
 
-	} 
+               BTN_Delete_Message.ID = "Delete_" + ListeMessage.ID;
+               td.Controls.Add(BTN_Delete_Message);
+               tr.Cells.Add(td);
+
+               td = new TableCell();
+               ImageButton BTN_Modifier_Message = new ImageButton();
+               BTN_Modifier_Message.Height = 16;
+               BTN_Modifier_Message.Width = 16;
+               BTN_Modifier_Message.Click += new ImageClickEventHandler(BTN_Modifier_Message_Click);
+
+               BTN_Modifier_Message.ImageUrl = @"~/Images/Modifier.png";
+
+
+               BTN_Modifier_Message.ID = "Modifier_" + ListeMessage.ID;
+               td.Controls.Add(BTN_Modifier_Message);
+               tr.Cells.Add(td);
+
+
+            }
+
+            GridListeMessage.Rows.Add(tr);
+         }
+         PN_ListeMessage.Controls.Clear();
+
+         if (GridListeMessage != null)
+            PN_ListeMessage.Controls.Add(GridListeMessage);
+         ListeMessage.EndQuerySQL();
+
+      }
+
+   }
 }
