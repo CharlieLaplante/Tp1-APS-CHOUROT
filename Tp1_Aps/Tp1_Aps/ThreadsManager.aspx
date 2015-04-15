@@ -14,7 +14,9 @@
                     <br />
                     <asp:Button ID="BTN_Nouveau" CLASS="TM_Button" runat="server" Text="Nouveau..." OnClick="BTN_Nouveau_Click" />
                     <br />
-                    <asp:Button ID="BTN_Cree_Modifier" CLASS="TM_Button" runat="server" Text="Crée..." OnClick="BTN_Cree_Modifier_Click" />
+                    <asp:UpdatePanel runat="server">
+                        <asp:Button ID="BTN_Cree_Modifier" CLASS="TM_Button" runat="server" Text="Crée..." OnClick="BTN_Cree_Modifier_Click" />
+                    </asp:UpdatePanel>
                     <br />
                     <asp:Button ID="BTN_Effacer" CLASS="TM_Button" runat="server" Text="Effacer..." OnClick="BTN_Effacer_Click" />
                     <br />
@@ -25,7 +27,7 @@
                     <div>Titre de la discussion</div>
                     <asp:TextBox ID="TB_NewDiscussionTitre" runat="server" Width="145px"></asp:TextBox>
                     <br />
-                    <div>Sélection des invités</div>                   
+                    <div>Sélection des invités</div>
                     <asp:CheckBoxList CLASS="TM_list" ID="CB_Liste" runat="server" OnSelectedIndexChanged="CB_Liste_SelectedIndexChanged" TextAlign="Left">
                         <asp:ListItem Value="0">Tous les usagers</asp:ListItem>
                     </asp:CheckBoxList>
