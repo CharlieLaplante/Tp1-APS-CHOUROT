@@ -33,8 +33,16 @@ namespace Tp1_Aps
             sql += " ORDER BY " + orderBy;
          QuerySQL(sql);
          return reader.HasRows;
-      }	   	
-
+      }
+      public bool SelectByCreator(string CreateurID, string orderBy = "")
+      {
+         string sql = "SELECT ID,Creator,Title,Date_Of_Creation FROM " + SQLTableName+
+            " where Creator = " + CreateurID;
+         if (orderBy != "")
+            sql += " ORDER BY " + orderBy;
+         QuerySQL(sql);
+         return reader.HasRows;
+      }	
 
    }
 }

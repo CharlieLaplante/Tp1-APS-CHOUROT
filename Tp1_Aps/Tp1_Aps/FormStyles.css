@@ -110,7 +110,8 @@ numeric{
     vertical-align:central;
     text-align:center;
 }
-/*Form thread menager*/
+
+/*Thread menager*/
 .TMTable td{
     vertical-align:top;
     text-align:center;
@@ -123,9 +124,14 @@ numeric{
 
 .TM_list{
     text-align:left;
-    background-color:yellow;
 }
 
+.CB_Image{
+    width:32px;
+    height:32px;
+}
+
+/*Chat Room*/
 .ChatBox{
     width : 270px;
     height: 50px;

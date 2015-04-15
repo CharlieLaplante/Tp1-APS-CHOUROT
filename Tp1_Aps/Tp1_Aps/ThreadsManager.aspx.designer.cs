@@ -13,6 +13,15 @@ namespace Tp1_Aps {
     public partial class ThreadsManager {
         
         /// <summary>
+        /// Contrôle UPan_ListDiscussion.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UPan_ListDiscussion;
+        
+        /// <summary>
         /// Contrôle LB_ListDiscussion.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace Tp1_Aps {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox LB_ListDiscussion;
+        
+        /// <summary>
+        /// Contrôle UPan_BTN_Cree_Modifier.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UPan_BTN_Cree_Modifier;
         
         /// <summary>
         /// Contrôle BTN_Nouveau.
@@ -56,6 +74,15 @@ namespace Tp1_Aps {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BTN_Retour;
+        
+        /// <summary>
+        /// Contrôle UPan_TBtitreDiscussion.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UPan_TBtitreDiscussion;
         
         /// <summary>
         /// Contrôle TB_NewDiscussionTitre.

@@ -108,8 +108,8 @@ namespace Tp1_Aps
 				TableCell td = new TableCell();
 				Button bt = new Button();
 				bt.Click += new System.EventHandler(this.Btn_Room_Click);
-
-            bt.Text = ListeChat.Title;
+            
+				bt.Text = ListeChat.Title;
 				bt.ID = ListeChat.ID.ToString();
 				td.Controls.Add(bt);
 				tr.Cells.Add(td);
