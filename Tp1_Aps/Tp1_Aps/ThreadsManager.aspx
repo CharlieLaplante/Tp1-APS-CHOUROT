@@ -9,12 +9,12 @@
 
                 <td>
                     <div>Liste de mes discussion</div>
-                    <asp:ListBox ID="LB_ListDiscussion" runat="server" Width="165px"></asp:ListBox>
+                    <asp:ListBox ID="LB_ListDiscussion" runat="server" Width="165px" OnSelectedIndexChanged="LB_ListDiscussion_SelectedIndexChanged"></asp:ListBox>
                     <br />
                     <br />
                     <asp:Button ID="BTN_Nouveau" CLASS="TM_Button" runat="server" Text="Nouveau..." OnClick="BTN_Nouveau_Click" />
                     <br />
-                    <asp:Button ID="BTN_Modifier" CLASS="TM_Button" runat="server" Text="Modifier..." OnClick="BTN_Modifier_Click" />
+                    <asp:Button ID="BTN_Cree_Modifier" CLASS="TM_Button" runat="server" Text="Crée..." OnClick="BTN_Cree_Modifier_Click" />
                     <br />
                     <asp:Button ID="BTN_Effacer" CLASS="TM_Button" runat="server" Text="Effacer..." OnClick="BTN_Effacer_Click" />
                     <br />
