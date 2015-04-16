@@ -57,7 +57,7 @@ namespace Tp1_Aps
          if (!modifier)//on crée pcq aucun truc na été selectionné
          {
              Thread thd = new Thread((string)Application["MainDB"], this);
-             thd.Insert(CB_Liste, Session["UserID"].ToString(),thd.ID.ToString(),TB_NewDiscussionTitre.Text);
+             thd.Insert(CB_Liste, Session["UserID"].ToString(),TB_NewDiscussionTitre.Text);
          }
          else //on modifie pcq un truc a été selectionné
          {

@@ -44,7 +44,7 @@ namespace Tp1_Aps
             QuerySQL(sql);
             return reader.HasRows;
         }
-        public void Insert(CheckBoxList CheckBoxList_Items, string CreatorID,string ThreadID, String Titre)
+        public void Insert(CheckBoxList CheckBoxList_Items, string CreatorID, String Titre)
         {
             string sqlNouvelleDiscussion = "insert into " + SQLTableName + " (Creator, Title, Date_Of_Creation) values (" + CreatorID + ",'" + Titre + "','" + DateTime.Now + "')";
             NonQuerySQL(sqlNouvelleDiscussion);
@@ -53,7 +53,8 @@ namespace Tp1_Aps
             {
                 for (int i = 1; i < CheckBoxList_Items.Items.Count; i++)
                 {
-                    string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_ID, User_Id) Values (" + ThreadID + "," + CheckBoxList_Items.Items[i].Value + ")";
+                   //faut rentrer le thred ID ici
+                    string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_ID, User_Id) Values (" + ID + "," + CheckBoxList_Items.Items[i].Value + ")";
                     NonQuerySQL(sqlAcess);
                 }
             }
@@ -63,16 +64,23 @@ namespace Tp1_Aps
                 {
                     if (CheckBoxList_Items.Items[i].Selected)
                     {
-                        string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_Id, User_Id) Values (" + ThreadID + "," + CheckBoxList_Items.Items[i].Value + ")";
+                        string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_Id, User_Id) Values (" + ID + "," + CheckBoxList_Items.Items[i].Value + ")";
                         NonQuerySQL(sqlAcess);
                     }
                 }
             }
         }
 
-        public override void Update()
+         public CheckBoxList LoadCheckBoxItems()
         {
-            UpdateRecord(ID, Creator, Title, Date_Of_Creation);
+           CheckBoxList NewShit = new CheckBoxList();
+           string sqlCheckBoxQuery = "select ";
+           return NewShit;
+        }
+
+        public void Update()
+        {
+           
 
         }
     }

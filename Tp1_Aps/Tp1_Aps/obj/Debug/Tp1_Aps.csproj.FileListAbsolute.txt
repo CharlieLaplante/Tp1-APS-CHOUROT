@@ -47,6 +47,5 @@ C:\Users\201354694\Desktop\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.csp
 \\clg.priv\Ens\El\4\201354694\Mes documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll.config
 \\clg.priv\Ens\El\4\201354694\Mes documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.dll
 \\clg.priv\Ens\El\4\201354694\Mes documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\bin\Tp1_Aps.pdb
-\\clg.priv\Ens\El\4\201354694\Mes documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.csprojResolveAssemblyReference.cache
 \\clg.priv\Ens\El\4\201354694\Mes documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.dll
 \\clg.priv\Ens\El\4\201354694\Mes documents\GitHub\Tp1-APS-CHOUROT\Tp1_Aps\Tp1_Aps\obj\Debug\Tp1_Aps.pdb
