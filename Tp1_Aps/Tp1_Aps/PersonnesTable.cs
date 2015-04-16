@@ -158,7 +158,7 @@ namespace Tp1_Aps
         System.Web.UI.WebControls.WebControl ContentDelegateEmail()
         {
             Label lbl = new Label();
-            lbl.Text = Email;
+            lbl.Text = "<A HREF='mailto:" + Email + "'>"+Email+"</A>";
             return lbl;
         }
         System.Web.UI.WebControls.WebControl ContentDelegateAvatar()
