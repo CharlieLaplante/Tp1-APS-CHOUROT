@@ -11,8 +11,7 @@ namespace Tp1_Aps
    public partial class ChatRoom : System.Web.UI.Page
    {
       protected void Page_Load(object sender, EventArgs e)
-      {
-         LoadPanel();
+      { 
          if (Session["ModifierButton"] != null)
          {
              BTN_Envoyez.Text = Session["ModifierButton"].ToString();
@@ -20,7 +19,10 @@ namespace Tp1_Aps
          else
          {
             Session["ModifierButton"] = "Envoyer";
-         }
+         }  
+         LoadPanel();
+         
+       
       }
       private void LoadPanel()
       {
@@ -28,6 +30,9 @@ namespace Tp1_Aps
          if (Session["IDThread"] != null)
             MakeChat(Session["IDThread"].ToString());
          MakeListeUser();
+         UpdatePanel2.Update();
+         TB_ChatBox.Focus();
+
       }
       private void MakeListeUser()
       {
@@ -170,8 +175,8 @@ namespace Tp1_Aps
                   Message.Date_Of_Creation = DateTime.Now;
                   Message.Message = TB_ChatBox.Text;
                   Message.Insert();
-                  MakeChat(Session["IDThread"].ToString());
-                  Session["Message"] = "";
+                  MakeChat(Session["IDThread"].ToString());                  
+                  TB_ChatBox.Text = string.Empty;              
                }
             }
          }
