@@ -24,7 +24,6 @@ namespace Tp1_Aps
          BTN_Cree_Modifier.Text = "Crée...";
          TB_NewDiscussionTitre.Text = "";
          modifier = false;
-         //LB_ListDiscussion.SelectedItem = null;
          UPan_TBtitreDiscussion.Update();
       }
 
@@ -41,11 +40,6 @@ namespace Tp1_Aps
 
       protected void CB_Liste_SelectedIndexChanged(object sender, EventArgs e)
       {
-         TB_NewDiscussionTitre.Text = "checking";
-         if (CB_Liste.Items[1].Selected)
-         {
-            TB_NewDiscussionTitre.Text = "Good";
-         }
          
       }
 
@@ -62,15 +56,17 @@ namespace Tp1_Aps
       {
          if (!modifier)//on crée pcq aucun truc na été selectionné
          {
-            ListItem nouvelle_item = new ListItem(TB_NewDiscussionTitre.Text, "0");
-            LB_ListDiscussion.Items.Add(nouvelle_item);
+             Thread thd = new Thread((string)Application["MainDB"], this);
+             thd.Insert(CB_Liste, Session["UserID"].ToString(),thd.ID.ToString(),TB_NewDiscussionTitre.Text);
          }
          else //on modifie pcq un truc a été selectionné
          {
-            TB_NewDiscussionTitre.Text = LB_ListDiscussion.SelectedItem.Text;
+             TB_NewDiscussionTitre.Text = "Fuck";
          }
+         TB_NewDiscussionTitre.Text = "";
          MakeDiscussionListe();
          UPan_BTN_Cree_Modifier.Update();
+         UPan_TBtitreDiscussion.Update();
       }
 
       private void MakeDiscussionListe()
