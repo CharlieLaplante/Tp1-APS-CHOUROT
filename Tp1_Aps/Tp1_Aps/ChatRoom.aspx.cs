@@ -11,11 +11,8 @@ namespace Tp1_Aps
    public partial class ChatRoom : System.Web.UI.Page
    {
       protected void Page_Load(object sender, EventArgs e)
-      {          
-        
-         LoadPanel();
-         
-       
+      {         
+         LoadPanel();      
       }
       private void LoadPanel()
       {
