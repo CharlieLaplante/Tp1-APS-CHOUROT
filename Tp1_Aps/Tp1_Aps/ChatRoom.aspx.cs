@@ -19,8 +19,7 @@ namespace Tp1_Aps
          MakeListeChat();
          if (Session["IDThread"] != null)
             MakeChat(Session["IDThread"].ToString());
-         MakeListeUser();        
-
+         MakeListeUser(); 
       }
       private void MakeListeUser()
       {
