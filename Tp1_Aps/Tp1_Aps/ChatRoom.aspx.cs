@@ -11,15 +11,8 @@ namespace Tp1_Aps
    public partial class ChatRoom : System.Web.UI.Page
    {
       protected void Page_Load(object sender, EventArgs e)
-      { 
-         if (Session["ModifierButton"] != null)
-         {
-             BTN_Envoyez.Text = Session["ModifierButton"].ToString();
-         }           
-         else
-         {
-            Session["ModifierButton"] = "Envoyer";
-         }  
+      {          
+        
          LoadPanel();
          
        
@@ -29,9 +22,7 @@ namespace Tp1_Aps
          MakeListeChat();
          if (Session["IDThread"] != null)
             MakeChat(Session["IDThread"].ToString());
-         MakeListeUser();
-         UpdatePanel2.Update();
-         TB_ChatBox.Focus();
+         MakeListeUser();        
 
       }
       private void MakeListeUser()
@@ -112,7 +103,7 @@ namespace Tp1_Aps
       private void MakeListeChat()
       {
          Thread ListeChat = new Thread((string)Application["MainDB"], this);
-         ListeChat.SelectAll();
+         ListeChat.SelectAll(Session["UserId"].ToString());
          Table GridListeChat = new Table();
          TableRow tr = new TableRow();
          while (ListeChat.Next())
@@ -153,17 +144,15 @@ namespace Tp1_Aps
       {
          Thread_Message Message = new Thread_Message((String)Application["MainDB"], this);
 
-         if (Session["ModifierButton"] != null)
-         {
-            if (Session["ModifierButton"].ToString() == "Modifier")
+       
+            if (BTN_Envoyez.Text == "Modifier")
             {
                if (Session["IDQuestionModifier"] != null)
                {
-                  Message.SelectByID(Session["IDQuestionModifier"].ToString());
-                  Message.Date_Of_Creation = DateTime.Now;
+                  Message.SelectByID(Session["IDQuestionModifier"].ToString());               
                   Message.Message = TB_ChatBox.Text;
                   Message.Update();
-                  Session["ModifierButton"] = "Envoyer";
+                  BTN_Envoyez.Text = "Envoyer";
                }
             }
             else
@@ -176,11 +165,13 @@ namespace Tp1_Aps
                   Message.Message = TB_ChatBox.Text;
                   Message.Insert();
                   MakeChat(Session["IDThread"].ToString());                  
-                  TB_ChatBox.Text = string.Empty;              
+                              
                }
             }
-         }
-
+       
+         TB_ChatBox.Text = string.Empty;
+         UpdatePanel2.Update();
+         TB_ChatBox.Focus();
       }
 
       private void DeleteMessage(string ID)
@@ -211,9 +202,11 @@ namespace Tp1_Aps
       {
          Thread_Message MessageToUpdate = new Thread_Message((String)Application["MainDB"], this);
          MessageToUpdate.SelectByID(ID);
-         Session["IDQuestionModifier"] = ID;
-         Session["Message"] = MessageToUpdate.Message;
-         Session["ModifierButton"] = "Modifier";
+         Session["IDQuestionModifier"] = ID;     
+         BTN_Envoyez.Text = "Modifier";
+         TB_ChatBox.Text = MessageToUpdate.Message;
+         UpdatePanel2.Update();
+         TB_ChatBox.Focus();
       }
 
 

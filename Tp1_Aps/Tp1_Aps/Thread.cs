@@ -27,11 +27,12 @@ namespace Tp1_Aps
             Date_Of_Creation = DateTime.Parse(FieldsValues[3]);
         }
 
-        public override bool SelectAll(string orderBy = "")
+        public override bool SelectAll(string ID = "")
         {
-            string sql = "SELECT ID,Creator,Title,Date_Of_Creation FROM " + SQLTableName;
-            if (orderBy != "")
-                sql += " ORDER BY " + orderBy;
+           
+            string sql = "SELECT Threads.ID,Creator,Title,Date_Of_Creation FROM " + SQLTableName;
+            if (ID != "")
+               sql += " inner join Threads_Access on Threads_Access.Thread_Id = Threads.Id where USER_ID = " + ID;
             QuerySQL(sql);
             return reader.HasRows;
         }
