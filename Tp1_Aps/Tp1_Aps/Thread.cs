@@ -49,23 +49,23 @@ namespace Tp1_Aps
         {
             string sqlNouvelleDiscussion = "insert into " + SQLTableName + " (Creator, Title, Date_Of_Creation) values (" + CreatorID + ",'" + Titre + "','" + DateTime.Now + "')";
             NonQuerySQL(sqlNouvelleDiscussion);
+            String ThreadID = QueryLastIDInsert("Id", "Id", "Threads");
             
-            if (CheckBoxList_Items.Items[0].Selected)
+            if (CheckBoxList_Items.Items[0].Selected) //si le checkbox[0] est check, Tou le monde a acces
             {
                 for (int i = 1; i < CheckBoxList_Items.Items.Count; i++)
                 {
-                   //faut rentrer le thred ID ici
-                    string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_ID, User_Id) Values (" + ID + "," + CheckBoxList_Items.Items[i].Value + ")";
+                    string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_ID, User_Id) Values (" + ThreadID + "," + CheckBoxList_Items.Items[i].Value + ")";
                     NonQuerySQL(sqlAcess);
                 }
             }
-            else
+            else // sinon, on check un par un
             {
                 for (int i = 1; i < CheckBoxList_Items.Items.Count; i++)
                 {
                     if (CheckBoxList_Items.Items[i].Selected)
                     {
-                        string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_Id, User_Id) Values (" + ID + "," + CheckBoxList_Items.Items[i].Value + ")";
+                        string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_Id, User_Id) Values (" + ThreadID + "," + CheckBoxList_Items.Items[i].Value + ")";
                         NonQuerySQL(sqlAcess);
                     }
                 }
