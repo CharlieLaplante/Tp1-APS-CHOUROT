@@ -39,8 +39,8 @@
 
                     <br />
                     <div>Sélection des invités</div>
+                    <asp:CheckBox Class="TM_list" ID="CB_Toutlemonde" runat="server" TextAlign="Left" Text="Tous les usager" />
                     <asp:CheckBoxList CLASS="TM_list" ID="CB_Liste" runat="server" OnSelectedIndexChanged="CB_Liste_SelectedIndexChanged" TextAlign="Left">
-                        <asp:ListItem Value="0">Tous les usagers</asp:ListItem>
                     </asp:CheckBoxList>
                 </td>
             </tr>

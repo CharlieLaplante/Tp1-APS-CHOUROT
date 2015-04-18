@@ -57,16 +57,18 @@ namespace Tp1_Aps
          if (!modifier)//on crée pcq aucun truc na été selectionné
          {
              Thread thd = new Thread((string)Application["MainDB"], this);
-             thd.Insert(CB_Liste, Session["UserID"].ToString(),TB_NewDiscussionTitre.Text);
+             thd.Insert(CB_Toutlemonde,CB_Liste, Session["UserID"].ToString(),TB_NewDiscussionTitre.Text);
          }
          else //on modifie pcq un truc a été selectionné
          {
-             TB_NewDiscussionTitre.Text = "Fuck";
+             
          }
-         TB_NewDiscussionTitre.Text = "";
-         MakeDiscussionListe();
-         UPan_BTN_Cree_Modifier.Update();
-         UPan_TBtitreDiscussion.Update();
+          //Comme sur le site de Chourot
+         Response.Redirect("ChatRoom.aspx");
+         //TB_NewDiscussionTitre.Text = "";
+         //MakeDiscussionListe();
+         //UPan_BTN_Cree_Modifier.Update();
+         //UPan_TBtitreDiscussion.Update();
       }
 
       private void MakeDiscussionListe()

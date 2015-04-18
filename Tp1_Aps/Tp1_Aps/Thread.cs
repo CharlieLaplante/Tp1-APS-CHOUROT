@@ -45,15 +45,18 @@ namespace Tp1_Aps
             QuerySQL(sql);
             return reader.HasRows;
         }
-        public void Insert(CheckBoxList CheckBoxList_Items, string CreatorID, String Titre)
+        public void Insert(CheckBox CB_TousLeMonde, CheckBoxList CheckBoxList_Items, String CreatorID, String Titre)
         {
             string sqlNouvelleDiscussion = "insert into " + SQLTableName + " (Creator, Title, Date_Of_Creation) values (" + CreatorID + ",'" + Titre + "','" + DateTime.Now + "')";
             NonQuerySQL(sqlNouvelleDiscussion);
             String ThreadID = QueryLastIDInsert("Id", "Id", "Threads");
             
-            if (CheckBoxList_Items.Items[0].Selected) //si le checkbox[0] est check, Tou le monde a acces
+            //Donner l'acces au créateur
+            NonQuerySQL("insert into " + SQLTableName + "_Access (Thread_ID, User_Id) Values (" + ThreadID + "," +CreatorID+ ")");
+
+            if (CB_TousLeMonde.Checked) //si le checkbox[0] est check, Tou le monde a acces
             {
-                for (int i = 1; i < CheckBoxList_Items.Items.Count; i++)
+                for (int i = 0; i < CheckBoxList_Items.Items.Count; i++)
                 {
                     string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_ID, User_Id) Values (" + ThreadID + "," + CheckBoxList_Items.Items[i].Value + ")";
                     NonQuerySQL(sqlAcess);
@@ -61,7 +64,7 @@ namespace Tp1_Aps
             }
             else // sinon, on check un par un
             {
-                for (int i = 1; i < CheckBoxList_Items.Items.Count; i++)
+                for (int i = 0; i < CheckBoxList_Items.Items.Count; i++)
                 {
                     if (CheckBoxList_Items.Items[i].Selected)
                     {
