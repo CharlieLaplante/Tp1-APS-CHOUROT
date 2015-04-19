@@ -9,7 +9,7 @@ namespace Tp1_Aps
 {
     public partial class ThreadsManager : System.Web.UI.Page
     {
-        bool modifier = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -23,13 +23,26 @@ namespace Tp1_Aps
         {
             BTN_Cree_Modifier.Text = "Crée...";
             TB_NewDiscussionTitre.Text = "";
-            modifier = false;
             UPan_TBtitreDiscussion.Update();
         }
 
         protected void BTN_Effacer_Click(object sender, EventArgs e)
         {
             //Supprimer de la BD
+            if (LB_ListDiscussion.SelectedIndex != -1)
+            {
+                Thread thd = new Thread((string)Application["MainDB"], this);
+                thd.Delete(LB_ListDiscussion.SelectedItem.Value);
+                LB_ListDiscussion.SelectedIndex = -1;
+                BTN_Cree_Modifier.Text = "Crée...";
+                TB_NewDiscussionTitre.Text = "";
+                UPan_TBtitreDiscussion.Update();
+            }
+            else
+            {
+                MessageBox("Aucun élément à supprimer n'a été sélectionné");
+            }
+            
             MakeDiscussionListe();
         }
 
@@ -61,12 +74,12 @@ namespace Tp1_Aps
         protected void LB_ListDiscussion_SelectedIndexChanged(object sender, EventArgs e)
         {
             BTN_Cree_Modifier.Text = "Modifier...";
-            modifier = true;
             TB_NewDiscussionTitre.Text = LB_ListDiscussion.SelectedItem.Text;
             CB_Toutlemonde.Checked = false;
             MakeCB_Liste();
             UPan_BTN_Cree_Modifier.Update();
             UPan_TBtitreDiscussion.Update();
+            UPan_CB.Update();
         }
 
         protected void BTN_Cree_Modifier_Click(object sender, EventArgs e)
@@ -79,14 +92,16 @@ namespace Tp1_Aps
                     vide = false;
                 }
             }
-            if (!modifier && !vide)//on crée pcq aucun truc na été selectionné
+            if (LB_ListDiscussion.SelectedIndex == -1 && !vide)//on crée pcq aucun truc na été selectionné
             {
                 Thread thd = new Thread((string)Application["MainDB"], this);
-                thd.Insert(CB_Toutlemonde, CB_Liste, Session["UserID"].ToString(), TB_NewDiscussionTitre.Text);
+                thd.Insert(CB_Liste, Session["UserID"].ToString(), TB_NewDiscussionTitre.Text);
                 Response.Redirect("ChatRoom.aspx");//Comme sur le site de Chourot
             }
-            else if (!vide) //on modifie pcq un truc a été selectionné
+            else if (LB_ListDiscussion.SelectedIndex != -1 && !vide) //on modifie pcq un truc a été selectionné
             {
+                Thread thd = new Thread((string)Application["MainDB"], this);
+                thd.UpdateDiscussion(CB_Liste, Session["UserID"].ToString(), LB_ListDiscussion.SelectedItem.Value, TB_NewDiscussionTitre.Text);
 
                 Response.Redirect("ChatRoom.aspx");//Comme sur le site de Chourot
             }
@@ -104,7 +119,7 @@ namespace Tp1_Aps
         private void MakeCB_Liste()
         {
             Thread ListeChat = new Thread((string)Application["MainDB"], this);
-            List<string> resultat = ListeChat.CheckBoxListSelectByThreadId(CB_Liste.SelectedValue);
+            List<string> resultat = ListeChat.CheckBoxListSelectByThreadId(LB_ListDiscussion.SelectedItem.Value);
 
             for (int i=0;i<CB_Liste.Items.Count;i++)
             {

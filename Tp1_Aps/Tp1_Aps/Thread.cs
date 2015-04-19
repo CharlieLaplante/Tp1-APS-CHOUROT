@@ -54,7 +54,7 @@ namespace Tp1_Aps
             return resultat;
         }
 
-        public void Insert(CheckBox CB_TousLeMonde, CheckBoxList CheckBoxList_Items, String CreatorID, String Titre)
+        public void Insert(CheckBoxList CheckBoxList_Items, String CreatorID, String Titre)
         {
             string sqlNouvelleDiscussion = "insert into " + SQLTableName + " (Creator, Title, Date_Of_Creation) values (" + CreatorID + ",'" + Titre + "','" + DateTime.Now + "')";
             NonQuerySQL(sqlNouvelleDiscussion);
@@ -71,6 +71,35 @@ namespace Tp1_Aps
                     NonQuerySQL(sqlAcess);
                 }
             }
+        }
+
+        public void UpdateDiscussion(CheckBoxList CheckBoxList_Items, String CreatorID, String ThreadID, String NouveauTitre)
+        {
+            //Modification du titre
+            NonQuerySQL("update " + SQLTableName + " set Title = '" + NouveauTitre + "' where Id = " + ThreadID);
+            //Supression des anciennes personne qui y avait accès
+            NonQuerySQL("delete from Threads_Access where Thread_Id = " + ThreadID);
+            //Donner l'acces au créateur
+            NonQuerySQL("insert into " + SQLTableName + "_Access (Thread_ID, User_Id) Values (" + ThreadID + "," + CreatorID + ")");
+            //Donne l'accès a tout ceux qui son Checked dans l'objet CheckBoxList_Items
+            for (int i = 0; i < CheckBoxList_Items.Items.Count; i++)
+            {
+                if (CheckBoxList_Items.Items[i].Selected)
+                {
+                    string sqlAcess = "insert into " + SQLTableName + "_Access (Thread_Id, User_Id) Values (" + ThreadID + "," + CheckBoxList_Items.Items[i].Value + ")";
+                    NonQuerySQL(sqlAcess);
+                }
+            }
+        }
+
+        public void Delete(String ThreadID)
+        {
+            //Delete la discussion
+            NonQuerySQL("delete from " + SQLTableName + " where Id = " + ThreadID);
+            //Suppression les personne qui y ont accès
+            NonQuerySQL("delete from Threads_Access where Thread_Id = " + ThreadID);
+            //Suppression des messages
+            NonQuerySQL("delete from Threads_Messages where Thread_Id = " + ThreadID);
         }
 
         public CheckBoxList LoadCheckBoxItems()
