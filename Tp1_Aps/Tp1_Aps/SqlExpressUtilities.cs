@@ -267,6 +267,34 @@ namespace SqlExpressUtilities
             }
         }
 
+        public List<string> QueryCBLISTE(String SQL)
+        {
+            List<string> resultat = new List<string>();
+            try
+            {
+                connection = new SqlConnection(connexionString);
+                SqlCommand sqlcmd = new SqlCommand(SQL);
+                sqlcmd.Connection = connection;
+                Page.Application.Lock();
+                connection.Open();
+                reader = sqlcmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    resultat.Add(reader.GetInt32(0).ToString());
+                }
+                connection.Close();
+                Page.Application.UnLock();
+                return resultat;
+            }
+            catch (Exception exc)
+            {
+                connection.Close();
+                Page.Application.UnLock();
+                resultat.Add("une ERREUR : " + SQL + "\n***\n" + exc.Message);
+                return resultat;
+            }
+        }
+
         // Conclure la dernière requête
         public void EndQuerySQL()
         {

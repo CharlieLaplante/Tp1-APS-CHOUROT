@@ -36,6 +36,7 @@ namespace Tp1_Aps
             QuerySQL(sql);
             return reader.HasRows;
         }
+
         public bool SelectByCreator(string CreateurID, string orderBy = "")
         {
             string sql = "SELECT ID,Creator,Title,Date_Of_Creation FROM " + SQLTableName +
@@ -45,6 +46,14 @@ namespace Tp1_Aps
             QuerySQL(sql);
             return reader.HasRows;
         }
+
+        public List<string> CheckBoxListSelectByThreadId(string ThreadId)
+        {
+            string sql = "SELECT User_Id FROM Threads_Access where Thread_Id = " +ThreadId;
+            List<string> resultat = QueryCBLISTE(sql);
+            return resultat;
+        }
+
         public void Insert(CheckBox CB_TousLeMonde, CheckBoxList CheckBoxList_Items, String CreatorID, String Titre)
         {
             string sqlNouvelleDiscussion = "insert into " + SQLTableName + " (Creator, Title, Date_Of_Creation) values (" + CreatorID + ",'" + Titre + "','" + DateTime.Now + "')";

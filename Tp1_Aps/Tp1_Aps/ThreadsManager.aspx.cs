@@ -38,11 +38,6 @@ namespace Tp1_Aps
             Response.Redirect("Index.aspx");
         }
 
-        protected void CB_Liste_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void CB_Toutlemonde_CheckedChanged(object sender, EventArgs e)
         {
             if (CB_Toutlemonde.Checked)
@@ -68,6 +63,8 @@ namespace Tp1_Aps
             BTN_Cree_Modifier.Text = "Modifier...";
             modifier = true;
             TB_NewDiscussionTitre.Text = LB_ListDiscussion.SelectedItem.Text;
+            CB_Toutlemonde.Checked = false;
+            MakeCB_Liste();
             UPan_BTN_Cree_Modifier.Update();
             UPan_TBtitreDiscussion.Update();
         }
@@ -75,28 +72,51 @@ namespace Tp1_Aps
         protected void BTN_Cree_Modifier_Click(object sender, EventArgs e)
         {
             bool vide = true;
-            for (int i = 0; i < CB_Liste.Items.Count && !vide; i++)
+            for (int i = 0; i < CB_Liste.Items.Count && vide; i++)
             {
                 if (CB_Liste.Items[i].Selected)
                 {
                     vide = false;
                 }
             }
-            if (!modifier)//on crée pcq aucun truc na été selectionné
+            if (!modifier && !vide)//on crée pcq aucun truc na été selectionné
             {
                 Thread thd = new Thread((string)Application["MainDB"], this);
                 thd.Insert(CB_Toutlemonde, CB_Liste, Session["UserID"].ToString(), TB_NewDiscussionTitre.Text);
+                Response.Redirect("ChatRoom.aspx");//Comme sur le site de Chourot
             }
-            else //on modifie pcq un truc a été selectionné
+            else if (!vide) //on modifie pcq un truc a été selectionné
             {
 
+                Response.Redirect("ChatRoom.aspx");//Comme sur le site de Chourot
             }
-            Response.Redirect("ChatRoom.aspx");//Comme sur le site de Chourot
+            else if (vide)
+            {
+                MessageBox("Il faut au moins un invité à cette dicussion!");
+            }
 
             //TB_NewDiscussionTitre.Text = "";
             //MakeDiscussionListe();
             //UPan_BTN_Cree_Modifier.Update();
             //UPan_TBtitreDiscussion.Update();
+        }
+
+        private void MakeCB_Liste()
+        {
+            Thread ListeChat = new Thread((string)Application["MainDB"], this);
+            List<string> resultat = ListeChat.CheckBoxListSelectByThreadId(CB_Liste.SelectedValue);
+
+            for (int i=0;i<CB_Liste.Items.Count;i++)
+            {
+                if (resultat.Contains(CB_Liste.Items[i].Value))
+                {
+                    CB_Liste.Items[i].Selected = true;
+                }
+                else
+                {
+                    CB_Liste.Items[i].Selected = false;
+                }
+            }
         }
 
         private void MakeDiscussionListe()
@@ -133,6 +153,13 @@ namespace Tp1_Aps
                 }
             }
             ListeUser.EndQuerySQL();
+        }
+
+        private void MessageBox(string message)
+        {
+            string script = "alert(\"" + message + "\");";
+            ScriptManager.RegisterStartupScript(this, GetType(),
+                                  "ServerControlScript", script, true);
         }
     }
 }
