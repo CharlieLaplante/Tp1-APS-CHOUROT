@@ -38,10 +38,13 @@
                     </asp:UpdatePanel>
 
                     <br />
-                    <div>Sélection des invités</div>
-                    <asp:CheckBox Class="TM_list" ID="CB_Toutlemonde" runat="server" TextAlign="Left" Text="Tous les usager" />
-                    <asp:CheckBoxList CLASS="TM_list" ID="CB_Liste" runat="server" OnSelectedIndexChanged="CB_Liste_SelectedIndexChanged" TextAlign="Left">
-                    </asp:CheckBoxList>
+                    <asp:UpdatePanel ID="UPan_CB" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div>Sélection des invités</div>
+                            <asp:CheckBox Class="TM_list" ID="CB_Toutlemonde" runat="server" TextAlign="Left" Text="Tous les usager" OnCheckedChanged="CB_Toutlemonde_CheckedChanged" Checked="False" ViewStateMode="Enabled" AutoPostBack="True" />
+                            <asp:CheckBoxList CLASS="TM_list" ID="CB_Liste" runat="server" OnSelectedIndexChanged="CB_Liste_SelectedIndexChanged" TextAlign="Left" ViewStateMode="Enabled"></asp:CheckBoxList>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </td>
             </tr>
         </table>

@@ -94,6 +94,15 @@ namespace Tp1_Aps {
         protected global::System.Web.UI.WebControls.TextBox TB_NewDiscussionTitre;
         
         /// <summary>
+        /// UPan_CB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UPan_CB;
+        
+        /// <summary>
         /// CB_Toutlemonde control.
         /// </summary>
         /// <remarks>
