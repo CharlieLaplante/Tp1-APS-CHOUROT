@@ -37,7 +37,9 @@ namespace LABO_1
                  PersonnesTable users = new PersonnesTable((string)Application["MainDB"], (System.Web.UI.Page)Session["Page"]);
                  users.SelectByUserName(Session["UserName"].ToString());
                  users.Connected = "0";
-                 users.Update();                 
+                 users.Update();
+
+                 Session["IDThread"] = null;
               }        
         }
         public string GetUserIP()

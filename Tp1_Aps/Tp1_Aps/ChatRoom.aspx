@@ -6,21 +6,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Contain" runat="server">
 
     <asp:Timer ID="Timer1" runat="server" Interval="3000" OnTick="Timer1_Tick"></asp:Timer>
-    <asp:UpdatePanel ID="UpdatePanel1" class="Tableau" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
         </Triggers>
         <ContentTemplate>
-            <table>
+            <table class="Tableau">
                 <tr>
                     <td>
-                        <asp:Panel ID="PN_ListeChat" class="Tableau" runat="server" Style="overflow-x: auto; overflow-y: auto; height: 300px; width: 100%;"></asp:Panel>
+                        <asp:Panel ID="PN_ListeChat" runat="server" ></asp:Panel>
                     </td>
                     <td>
-                        <asp:Panel ID="PN_ListeMessage" class="Tableau" runat="server" Style="overflow-x: auto; overflow-y: auto; height: 300px; width: 100%;"></asp:Panel>
+                        <asp:Panel ID="PN_ListeMessage" class="Tableau" runat="server"></asp:Panel>
                     </td>
                     <td>
-                        <asp:Panel ID="PN_ListeUser" class="Tableau" runat="server" Style="overflow-x: auto; overflow-y: auto; height: 300px; width: 100%;"></asp:Panel>
+                        <asp:Panel ID="PN_ListeUser" class="Tableau" runat="server"></asp:Panel>
                     </td>
                 </tr>
             </table>

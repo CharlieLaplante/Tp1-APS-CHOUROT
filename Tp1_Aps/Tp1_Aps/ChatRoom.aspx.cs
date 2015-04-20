@@ -93,6 +93,7 @@ namespace Tp1_Aps
       }
       protected void BTN_Return_Click(object sender, EventArgs e)
       {
+         Session["IDThread"] = null;
          Response.Redirect("Index.aspx");
       }
 

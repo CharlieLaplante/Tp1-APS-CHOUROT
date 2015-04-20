@@ -61,6 +61,7 @@ namespace Tp1_Aps
             users.SelectByUserName(Session["UserName"].ToString());
             users.Connected = "0";
             users.Update();
+            
 
             Response.Redirect("Login.aspx");
 

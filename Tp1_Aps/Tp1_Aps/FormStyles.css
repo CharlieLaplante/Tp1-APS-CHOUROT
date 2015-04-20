@@ -103,7 +103,9 @@ hr {
     border-style:double;
     background-color:lightgray;
     vertical-align:middle;
-    text-align:center;
+    text-align:center;  
+    height: 40px;
+    width: 150px;
 }
 numeric{
     /*background-color:yellow;*/
